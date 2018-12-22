@@ -41,8 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = mz_tableViewBackColor;
     
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
     navView.backgroundColor = mz_mainColor;

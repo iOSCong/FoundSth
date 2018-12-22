@@ -957,6 +957,8 @@
 			baseConfigurationReference = B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -964,10 +966,11 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mcej.FoundSth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao4r;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "79664d03-68e7-4d9f-8b5d-189b403416df";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -976,6 +979,8 @@
 			baseConfigurationReference = FABDCA7DEC352F482FF4A91F /* Pods-FoundSth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -983,10 +988,11 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mcej.FoundSth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao4r;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "79664d03-68e7-4d9f-8b5d-189b403416df";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

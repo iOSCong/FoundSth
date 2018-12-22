@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIColor *textColor = [UIColor redColor];
+    UIColor *textColor = [UIColor blackColor];
     UITabBarItem *item1 = [[UITabBarItem alloc] init];
     item1.tag = 1;
     [item1 setTitle:@"首页"];
@@ -69,18 +69,18 @@
     
     
     //去掉tabBar顶部线条
-    //    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    //    UIGraphicsBeginImageContext(rect.size);
-    //    CGContextRef context = UIGraphicsGetCurrentContext();
-    //    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
-    //    CGContextFillRect(context, rect);
-    //    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    //    UIGraphicsEndImageContext();
-    //    [self.tabBar setBackgroundImage:img];
-    //    [self.tabBar setShadowImage:img];
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.tabBar setBackgroundImage:img];
+    [self.tabBar setShadowImage:img];
     
     self.tabBar.backgroundColor = [UIColor whiteColor]; //默认
-    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,/*messageNavController,*/myNavController, nil];
+    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
     self.delegate = self;
     self.selectedIndex = 0;
     
