@@ -30,15 +30,15 @@
     UITabBarItem *item1 = [[UITabBarItem alloc] init];
     item1.tag = 1;
     [item1 setTitle:@"首页"];
-    [item1 setImage:[UIImage imageNamed:@"home"]];
-    [item1 setSelectedImage:[[UIImage imageNamed:@"home-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item1 setImage:[UIImage imageNamed:@"yemian"]];
+    [item1 setSelectedImage:[[UIImage imageNamed:@"yemian"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item1 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     
     UITabBarItem *item2 = [[UITabBarItem alloc] init];
     item2.tag = 2;
-    [item2 setTitle:@"管理"];
-    [item2 setImage:[UIImage imageNamed:@"tab-project"]];
+    [item2 setTitle:@"发布"];
+    [item2 setImage:[UIImage imageNamed:@"fabu"]];
     [item2 setSelectedImage:[[UIImage imageNamed:@"tab-Project-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item2 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
@@ -46,7 +46,7 @@
     UITabBarItem *item4 = [[UITabBarItem alloc] init];
     item4.tag = 4;
     [item4 setTitle:@"我的"];
-    [item4 setImage:[UIImage imageNamed:@"tab-my"]];
+    [item4 setImage:[UIImage imageNamed:@"gerenzhongxin"]];
     [item4 setSelectedImage:[[UIImage imageNamed:@"tab-my-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item4 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
