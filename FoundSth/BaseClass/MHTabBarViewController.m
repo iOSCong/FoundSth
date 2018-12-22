@@ -37,7 +37,7 @@
     
     UITabBarItem *item2 = [[UITabBarItem alloc] init];
     item2.tag = 2;
-    [item2 setTitle:@"发布"];
+    [item2 setTitle:@"发布"];//设置了的啊
     [item2 setImage:[UIImage imageNamed:@"fabu"]];
     [item2 setSelectedImage:[[UIImage imageNamed:@"tab-Project-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item2 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
