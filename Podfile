@@ -6,7 +6,9 @@ target 'FoundSth' do
   # use_frameworks!
 
   pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'AFNetworking', '~> 3.1.0'
   pod 'SDWebImage', '~> 4.1.0'
   pod 'MJRefresh', '~> 3.1.13'
-
+  pod 'AVOSCloud'
+  
 end
