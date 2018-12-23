@@ -137,7 +137,9 @@
     }
     AVFile *file = [AVFile fileWithData:imageData];
     [product setObject:file forKey:@"image"];
+    [MHProgressHUD showMessage:@"正在发布" inView:self.view];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [MHProgressHUD hide];
         if (succeeded) {
             NSLog(@"保存新物品成功");
             [MHProgressHUD showMsgWithoutView:@"发布成功"];

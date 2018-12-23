@@ -68,22 +68,26 @@
     return self.dataArr.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 300;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoundListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoundListTableViewCell"];
-//    AVFile *ownerFile = self.dataArr[indexPath.row][@"owner"];
-//    NSLog(@"ownerFile==%@",ownerFile.url);
-//    [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:ownerFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+    
+    AVUser *owner = self.dataArr[indexPath.row][@"owner"];
+    AVFile *userAvatar =[owner objectForKey:@"avatar"];
+    if (userAvatar) {
+        NSLog(@"userAvatar==%@",userAvatar.url);
+        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:userAvatar.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+    }
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
-//    cell.timeLabel.text = self.dataArr[indexPath.row][@"createdAt"];
+    
+    NSDate *createdAt = self.dataArr[indexPath.row][@"updatedAt"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    cell.timeLabel.text = [dateFormatter stringFromDate:createdAt];
+    
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
     NSLog(@"imageFile==%@",imageFile.url);
-    [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+    [cell.contentImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
