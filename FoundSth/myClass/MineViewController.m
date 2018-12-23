@@ -7,7 +7,10 @@
 //
 
 #import "MineViewController.h"
-
+#import "UerInfoTableViewCell.h"
+#import "UstSettTableViewCell.h"
+#import "UsetInfoViewController.h"
+#import "SettingViewController.h"
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -39,30 +42,40 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    if (indexPath.section == 0) {
+        return 100;
+    }
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"user"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"user"];
-    }
+  
     if (indexPath.section == 0) {
-        cell.textLabel.text = @"七号";
+          UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
+        cell.userName.text = @"七号";
+        return cell;
 
-    }else{
-        cell.textLabel.text = @[@"  我的发布",@"  我的地址",@"  设置"][indexPath.row];
-        NSString *img = @[@"user_wodefabu",@"user_dizhi",@"user_gear"][indexPath.row];
-        [cell.imageView setImage:[UIImage imageNamed:img]];
     }
+    
+    UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
+    cell.title_lable.text = @[@"我的发布",@"我的地址",@"设置"][indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"user_dizhi",@"user_gear"][indexPath.row];
+    [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
+     return cell;
 
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
+        [self.navigationController pushViewController:userinfo animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 2){
+        SettingViewController *sett = [[SettingViewController alloc]init];
+        [self.navigationController pushViewController:sett animated:YES];
+    }
     
 }
 

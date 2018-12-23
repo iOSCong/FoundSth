@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="IconTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="301" height="60.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igh-Bh-NLM">
+                        <rect key="frame" x="15" y="0.0" width="55" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="mwg-Sp-uOv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mjg" translatesAutoresizingMaskIntoConstraints="NO" id="spl-3i-G1s">
+                        <rect key="frame" x="240" y="4" width="53" height="53"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="spl-3i-G1s" secondAttribute="height" multiplier="1:1" id="TRf-ui-Z5Z"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Igh-Bh-NLM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Heg-E0-t4p"/>
+                    <constraint firstItem="spl-3i-G1s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="ZjT-fk-G1G"/>
+                    <constraint firstAttribute="bottom" secondItem="spl-3i-G1s" secondAttribute="bottom" constant="4" id="Zx5-Z3-6J3"/>
+                    <constraint firstItem="Igh-Bh-NLM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ioa-eI-W71"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="spl-3i-G1s" secondAttribute="trailing" id="lW2-hC-BRd"/>
+                    <constraint firstAttribute="bottom" secondItem="Igh-Bh-NLM" secondAttribute="bottom" id="qO1-Id-G3E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-486" y="-56"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mjg" width="568" height="570"/>
+    </resources>
+</document>
