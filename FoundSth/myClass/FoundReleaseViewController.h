@@ -6,8 +6,8 @@
 //  Copyright © 2018年 MCEJ. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface FoundReleaseViewController : BaseViewController
+@interface FoundReleaseViewController : BaseTableViewController
 
 @end

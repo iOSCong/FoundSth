@@ -8,7 +8,12 @@
 
 #import "FoundReleaseViewController.h"
 
-@interface FoundReleaseViewController ()
+@interface FoundReleaseViewController () <UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,strong)NSString *title;
+@property (nonatomic,strong)NSString *detail;
+@property (nonatomic,strong)NSString *price;
+@property (nonatomic,strong)UIImage *image;
 
 @end
 
@@ -17,7 +22,62 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.tableView.hidden = NO;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+    }
+    cell.textLabel.text = @"sss";
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+
+- (void)requestData
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"myData"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [MHProgressHUD showMessage:@"加载中..." inView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MHProgressHUD hide];
+        if (!error) {
+
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"请求失败"];
+        }
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

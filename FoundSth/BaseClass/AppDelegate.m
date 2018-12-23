@@ -10,6 +10,9 @@
 #import "MHTabBarViewController.h"
 #import "LoginViewController.h"
 
+#define APP_ID @"GEBpkeCEB7tcyUakAM2cs4pk-gzGzoHsz"
+#define APP_KEY @"pUM0SAiBB6fKFm3DBss4WMcS"
+
 @interface AppDelegate ()
 
 @end
@@ -20,6 +23,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //初始化 SDK
+    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    //开启调试日志
+    [AVOSCloud setAllLogsEnabled:YES];
     
 //    if ([NSStrObject getAccount]) {
         self.window.rootViewController = [[MHTabBarViewController alloc] init];

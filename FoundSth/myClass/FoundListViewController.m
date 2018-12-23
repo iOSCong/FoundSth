@@ -8,16 +8,83 @@
 
 #import "FoundListViewController.h"
 
-@interface FoundListViewController ()
+@interface FoundListViewController () <UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,strong)NSArray *dataArr;
 
 @end
 
 @implementation FoundListViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self requestData];
+    [AVAnalytics beginLogPageView:@"ProductList"];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    [AVAnalytics endLogPageView:@"ProductList"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.tableView.hidden = NO;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
 }
+
+- (void)requestData
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"myData"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [MHProgressHUD showMessage:@"加载中..." inView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MHProgressHUD hide];
+        if (!error) {
+            self.dataArr = objects;
+            [self.tableView reloadData];
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"请求失败"];
+        }
+    }];
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+    }
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataArr[indexPath.row][@"imageurl"]] placeholderImage:[UIImage imageNamed:@"NoData"]];
+    cell.textLabel.text = self.dataArr[indexPath.row][@"title"];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
