@@ -50,7 +50,7 @@
     [query includeKey:@"owner"];
     [query includeKey:@"image"];
     query.limit = 10;
-    [MHProgressHUD showMessage:@"加载中..." inView:self.view];
+    [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [MHProgressHUD hide];
         if (!error) {

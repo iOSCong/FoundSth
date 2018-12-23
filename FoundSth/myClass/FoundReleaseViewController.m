@@ -10,12 +10,14 @@
 #import "ZLPhotoActionSheet.h"
 #import "ZLDefine.h"
 
-@interface FoundReleaseViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UITextViewDelegate>
+@interface FoundReleaseViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic,strong)NSString *titleStr;
 @property (nonatomic,strong)NSString *detail;
 
 @property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
+@property (nonatomic,strong) UIImagePickerController *imagePicker;
+@property (nonatomic,strong) NSData * imageData;
 
 @end
 
@@ -28,7 +30,7 @@
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
     UIButton *button = [UIButton footerButton:@"发布"];
@@ -59,7 +61,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 1) {
+        //http://lc-GEBpkeCE.cn-n1.lcfile.com/OTGwwkMgeytCLEg7O5v9MDD
+        //http://lc-GEBpkeCE.cn-n1.lcfile.com/fe0e1c20bd4f0758ed51.jpg
         self.imgView.image = [UIImage imageNamed:@"newsPicture"];
+//        [self.imgView sd_setImageWithURL:[NSURL URLWithString:@"http://lc-GEBpkeCE.cn-n1.lcfile.com/iQZut8DKZPOz2H8jYuhhKLD"] placeholderImage:[UIImage imageNamed:@"placehoald"]];
         self.imgViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return self.imgViewCell;
     }else{
@@ -116,6 +121,8 @@
         [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
             self.imgView.image = selectPhotos[0];
         }];
+        
+//        [self selectImageWithPickertype:UIImagePickerControllerSourceTypePhotoLibrary];
     }
 }
 
@@ -137,7 +144,7 @@
     }
     AVFile *file = [AVFile fileWithData:imageData];
     [product setObject:file forKey:@"image"];
-    [MHProgressHUD showMessage:@"正在发布" inView:self.view];
+    [MHProgressHUD showProgress:@"正在发布..." inView:self.view];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [MHProgressHUD hide];
         if (succeeded) {
@@ -156,6 +163,60 @@
 {
     [self.view endEditing:YES];
 }
+
+
+
+
+
+
+
+
+
+
+#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - 拍照/选择图片结束
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSLog(@"info==%@",info);
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    NSLog(@"image==%@",image);
+    self.imgView.image = image;
+    NSData * imageData;
+    if (UIImagePNGRepresentation(image)) {
+        imageData = UIImagePNGRepresentation(image);
+    }else{
+        imageData = UIImageJPEGRepresentation(image, 1.0);
+    }
+    self.imageData = imageData;
+    
+    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark - 取消拍照/选择图片
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark - 选择图片
+-(void)selectImageWithPickertype:(UIImagePickerControllerSourceType)sourceType {
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        self.imagePicker.delegate = self;
+        self.imagePicker.allowsEditing = YES;
+        self.imagePicker.sourceType = sourceType;
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
+    }
+    else{
+//        [self alertMessage:@"图片库不可用或当前设备没有摄像头"];
+    }
+}
+
+-(UIImagePickerController *)imagePicker{
+    if (!_imagePicker) {
+        _imagePicker = [[UIImagePickerController alloc]init];
+    }
+    return _imagePicker;
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
