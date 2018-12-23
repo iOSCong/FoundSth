@@ -79,7 +79,7 @@
     [self.tabBar setBackgroundImage:img];
     [self.tabBar setShadowImage:img];
     
-    self.tabBar.backgroundColor = [UIColor whiteColor]; //默认
+    self.tabBar.backgroundColor = mz_tabbarColor; //默认
     self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
     self.delegate = self;
     self.selectedIndex = 0;

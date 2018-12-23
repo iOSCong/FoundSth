@@ -7,6 +7,7 @@
 //
 
 #import "FoundListViewController.h"
+#import "FoundListTableViewCell.h"
 
 @interface FoundListViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -34,6 +35,11 @@
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.sectionHeaderHeight = 1.0f;
+    self.tableView.estimatedRowHeight = 100; //随便设个不那么离谱的值
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
     
 }
 
@@ -43,7 +49,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"owner"];
     [query includeKey:@"image"];
-    query.limit = 20;
+    query.limit = 10;
     [MHProgressHUD showMessage:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [MHProgressHUD hide];
@@ -64,19 +70,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 300;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
-    }
+    FoundListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoundListTableViewCell"];
+//    AVFile *ownerFile = self.dataArr[indexPath.row][@"owner"];
+//    NSLog(@"ownerFile==%@",ownerFile.url);
+//    [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:ownerFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+    cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
+//    cell.timeLabel.text = self.dataArr[indexPath.row][@"createdAt"];
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
-    NSLog(@"url==%@",imageFile.url);
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"NoData"]];
-    cell.textLabel.text = self.dataArr[indexPath.row][@"title"];
+    NSLog(@"imageFile==%@",imageFile.url);
+    [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+    cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

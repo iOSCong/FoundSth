@@ -101,6 +101,8 @@
 		D854A0D621CF42B2000FD0DF /* ZLSelectPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0B321CF42B2000FD0DF /* ZLSelectPhotoModel.m */; };
 		D854A0D721CF42B2000FD0DF /* ZLShowBigImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0B521CF42B2000FD0DF /* ZLShowBigImgViewController.m */; };
 		D854A0D821CF42B2000FD0DF /* ZLThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0B721CF42B2000FD0DF /* ZLThumbnailViewController.m */; };
+		D854A0DD21CFD2D2000FD0DF /* FoundListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */; };
+		D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +290,9 @@
 		D854A0B521CF42B2000FD0DF /* ZLShowBigImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLShowBigImgViewController.m; sourceTree = "<group>"; };
 		D854A0B621CF42B2000FD0DF /* ZLThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLThumbnailViewController.h; sourceTree = "<group>"; };
 		D854A0B721CF42B2000FD0DF /* ZLThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLThumbnailViewController.m; sourceTree = "<group>"; };
+		D854A0DA21CFD2D2000FD0DF /* FoundListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundListTableViewCell.h; sourceTree = "<group>"; };
+		D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundListTableViewCell.m; sourceTree = "<group>"; };
+		D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundListTableViewCell.xib; sourceTree = "<group>"; };
 		FABDCA7DEC352F482FF4A91F /* Pods-FoundSth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -614,6 +619,7 @@
 				D854A07B21CE8397000FD0DF /* MineViewController.h */,
 				D854A07C21CE8397000FD0DF /* MineViewController.m */,
 				D854A07D21CE8397000FD0DF /* MineViewController.xib */,
+				D854A0D921CFD294000FD0DF /* listCell */,
 				D854A08121CE8614000FD0DF /* LoginClass */,
 			);
 			path = myClass;
@@ -689,6 +695,16 @@
 				D854A09E21CF42B2000FD0DF /* ZLThumbnailViewController.xib */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		D854A0D921CFD294000FD0DF /* listCell */ = {
+			isa = PBXGroup;
+			children = (
+				D854A0DA21CFD2D2000FD0DF /* FoundListTableViewCell.h */,
+				D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */,
+				D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */,
+			);
+			path = listCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -830,6 +846,7 @@
 				D854A0C521CF42B2000FD0DF /* lock.png in Resources */,
 				D854A0BF21CF42B2000FD0DF /* btn_selected@2x.png in Resources */,
 				D854A0C321CF42B2000FD0DF /* btn_unselected@3x.png in Resources */,
+				D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */,
 				D854A05B21CE8171000FD0DF /* YBImageBrowser.bundle in Resources */,
 				D854A0CB21CF42B2000FD0DF /* ZLPhotoBrowserCell.xib in Resources */,
 			);
@@ -949,6 +966,7 @@
 				D854A05521CE8171000FD0DF /* YBImageBrowserToolBar.m in Sources */,
 				D854A0CE21CF42B2000FD0DF /* ZLBigImageCell.m in Sources */,
 				D854A04321CE8171000FD0DF /* TAPageControl.m in Sources */,
+				D854A0DD21CFD2D2000FD0DF /* FoundListTableViewCell.m in Sources */,
 				D854A05421CE8171000FD0DF /* YBImageBrowserFunctionModel.m in Sources */,
 				D854A0D421CF42B2000FD0DF /* ZLPhotoTool.m in Sources */,
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
