@@ -45,6 +45,7 @@
 #define mz_mainColor mz_color(249, 249, 249)
 //#define mz_mainColor mz_yiDongBlueColor
 #define mz_navTitleColor [UIColor blackColor]
+#define mz_tabbarColor [UIColor whiteColor]
 
 #define mz_textColor mz_color(51, 71, 113)
 //tableView背景色
