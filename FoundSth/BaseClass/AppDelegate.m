@@ -10,6 +10,9 @@
 #import "MHTabBarViewController.h"
 #import "LoginViewController.h"
 
+//#define APP_ID @"OLoj899IwHYi787ClrImlr3k-gzGzoHsz"
+//#define APP_KEY @"gkz35mRTqTE2aqwp7dEr5uEE"
+
 #define APP_ID @"GEBpkeCEB7tcyUakAM2cs4pk-gzGzoHsz"
 #define APP_KEY @"pUM0SAiBB6fKFm3DBss4WMcS"
 
@@ -30,9 +33,9 @@
     [AVOSCloud setAllLogsEnabled:YES];
     
 //    if ([NSStrObject getAccount]) {
-        self.window.rootViewController = [[MHTabBarViewController alloc] init];
+//        self.window.rootViewController = [[MHTabBarViewController alloc] init];
 //    }else{
-//        self.window.rootViewController = [[LoginViewController alloc] init];
+        self.window.rootViewController = [[LoginViewController alloc] init];
 //    }
     
     [NSThread sleepForTimeInterval:1.0];

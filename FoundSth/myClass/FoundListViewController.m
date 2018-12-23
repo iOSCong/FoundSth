@@ -39,8 +39,10 @@
 
 - (void)requestData
 {
-    AVQuery *query = [AVQuery queryWithClassName:@"myData"];
+    AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"owner"];
+    [query includeKey:@"image"];
     query.limit = 20;
     [MHProgressHUD showMessage:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -71,7 +73,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
     }
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataArr[indexPath.row][@"imageurl"]] placeholderImage:[UIImage imageNamed:@"NoData"]];
+    AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
+    NSLog(@"url==%@",imageFile.url);
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"NoData"]];
     cell.textLabel.text = self.dataArr[indexPath.row][@"title"];
     return cell;
 }

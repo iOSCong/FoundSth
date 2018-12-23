@@ -10,6 +10,7 @@
 #import "WSLoginView.h"
 #import "FoundListViewController.h"
 #import "MHNavViewController.h"
+#import "MHTabBarViewController.h"
 
 @interface LoginViewController ()
 
@@ -57,9 +58,7 @@
                     [NSStrObject saveAccount:textField1Text];
                     [NSStrObject savePassword:textField2Text];
                     
-                    FoundListViewController *home = [[FoundListViewController alloc] init];
-                    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-                    [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+                    [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                 } else {
                     NSLog(@"登录失败：%@",error.localizedFailureReason);
                     [MHProgressHUD showMsgWithoutView:@"登录失败"];
@@ -83,9 +82,10 @@
                     [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error){
                         [MHProgressHUD hide];
                         if (user) {
-                            FoundListViewController *home = [[FoundListViewController alloc] init];
-                            MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-                            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+//                            FoundListViewController *home = [[FoundListViewController alloc] init];
+//                            MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+//                            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+                            [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                         } else {
                             NSLog(@"登录失败：%@",error.localizedFailureReason);
                             [MHProgressHUD showMsgWithoutView:@"登录失败"];

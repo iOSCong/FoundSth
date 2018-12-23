@@ -14,17 +14,8 @@
 
 @property (nonatomic,strong)NSString *titleStr;
 @property (nonatomic,strong)NSString *detail;
-@property (nonatomic,strong)NSString *price;
-@property (nonatomic,strong)UIImage *image;
-//@property (nonatomic,strong)UIImageView *imgView;
 
 @property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
-@property (nonatomic, strong) NSMutableArray *arrDataSources;
-@property (nonatomic,strong)UICollectionView *collect;
-@property (nonatomic,strong)UIViewController *controller;
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) NSMutableArray *images;
-@property (nonatomic, assign) int cellCount;
 
 @end
 
@@ -109,6 +100,11 @@
     
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.detail = textView.text;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 1) {
@@ -126,16 +122,28 @@
 
 - (void)requestData
 {
-    AVQuery *query = [AVQuery queryWithClassName:@"myData"];
-    [query orderByDescending:@"createdAt"];
-    query.limit = 20;
-    [MHProgressHUD showMessage:@"加载中..." inView:self.view];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [MHProgressHUD hide];
-        if (!error) {
-
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"请求失败"];
+    AVObject *product = [AVObject objectWithClassName:@"homeList"];
+    [product setObject:self.titleStr forKey:@"title"];
+    [product setObject:self.detail forKey:@"detail"];
+    
+    AVUser *currentUser = [AVUser currentUser];
+    [product setObject:currentUser forKey:@"owner"];
+    
+    NSData * imageData;
+    if (UIImagePNGRepresentation(self.imgView.image)) {
+        imageData = UIImagePNGRepresentation(self.imgView.image);
+    }else{
+        imageData = UIImageJPEGRepresentation(self.imgView.image, 1.0);
+    }
+    AVFile *file = [AVFile fileWithData:imageData];
+    [product setObject:file forKey:@"image"];
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"保存新物品成功");
+            [MHProgressHUD showMsgWithoutView:@"发布成功"];
+        } else {
+            NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
+            [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
         }
     }];
 }
