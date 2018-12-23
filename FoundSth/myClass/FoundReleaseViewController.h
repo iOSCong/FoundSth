@@ -9,5 +9,7 @@
 #import "BaseTableViewController.h"
 
 @interface FoundReleaseViewController : BaseTableViewController
+@property (strong, nonatomic) IBOutlet UITableViewCell *imgViewCell;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
