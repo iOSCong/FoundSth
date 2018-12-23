@@ -10,9 +10,11 @@
 #import "MHTabBarViewController.h"
 #import "LoginViewController.h"
 
+//demo的
 //#define APP_ID @"OLoj899IwHYi787ClrImlr3k-gzGzoHsz"
 //#define APP_KEY @"gkz35mRTqTE2aqwp7dEr5uEE"
 
+//自己的
 #define APP_ID @"GEBpkeCEB7tcyUakAM2cs4pk-gzGzoHsz"
 #define APP_KEY @"pUM0SAiBB6fKFm3DBss4WMcS"
 
