@@ -40,7 +40,7 @@
 
 
 //移动蓝
-#define mz_yiDongBlueColor mz_color(20, 150, 239)
+#define mz_yiDongBlueColor mz_color(20, 150, 239) //1496EF
 //导航栏主色
 #define mz_mainColor mz_color(249, 249, 249)
 //#define mz_mainColor mz_yiDongBlueColor

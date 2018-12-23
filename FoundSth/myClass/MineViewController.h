@@ -6,8 +6,7 @@
 //  Copyright © 2018年 MCEJ. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
-@interface MineViewController : BaseViewController
+#import "BaseTableViewController.h"
+@interface MineViewController : BaseTableViewController
 
 @end
