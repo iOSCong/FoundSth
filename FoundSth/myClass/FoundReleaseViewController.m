@@ -166,7 +166,12 @@
 
 
 
-
+/*
+ // 执行 CQL 语句实现删除一个 Todo 对象
+ [AVQuery doCloudQueryInBackgroundWithCQL:@"delete from Todo where objectId='558e20cbe4b060308e3eb36c'" callback:^(AVCloudQueryResult *result, NSError *error) {
+ // 如果 error 为空，说明保存成功
+ }];
+ */
 
 
 
