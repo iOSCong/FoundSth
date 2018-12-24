@@ -41,6 +41,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
     
+//    [self requestData];
+    
 }
 
 - (void)requestData
@@ -86,8 +88,9 @@
     cell.timeLabel.text = [dateFormatter stringFromDate:createdAt];
     
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
-    NSLog(@"imageFile==%@",imageFile.url);
+//    NSLog(@"imageFile==%@",imageFile.url);
     [cell.contentImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

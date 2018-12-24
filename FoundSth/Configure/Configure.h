@@ -12,6 +12,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "UIButton+MHButton.h"
 #import "UITextField+MZTextField.h"
+#import <AFNetworking.h>
 #import "HttpRequest.h"
 #import "MHProgressHUD.h"
 #import "NSStrObject.h"

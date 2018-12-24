@@ -1227,6 +1227,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FoundSth/PrefixHeader.pch";
 				INFOPLIST_FILE = FoundSth/Info.plist;
@@ -1249,6 +1250,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FoundSth/PrefixHeader.pch";
 				INFOPLIST_FILE = FoundSth/Info.plist;
