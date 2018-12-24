@@ -69,7 +69,7 @@
 {
   
     if (indexPath.section == 0) {
-          UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
+        UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
         cell.userName.text = [NSStrObject getUserInfoWith:@"username"];
         [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
         return cell;
@@ -88,6 +88,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
+        userinfo.headUrl = self.headUrl;
         [self.navigationController pushViewController:userinfo animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 2){
         SettingViewController *sett = [[SettingViewController alloc]init];

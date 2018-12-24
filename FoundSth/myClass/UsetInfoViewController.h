@@ -10,4 +10,6 @@
 
 @interface UsetInfoViewController : BaseTableViewController
 
+@property (nonatomic,copy)NSString *headUrl;
+
 @end

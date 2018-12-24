@@ -63,24 +63,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     return 3;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (indexPath.row == 0) {
         if (self.headCell == nil) {
             self.headCell = [[[NSBundle mainBundle]loadNibNamed:@"IconTableViewCell" owner:self options:nil] lastObject];
-            [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:[NSStrObject getUserInfoWith:@"url"]] placeholderImage:[UIImage imageNamed:@"NoData"]];
+            [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
             self.headCell.selectionStyle = UITableViewCellSelectionStyleNone;
             return self.headCell;
         }
