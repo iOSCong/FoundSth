@@ -61,7 +61,7 @@
                     [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                 } else {
                     NSLog(@"登录失败：%@",error.localizedFailureReason);
-                    [MHProgressHUD showMsgWithoutView:@"登录失败"];
+                    [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
                 }
             }];
         }else{
@@ -88,7 +88,7 @@
                             [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                         } else {
                             NSLog(@"登录失败：%@",error.localizedFailureReason);
-                            [MHProgressHUD showMsgWithoutView:@"登录失败"];
+                            [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
                         }
                     }];
                 }else if(error.code == 202){
@@ -97,7 +97,7 @@
                     [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已经存在"];
                 }else{
                     NSLog(@"注册失败：%@",error.localizedFailureReason);
-                    [MHProgressHUD showMsgWithoutView:@"注册失败"];
+                    [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
                 }
             }];
         }else{

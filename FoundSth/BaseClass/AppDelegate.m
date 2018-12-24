@@ -14,9 +14,13 @@
 //#define APP_ID @"OLoj899IwHYi787ClrImlr3k-gzGzoHsz"
 //#define APP_KEY @"gkz35mRTqTE2aqwp7dEr5uEE"
 
-//自己的
-#define APP_ID @"GEBpkeCEB7tcyUakAM2cs4pk-gzGzoHsz"
-#define APP_KEY @"pUM0SAiBB6fKFm3DBss4WMcS"
+//能手的
+//#define APP_ID @"GEBpkeCEB7tcyUakAM2cs4pk-gzGzoHsz"
+//#define APP_KEY @"pUM0SAiBB6fKFm3DBss4WMcS"
+
+//帮我找
+#define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
+#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
 
 @interface AppDelegate ()
 
