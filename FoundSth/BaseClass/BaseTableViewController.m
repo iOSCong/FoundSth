@@ -96,7 +96,7 @@
 {
     if(_tableView == nil)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, iPhoneNavH, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-iPhoneNavH) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, iPhoneNavH, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-iPhoneNavH-49) style:UITableViewStyleGrouped];
         _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 0.1)];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 0.1)];
 //        _tableView.showsVerticalScrollIndicator = NO;

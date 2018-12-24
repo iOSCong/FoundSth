@@ -12,4 +12,10 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *imgViewCell;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
+@property (nonatomic,copy)NSString *objectId;
+@property (nonatomic,copy)NSString *titleStr;
+@property (nonatomic,strong)UIImage *contentImg;
+@property (nonatomic,copy)NSString *detailStr;
+@property (nonatomic,assign)int tag;
+
 @end

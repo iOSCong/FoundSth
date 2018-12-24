@@ -9,9 +9,11 @@
 #import "FoundListViewController.h"
 #import "FoundListTableViewCell.h"
 #import "YBImageBrowser.h"
+#import "YMRefresh.h"
 
-@interface FoundListViewController () <UITableViewDelegate,UITableViewDataSource,YBImageBrowserDelegate,YBImageBrowserDataSource>
+@interface FoundListViewController () <UITableViewDelegate,UITableViewDataSource,YBImageBrowserDelegate>
 
+@property (nonatomic, strong) YMRefresh *refresh;
 @property (nonatomic,strong)NSArray *dataArr;
 @property (nonatomic,assign)NSInteger indexp;
 @property (nonatomic,strong)UIImage *tempImg;
@@ -48,6 +50,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
     
 //    [self requestData];
+    
+    mzWeakSelf(self);
+    _refresh = [[YMRefresh alloc] init];
+    [_refresh gifModelRefresh:self.tableView refreshType:RefreshTypeDropDown firstRefresh:NO timeLabHidden:YES stateLabHidden:YES dropDownBlock:^{
+        [self requestData];
+        if ([weakself.tableView.mj_header isRefreshing]) {
+            [weakself.tableView.mj_header endRefreshing];
+        }
+    } upDropBlock:^{}];
     
 }
 
@@ -90,7 +101,7 @@
     
     NSDate *createdAt = self.dataArr[indexPath.row][@"updatedAt"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     cell.timeLabel.text = [dateFormatter stringFromDate:createdAt];
     
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
@@ -102,7 +113,6 @@
             [dic setValue:[NSNumber numberWithInteger:indexPath.row] forKey:@"index"];
             [dic setValue:image forKey:@"image"];
             [self.imgArr addObject:dic];
-            NSLog(@"%ld===%@",indexPath.row, self.imgArr[indexPath.row]);
         }];
         cell.contentImgView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];

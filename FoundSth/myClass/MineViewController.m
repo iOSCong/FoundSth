@@ -11,6 +11,8 @@
 #import "UstSettTableViewCell.h"
 #import "UsetInfoViewController.h"
 #import "SettingViewController.h"
+#import "FoundMyViewController.h"
+
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
@@ -90,11 +92,14 @@
         UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
         userinfo.headUrl = self.headUrl;
         [self.navigationController pushViewController:userinfo animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        FoundMyViewController *sett = [[FoundMyViewController alloc]init];
+        sett.title = @"我的发布";
+        [self.navigationController pushViewController:sett animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 2){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
     }
-    
 }
 
 

@@ -12,9 +12,6 @@
 
 @interface FoundReleaseViewController () <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (nonatomic,strong)NSString *titleStr;
-@property (nonatomic,strong)NSString *detail;
-
 @property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,strong) NSData * imageData;
@@ -26,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = self.tag ? @"详情":@"发布";
     
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
@@ -67,7 +65,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        self.imgView.image = [UIImage imageNamed:@"newsPicture"];
+        self.imgView.image = self.contentImg ? self.contentImg : [UIImage imageNamed:@"newsPicture"];
         self.imgViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return self.imgViewCell;
     }else{
@@ -91,7 +89,9 @@
             
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:2000];
+        textField.text = self.titleStr;
         UITextView *textView = (UITextView *)[cell viewWithTag:2002];
+        textView.text = self.detailStr;
         if (indexPath.section == 0) {
             textField.hidden = NO;
             mzWeakSelf(self);
@@ -100,7 +100,6 @@
             }];
         }else{
             textView.hidden = NO;
-            textView.text = @"";
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -110,7 +109,7 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    self.detail = textView.text;
+    self.detailStr = textView.text;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,9 +129,17 @@
 
 - (void)requestData
 {
-    AVObject *product = [AVObject objectWithClassName:@"homeList"];
+    AVObject *product;
+    NSString *tips = @"";
+    if (self.tag) {
+        product =[AVObject objectWithClassName:@"homeList" objectId:self.objectId];
+        tips = @"正在更新...";
+    }else{
+        product = [AVObject objectWithClassName:@"homeList"];
+        tips = @"正在发布...";
+    }
     [product setObject:self.titleStr forKey:@"title"];
-    [product setObject:self.detail forKey:@"detail"];
+    [product setObject:self.detailStr forKey:@"detail"];
     
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
@@ -145,17 +152,32 @@
     }
     AVFile *file = [AVFile fileWithData:imageData];
     [product setObject:file forKey:@"image"];
-    [MHProgressHUD showProgress:@"正在发布..." inView:self.view];
+    [MHProgressHUD showProgress:tips inView:self.view];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [MHProgressHUD hide];
         if (succeeded) {
             NSLog(@"保存新物品成功");
-            [MHProgressHUD showMsgWithoutView:@"发布成功"];
+            if (self.tag) {
+                [MHProgressHUD showMsgWithoutView:@"更新成功"];
+            }else{
+                [MHProgressHUD showMsgWithoutView:@"发布成功"];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
             [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
         }
     }];
+}
+
+- (void)updateObject
+{
+    // 第一个参数是 className，第二个参数是 objectId
+    AVObject *todo =[AVObject objectWithClassName:@"homeList" objectId:self.objectId];
+    // 修改属性
+    [todo setObject:@"每周工程师会议，本周改为周三下午3点半。" forKey:@"content"];
+    // 保存到云端
+    [todo saveInBackground];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

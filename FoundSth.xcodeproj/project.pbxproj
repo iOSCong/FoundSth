@@ -75,7 +75,6 @@
 		D854A06921CE81CB000FD0DF /* MHTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D854A06621CE81CB000FD0DF /* MHTabBarViewController.xib */; };
 		D854A06A21CE81CB000FD0DF /* MHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A06821CE81CB000FD0DF /* MHTabBarViewController.m */; };
 		D854A07421CE8357000FD0DF /* FoundListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A07221CE8357000FD0DF /* FoundListViewController.m */; };
-		D854A07521CE8357000FD0DF /* FoundListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D854A07321CE8357000FD0DF /* FoundListViewController.xib */; };
 		D854A07921CE8384000FD0DF /* FoundReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A07721CE8384000FD0DF /* FoundReleaseViewController.m */; };
 		D854A07A21CE8384000FD0DF /* FoundReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D854A07821CE8384000FD0DF /* FoundReleaseViewController.xib */; };
 		D854A07E21CE8397000FD0DF /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A07C21CE8397000FD0DF /* MineViewController.m */; };
@@ -117,6 +116,9 @@
 		D854A0D821CF42B2000FD0DF /* ZLThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0B721CF42B2000FD0DF /* ZLThumbnailViewController.m */; };
 		D854A0DD21CFD2D2000FD0DF /* FoundListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */; };
 		D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */; };
+		D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */; };
+		D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */; };
+		D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,7 +270,6 @@
 		D854A06821CE81CB000FD0DF /* MHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarViewController.m; sourceTree = "<group>"; };
 		D854A07121CE8357000FD0DF /* FoundListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundListViewController.h; sourceTree = "<group>"; };
 		D854A07221CE8357000FD0DF /* FoundListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundListViewController.m; sourceTree = "<group>"; };
-		D854A07321CE8357000FD0DF /* FoundListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundListViewController.xib; sourceTree = "<group>"; };
 		D854A07621CE8384000FD0DF /* FoundReleaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundReleaseViewController.h; sourceTree = "<group>"; };
 		D854A07721CE8384000FD0DF /* FoundReleaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundReleaseViewController.m; sourceTree = "<group>"; };
 		D854A07821CE8384000FD0DF /* FoundReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundReleaseViewController.xib; sourceTree = "<group>"; };
@@ -329,6 +330,11 @@
 		D854A0DA21CFD2D2000FD0DF /* FoundListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundListTableViewCell.h; sourceTree = "<group>"; };
 		D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundListTableViewCell.m; sourceTree = "<group>"; };
 		D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundListTableViewCell.xib; sourceTree = "<group>"; };
+		D8F2455F21D0E83F00EFBE82 /* FoundMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyViewController.h; sourceTree = "<group>"; };
+		D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyViewController.m; sourceTree = "<group>"; };
+		D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyTableViewCell.h; sourceTree = "<group>"; };
+		D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyTableViewCell.m; sourceTree = "<group>"; };
+		D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMyTableViewCell.xib; sourceTree = "<group>"; };
 		FABDCA7DEC352F482FF4A91F /* Pods-FoundSth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -648,7 +654,8 @@
 			children = (
 				D854A07121CE8357000FD0DF /* FoundListViewController.h */,
 				D854A07221CE8357000FD0DF /* FoundListViewController.m */,
-				D854A07321CE8357000FD0DF /* FoundListViewController.xib */,
+				D8F2455F21D0E83F00EFBE82 /* FoundMyViewController.h */,
+				D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */,
 				D854A07621CE8384000FD0DF /* FoundReleaseViewController.h */,
 				D854A07721CE8384000FD0DF /* FoundReleaseViewController.m */,
 				D854A07821CE8384000FD0DF /* FoundReleaseViewController.xib */,
@@ -761,6 +768,9 @@
 				401E05A121CFF62A00D954B2 /* AboutTableViewCell.h */,
 				401E05A221CFF62A00D954B2 /* AboutTableViewCell.m */,
 				401E05A321CFF62A00D954B2 /* AboutTableViewCell.xib */,
+				D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */,
+				D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */,
+				D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */,
 			);
 			path = listCell;
 			sourceTree = "<group>";
@@ -883,7 +893,6 @@
 				D854A06421CE8171000FD0DF /* BaseTableViewController.xib in Resources */,
 				D854A0BE21CF42B2000FD0DF /* btn_selected.png in Resources */,
 				D854A0BD21CF42B2000FD0DF /* btn_original_circle@3x.png in Resources */,
-				D854A07521CE8357000FD0DF /* FoundListViewController.xib in Resources */,
 				D854A0C921CF42B2000FD0DF /* ZLPhotoActionSheet.xib in Resources */,
 				D854A07F21CE8397000FD0DF /* MineViewController.xib in Resources */,
 				D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */,
@@ -908,6 +917,7 @@
 				401E05A021CFF4E900D954B2 /* AboutViewController.xib in Resources */,
 				D854A0C821CF42B2000FD0DF /* ZLNoAuthorityViewController.xib in Resources */,
 				D854A0C521CF42B2000FD0DF /* lock.png in Resources */,
+				D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */,
 				D854A0BF21CF42B2000FD0DF /* btn_selected@2x.png in Resources */,
 				D854A0C321CF42B2000FD0DF /* btn_unselected@3x.png in Resources */,
 				D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */,
@@ -999,6 +1009,7 @@
 				D854A04C21CE8171000FD0DF /* YBImageBrowserPromptBar.m in Sources */,
 				D854A07921CE8384000FD0DF /* FoundReleaseViewController.m in Sources */,
 				D854A06A21CE81CB000FD0DF /* MHTabBarViewController.m in Sources */,
+				D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */,
 				D854A06121CE8171000FD0DF /* YYWeakTimer.m in Sources */,
 				D854A05321CE8171000FD0DF /* YBImageBrowserFunctionBar.m in Sources */,
 				D854A0D621CF42B2000FD0DF /* ZLSelectPhotoModel.m in Sources */,
@@ -1039,6 +1050,7 @@
 				D854A0D421CF42B2000FD0DF /* ZLPhotoTool.m in Sources */,
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
 				D854A0D521CF42B2000FD0DF /* ZLProgressHUD.m in Sources */,
+				D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */,
 				401E058E21CFEB3100D954B2 /* EidetViewController.m in Sources */,
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,
 				D854A04F21CE8171000FD0DF /* YBImageBrowserView.m in Sources */,
@@ -1224,7 +1236,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -1233,9 +1245,9 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiao4r;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79664d03-68e7-4d9f-8b5d-189b403416df";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1247,7 +1259,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qun Ma (DH6D3BHY2Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -1256,9 +1268,9 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiao4r;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79664d03-68e7-4d9f-8b5d-189b403416df";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

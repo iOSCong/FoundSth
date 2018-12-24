@@ -10,7 +10,7 @@
 #import "MHNavViewController.h"
 
 #import "FoundListViewController.h"
-#import "FoundReleaseViewController.h"
+#import "FoundMyViewController.h"
 #import "MineViewController.h"
 
 @interface MHTabBarViewController () <UITabBarControllerDelegate>
@@ -57,7 +57,7 @@
     MHNavViewController *homeNavController = [[MHNavViewController alloc] initWithRootViewController:homeController];
     homeNavController.tabBarItem = item1;
     
-    FoundReleaseViewController *investController = [[FoundReleaseViewController alloc] init];
+    FoundMyViewController *investController = [[FoundMyViewController alloc] init];
     investController.title = item2.title;
     MHNavViewController *projectNavController = [[MHNavViewController alloc] initWithRootViewController:investController];
     projectNavController.tabBarItem = item2;
@@ -69,15 +69,15 @@
     
     
     //去掉tabBar顶部线条
-    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    [self.tabBar setBackgroundImage:img];
-    [self.tabBar setShadowImage:img];
+//    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    UIGraphicsBeginImageContext(rect.size);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+//    CGContextFillRect(context, rect);
+//    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    [self.tabBar setBackgroundImage:img];
+//    [self.tabBar setShadowImage:img];
     
     self.tabBar.backgroundColor = mz_tabbarColor; //默认
     self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
