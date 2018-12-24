@@ -30,7 +30,8 @@
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.sectionHeaderHeight = 1.0f;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
     UIButton *button = [UIButton footerButton:@"发布"];
@@ -43,28 +44,30 @@
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return 44;
-    }else if (indexPath.row == 1) {
-        return 250;
+    }else if (indexPath.section == 1) {
+        return 220;
     }
-    return 200;
+    return 160;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1) {
-        //http://lc-GEBpkeCE.cn-n1.lcfile.com/OTGwwkMgeytCLEg7O5v9MDD
-        //http://lc-GEBpkeCE.cn-n1.lcfile.com/fe0e1c20bd4f0758ed51.jpg
+    if (indexPath.section == 1) {
         self.imgView.image = [UIImage imageNamed:@"newsPicture"];
-//        [self.imgView sd_setImageWithURL:[NSURL URLWithString:@"http://lc-GEBpkeCE.cn-n1.lcfile.com/iQZut8DKZPOz2H8jYuhhKLD"] placeholderImage:[UIImage imageNamed:@"placehoald"]];
         self.imgViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return self.imgViewCell;
     }else{
@@ -80,7 +83,7 @@
             textField.tag = 2000;
             [cell addSubview:textField];
             
-            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 200-20)];
+            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 160-20)];
             textView.delegate = self;
             textView.hidden = YES;
             textView.tag = 2002;
@@ -89,7 +92,7 @@
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:2000];
         UITextView *textView = (UITextView *)[cell viewWithTag:2002];
-        if (indexPath.row == 0) {
+        if (indexPath.section == 0) {
             textField.hidden = NO;
             mzWeakSelf(self);
             [textField addAction:^(UITextField *textField) {
@@ -112,7 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1) {
+    if (indexPath.section == 1) {
         ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
         //设置照片最大选择数
         actionSheet.maxSelectCount = 1;
@@ -121,8 +124,6 @@
         [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
             self.imgView.image = selectPhotos[0];
         }];
-        
-//        [self selectImageWithPickertype:UIImagePickerControllerSourceTypePhotoLibrary];
     }
 }
 
@@ -157,8 +158,6 @@
     }];
 }
 
-
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
@@ -174,52 +173,6 @@
  */
 
 
-
-
-
-
-#pragma mark - UIImagePickerControllerDelegate
-#pragma mark - 拍照/选择图片结束
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSLog(@"info==%@",info);
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    NSLog(@"image==%@",image);
-    self.imgView.image = image;
-    NSData * imageData;
-    if (UIImagePNGRepresentation(image)) {
-        imageData = UIImagePNGRepresentation(image);
-    }else{
-        imageData = UIImageJPEGRepresentation(image, 1.0);
-    }
-    self.imageData = imageData;
-    
-    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-}
-#pragma mark - 取消拍照/选择图片
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-}
-#pragma mark - 选择图片
--(void)selectImageWithPickertype:(UIImagePickerControllerSourceType)sourceType {
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        self.imagePicker.delegate = self;
-        self.imagePicker.allowsEditing = YES;
-        self.imagePicker.sourceType = sourceType;
-        [self presentViewController:self.imagePicker animated:YES completion:nil];
-    }
-    else{
-//        [self alertMessage:@"图片库不可用或当前设备没有摄像头"];
-    }
-}
-
--(UIImagePickerController *)imagePicker{
-    if (!_imagePicker) {
-        _imagePicker = [[UIImagePickerController alloc]init];
-    }
-    return _imagePicker;
-}
 
 
 

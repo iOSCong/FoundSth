@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="301" height="60.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igh-Bh-NLM">
@@ -29,8 +29,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mjg" translatesAutoresizingMaskIntoConstraints="NO" id="spl-3i-G1s">
-                        <rect key="frame" x="240" y="4" width="53" height="53"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoData" translatesAutoresizingMaskIntoConstraints="NO" id="spl-3i-G1s">
+                        <rect key="frame" x="239" y="4" width="53" height="53"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="spl-3i-G1s" secondAttribute="height" multiplier="1:1" id="TRf-ui-Z5Z"/>
                         </constraints>
@@ -45,10 +45,13 @@
                     <constraint firstAttribute="bottom" secondItem="Igh-Bh-NLM" secondAttribute="bottom" id="qO1-Id-G3E"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="headImgView" destination="spl-3i-G1s" id="BVd-wA-F53"/>
+            </connections>
             <point key="canvasLocation" x="-486" y="-56"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mjg" width="568" height="570"/>
+        <image name="NoData" width="100" height="100"/>
     </resources>
 </document>

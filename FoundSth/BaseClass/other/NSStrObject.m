@@ -67,13 +67,13 @@
     [currentDefaults synchronize];
 }
 //获取用户信息
-+ (NSDictionary *)getUserInfos
++ (NSString *)getUserInfoWith:(NSString *)key
 {
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [currentDefaults objectForKey:@"userInfos"];
     NSDictionary * dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     if (dictionary != nil) {
-        return dictionary;
+        return dictionary[key];
     }
     return nil;
 }

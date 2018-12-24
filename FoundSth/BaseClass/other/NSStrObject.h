@@ -24,7 +24,7 @@
 
 //存取用户信息
 + (void)saveUserInfos:(NSDictionary*)dictionary;
-+ (NSDictionary *)getUserInfos;
++ (NSString *)getUserInfoWith:(NSString *)key;
 
 //base64转图片
 + (UIImage *)stringToImage:(NSString *)string;

@@ -9,7 +9,11 @@
 #import "UsetInfoViewController.h"
 #import "IconTableViewCell.h"
 #import "EidetViewController.h"
+#import "ZLPhotoActionSheet.h"
+
 @interface UsetInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,strong)IconTableViewCell *headCell;
 @property(nonatomic,strong)NSArray *infos;
 @property(nonatomic,strong)NSArray *na_titles;
 
@@ -28,6 +32,28 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+//    [self requestData];
+    
+}
+
+- (void)requestData
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
+//    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"owner"];
+//    [query includeKey:@"image"];
+//    query.limit = 10;
+    [MHProgressHUD showProgress:@"加载中..." inView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MHProgressHUD hide];
+        if (!error) {
+            [self.tableView reloadData];
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"请求失败"];
+        }
+    }];
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,9 +78,12 @@
 {
     
     if (indexPath.row == 0) {
-        IconTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"IconTableViewCell" owner:self options:nil] lastObject];
-        return cell;
-        
+        if (self.headCell == nil) {
+            self.headCell = [[[NSBundle mainBundle]loadNibNamed:@"IconTableViewCell" owner:self options:nil] lastObject];
+            [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:[NSStrObject getUserInfoWith:@"url"]] placeholderImage:[UIImage imageNamed:@"NoData"]];
+            self.headCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return self.headCell;
+        }
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"icon"];
@@ -73,6 +102,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
+        ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+        //设置照片最大选择数
+        actionSheet.maxSelectCount = 1;
+        //设置照片最大预览数
+        actionSheet.maxPreviewCount = 50;
+        [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:nil completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
+            [self settingHeadImage:selectPhotos[0]];
+        }];
         return;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -80,8 +117,25 @@
     eide.userName =  _infos[indexPath.row - 1];
     eide.title_na = _na_titles[indexPath.row - 1];
     [self.navigationController pushViewController:eide animated:YES];
-  
-    
+}
+
+- (void)settingHeadImage:(UIImage *)image
+{
+    NSData * imageData = UIImagePNGRepresentation(image);
+    AVUser *currentuser = [AVUser currentUser];
+    AVFile *avatarFile = [AVFile fileWithData:imageData];
+    [currentuser setObject:avatarFile forKey:@"avatar"];
+    [MHProgressHUD showProgress:@"正在上传..." inView:self.view];
+    [currentuser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [MHProgressHUD hide];
+        if (succeeded) {
+            [MHProgressHUD showMsgWithoutView:@"上传成功"];
+            self.headCell.headImgView.image = image;
+        } else {
+            NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
+            [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
+        }
+    }];
 }
 
 

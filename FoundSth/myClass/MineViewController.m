@@ -13,9 +13,25 @@
 #import "SettingViewController.h"
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,strong)NSString *headUrl;
+
 @end
 
 @implementation MineViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query getObjectInBackgroundWithId:[NSStrObject getUserInfoWith:@"owner"] block:^(AVObject *object, NSError *error) {
+        if (!error) {
+            AVFile *userAvatar = [object objectForKey:@"avatar"];
+            self.headUrl = userAvatar.url;
+            [self.tableView reloadData];
+        }
+    }];
+}
 
 - (void)viewDidLoad {
     
@@ -24,6 +40,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -53,9 +70,9 @@
   
     if (indexPath.section == 0) {
           UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
-        cell.userName.text = @"七号";
+        cell.userName.text = [NSStrObject getUserInfoWith:@"username"];
+        [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
         return cell;
-
     }
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];

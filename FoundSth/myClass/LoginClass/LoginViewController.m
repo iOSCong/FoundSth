@@ -52,11 +52,18 @@
             [MHProgressHUD showProgress:@"正在登录" inView:self.view];
             [AVUser logInWithUsernameInBackground:textField1Text password:textField2Text block:^(AVUser *user, NSError *error){
                 [MHProgressHUD hide];
-                NSLog(@"user===%@",user);
                 if (user) {
                     //存储账户密码
                     [NSStrObject saveAccount:textField1Text];
                     [NSStrObject savePassword:textField2Text];
+                    
+                    //存储用户信息
+                    AVFile *userAvatar = [user objectForKey:@"avatar"];
+                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                    [userInfo setValue:user.username forKey:@"username"];
+                    [userInfo setValue:userAvatar.metaData[@"owner"] forKey:@"owner"];
+                    [userInfo setValue:userAvatar.url forKey:@"url"];
+                    [NSStrObject saveUserInfos:userInfo];
                     
                     [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                 } else {
