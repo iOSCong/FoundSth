@@ -11,5 +11,7 @@
 @interface UsetInfoViewController : BaseTableViewController
 
 @property (nonatomic,copy)NSString *headUrl;
+@property (nonatomic,copy)NSString *aliasName;
+@property (nonatomic,copy)NSString *signStr;
 
 @end

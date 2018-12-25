@@ -15,9 +15,6 @@
 
 @property (nonatomic, strong) YMRefresh *refresh;
 @property (nonatomic,strong)NSArray *dataArr;
-@property (nonatomic,assign)NSInteger indexp;
-@property (nonatomic,strong)UIImage *tempImg;
-@property (nonatomic,strong)NSMutableArray *imgArr;
 
 @end
 
@@ -37,8 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.imgArr = [NSMutableArray array];
     
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
@@ -94,7 +89,6 @@
     AVUser *owner = self.dataArr[indexPath.row][@"owner"];
     AVFile *userAvatar =[owner objectForKey:@"avatar"];
     if (userAvatar) {
-//        NSLog(@"userAvatar==%@",userAvatar.url);
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:userAvatar.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
     }
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
@@ -106,48 +100,27 @@
     
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
     if (imageFile) {
-//    NSLog(@"imageFile==%@",imageFile.url);
-        [cell.contentImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            self.tempImg = image;
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            [dic setValue:[NSNumber numberWithInteger:indexPath.row] forKey:@"index"];
-            [dic setValue:image forKey:@"image"];
-            [self.imgArr addObject:dic];
+        [cell.contentImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+        mzWeakSelf(self);
+        [cell.imageBtn addTarget:^(UIButton *button) {
+            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
         }];
-        cell.contentImgView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];
-        [cell.contentImgView addGestureRecognizer:tap];
-        self.tempImg = cell.contentImgView.image;
-        self.indexp = indexPath.row;
     }
-    
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-}
-
 #pragma mark 配置数据源
-- (void)tapHeadImgViewHandle
+- (void)tapHeadImgViewHandle:(UIImage *)image
 {
     YBImageBrowserModel *model = [YBImageBrowserModel new];
-    AVFile *imageFile = self.dataArr[self.indexp][@"image"];
-    if (imageFile) {
-        NSLog(@"url==%@",imageFile.url);
-        [MHProgressHUD showProgress:@"加载中..." inView:self.view];
-        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageFile.url]];
-        [model setImageWithImageName:[UIImage imageWithData:data]];
-        [MHProgressHUD hide];
-        YBImageBrowser *browser = [YBImageBrowser new];
-        browser.dataArray = @[model];
-        browser.currentIndex = 0;
-        [browser show];
-    }
+    [model setImageWithImageName:image];
+    [MHProgressHUD hide];
+    YBImageBrowser *browser = [YBImageBrowser new];
+    browser.dataArray = @[model];
+    browser.currentIndex = 0;
+    [browser show];
 }
 
 

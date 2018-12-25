@@ -56,15 +56,25 @@
                             <constraint firstAttribute="width" secondItem="q8E-OP-5cd" secondAttribute="height" multiplier="2:1.5" id="e3U-ne-0n7"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Suk-UJ-wDV">
+                        <rect key="frame" x="65" y="65" width="240" height="180"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Uqx-MJ-wfj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="63i-sA-cd0"/>
                     <constraint firstAttribute="bottom" secondItem="JJw-cT-ank" secondAttribute="bottom" constant="10" id="9jH-Gu-Mod"/>
+                    <constraint firstItem="Suk-UJ-wDV" firstAttribute="trailing" secondItem="q8E-OP-5cd" secondAttribute="trailing" id="9jh-hg-ohe"/>
                     <constraint firstItem="1tF-tF-EER" firstAttribute="leading" secondItem="37W-NS-Kf3" secondAttribute="leading" id="9zS-BL-5hx"/>
                     <constraint firstItem="JJw-cT-ank" firstAttribute="leading" secondItem="q8E-OP-5cd" secondAttribute="leading" id="QgS-gy-hC3"/>
                     <constraint firstItem="q8E-OP-5cd" firstAttribute="trailing" secondItem="1tF-tF-EER" secondAttribute="trailing" id="Vb1-DA-722"/>
+                    <constraint firstItem="Suk-UJ-wDV" firstAttribute="bottom" secondItem="q8E-OP-5cd" secondAttribute="bottom" id="afq-JY-nal"/>
                     <constraint firstAttribute="trailing" secondItem="37W-NS-Kf3" secondAttribute="trailing" constant="15" id="bDc-it-NfV"/>
                     <constraint firstItem="1tF-tF-EER" firstAttribute="top" secondItem="37W-NS-Kf3" secondAttribute="bottom" id="o2y-f4-rnG"/>
+                    <constraint firstItem="Suk-UJ-wDV" firstAttribute="leading" secondItem="q8E-OP-5cd" secondAttribute="leading" id="owd-hW-oda"/>
                     <constraint firstItem="q8E-OP-5cd" firstAttribute="leading" secondItem="1tF-tF-EER" secondAttribute="leading" id="p5a-3u-nLq"/>
                     <constraint firstItem="JJw-cT-ank" firstAttribute="top" secondItem="q8E-OP-5cd" secondAttribute="bottom" constant="10" id="pec-uc-ICV"/>
                     <constraint firstItem="37W-NS-Kf3" firstAttribute="top" secondItem="Uqx-MJ-wfj" secondAttribute="top" id="piu-rI-RZa"/>
@@ -73,12 +83,14 @@
                     <constraint firstItem="Uqx-MJ-wfj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qh6-H0-Ulf"/>
                     <constraint firstItem="37W-NS-Kf3" firstAttribute="leading" secondItem="Uqx-MJ-wfj" secondAttribute="trailing" constant="10" id="sFU-DU-9X5"/>
                     <constraint firstItem="JJw-cT-ank" firstAttribute="trailing" secondItem="q8E-OP-5cd" secondAttribute="trailing" id="t81-DO-2HX"/>
+                    <constraint firstItem="Suk-UJ-wDV" firstAttribute="top" secondItem="q8E-OP-5cd" secondAttribute="top" id="w5O-H7-14M"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentImgView" destination="q8E-OP-5cd" id="k1b-r0-LKN"/>
                 <outlet property="detailLabel" destination="JJw-cT-ank" id="5zb-FW-TJZ"/>
                 <outlet property="headImgView" destination="Uqx-MJ-wfj" id="9wg-5n-V3L"/>
+                <outlet property="imageBtn" destination="Suk-UJ-wDV" id="QME-CP-vct"/>
                 <outlet property="nameLabel" destination="37W-NS-Kf3" id="qmU-PH-UkM"/>
                 <outlet property="timeLabel" destination="1tF-tF-EER" id="717-ee-9hQ"/>
             </connections>

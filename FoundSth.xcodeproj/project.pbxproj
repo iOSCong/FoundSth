@@ -15,8 +15,6 @@
 		401E058521CFE6C500D954B2 /* UsetInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E058421CFE6C500D954B2 /* UsetInfoViewController.m */; };
 		401E058921CFE7FB00D954B2 /* IconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E058721CFE7FB00D954B2 /* IconTableViewCell.m */; };
 		401E058A21CFE7FB00D954B2 /* IconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E058821CFE7FB00D954B2 /* IconTableViewCell.xib */; };
-		401E058E21CFEB3100D954B2 /* EidetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E058C21CFEB3100D954B2 /* EidetViewController.m */; };
-		401E058F21CFEB3100D954B2 /* EidetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E058D21CFEB3100D954B2 /* EidetViewController.xib */; };
 		401E059221CFF03500D954B2 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E059121CFF03500D954B2 /* SettingViewController.m */; };
 		401E059F21CFF4E900D954B2 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E059D21CFF4E900D954B2 /* AboutViewController.m */; };
 		401E05A021CFF4E900D954B2 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E059E21CFF4E900D954B2 /* AboutViewController.xib */; };
@@ -150,9 +148,6 @@
 		401E058621CFE7FB00D954B2 /* IconTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IconTableViewCell.h; sourceTree = "<group>"; };
 		401E058721CFE7FB00D954B2 /* IconTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IconTableViewCell.m; sourceTree = "<group>"; };
 		401E058821CFE7FB00D954B2 /* IconTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconTableViewCell.xib; sourceTree = "<group>"; };
-		401E058B21CFEB3100D954B2 /* EidetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EidetViewController.h; sourceTree = "<group>"; };
-		401E058C21CFEB3100D954B2 /* EidetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EidetViewController.m; sourceTree = "<group>"; };
-		401E058D21CFEB3100D954B2 /* EidetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EidetViewController.xib; sourceTree = "<group>"; };
 		401E059021CFF03500D954B2 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		401E059121CFF03500D954B2 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		401E059C21CFF4E900D954B2 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -664,9 +659,6 @@
 				D854A07D21CE8397000FD0DF /* MineViewController.xib */,
 				401E058321CFE6C500D954B2 /* UsetInfoViewController.h */,
 				401E058421CFE6C500D954B2 /* UsetInfoViewController.m */,
-				401E058B21CFEB3100D954B2 /* EidetViewController.h */,
-				401E058C21CFEB3100D954B2 /* EidetViewController.m */,
-				401E058D21CFEB3100D954B2 /* EidetViewController.xib */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
@@ -884,7 +876,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				401E058F21CFEB3100D954B2 /* EidetViewController.xib in Resources */,
 				D854A0C121CF42B2000FD0DF /* btn_unselected.png in Resources */,
 				401E058221CFE19500D954B2 /* UstSettTableViewCell.xib in Resources */,
 				D854A0BC21CF42B2000FD0DF /* btn_original_circle@2x.png in Resources */,
@@ -1051,7 +1042,6 @@
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
 				D854A0D521CF42B2000FD0DF /* ZLProgressHUD.m in Sources */,
 				D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */,
-				401E058E21CFEB3100D954B2 /* EidetViewController.m in Sources */,
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,
 				D854A04F21CE8171000FD0DF /* YBImageBrowserView.m in Sources */,
 				D854A05921CE8171000FD0DF /* YBImageBrowserDownloader.m in Sources */,

@@ -16,6 +16,8 @@
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
+@property (nonatomic,copy)NSString *aliasName;
+@property (nonatomic,copy)NSString *signStr;
 
 @end
 
@@ -30,6 +32,8 @@
         if (!error) {
             AVFile *userAvatar = [object objectForKey:@"avatar"];
             self.headUrl = userAvatar.url;
+            self.aliasName = [object objectForKey:@"alias"];
+            self.signStr = [object objectForKey:@"sign"];
             [self.tableView reloadData];
         }
     }];
@@ -69,11 +73,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  
     if (indexPath.section == 0) {
         UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
-        cell.userName.text = [NSStrObject getUserInfoWith:@"username"];
         [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
+        cell.userName.text = self.aliasName;
+        cell.user_detaile.text = self.signStr;
         return cell;
     }
     
@@ -91,16 +95,13 @@
     if (indexPath.section == 0) {
         UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
         userinfo.headUrl = self.headUrl;
+        userinfo.aliasName = self.aliasName;
+        userinfo.signStr = self.signStr;
         [self.navigationController pushViewController:userinfo animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 0){
         FoundMyViewController *sett = [[FoundMyViewController alloc]init];
         sett.title = @"我的发布";
         [self.navigationController pushViewController:sett animated:YES];
-    }else if (indexPath.section == 1 && indexPath.row == 1){
-        [AVUser logOut];
-        [MHProgressHUD showMsgWithoutView:@"你已退出登录状态!"];
-        //通过通知中心发送通知
-        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"0"}]];
     }else if (indexPath.section == 1 && indexPath.row == 2){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];

@@ -22,8 +22,20 @@
     _titles = @[@"清除缓存",@"关于",@"版本"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.sectionFooterHeight = 0.1;
+//    self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
+    UIButton *button = [UIButton footerButton:@"退出登录"];
+    [button addTarget:^(UIButton *button) {
+        [AVUser logOut];
+        [MHProgressHUD showMsgWithoutView:@"你已退出登录状态!"];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"0"}]];
+    }];
+    [footerView addSubview:button];
+    self.tableView.tableFooterView = footerView;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,7 +81,6 @@
 {
     if (indexPath.row == 0) {
         [MHProgressHUD showMsgWithoutView:@"清除缓存成功"];
-        
     }else if (indexPath.row == 1 ){
         AboutViewController *about = [[AboutViewController alloc]init];
         [self.navigationController pushViewController:about animated:YES];
