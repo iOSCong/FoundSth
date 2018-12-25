@@ -64,11 +64,13 @@
     }
     cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.text = _titles[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
+        cell.detailTextLabel.text = [self sizeTmpPics];
+    }else if (indexPath.row == 2) {
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
         cell.detailTextLabel.text = app_Version;
@@ -80,7 +82,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        [MHProgressHUD showMsgWithoutView:@"清除缓存成功"];
+        //清除图片缓存
+        [MHProgressHUD showProgress:@"正在清除..." inView:self.view];
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+            [MHProgressHUD hide];
+            [MHProgressHUD showMsgWithoutView:@"清除完成"];
+            [self.tableView reloadData];
+        }];
+        [[SDImageCache sharedImageCache] clearMemory];//可不写
     }else if (indexPath.row == 1 ){
         AboutViewController *about = [[AboutViewController alloc]init];
         [self.navigationController pushViewController:about animated:YES];
@@ -89,5 +98,20 @@
         
     }
 }
+
+- (NSString *)sizeTmpPics
+{
+    NSUInteger tmpSize = [[SDImageCache sharedImageCache] getSize];
+    NSString *clearCacheName;
+    if (tmpSize >= 1024*1024*1024) {
+        clearCacheName = mz_NSTstring(@"%.2fG", tmpSize/(1024.f*1024.f*1024.f));
+    }else if (tmpSize >= 1024*1024) {
+        clearCacheName = mz_NSTstring(@"%.2fM", tmpSize/(1024.f*1024.f*1024.f));
+    }else{
+        clearCacheName = mz_NSTstring(@"%.2fK", tmpSize/(1024.f*1024.f*1024.f));
+    }
+    return clearCacheName;
+}
+
 
 @end

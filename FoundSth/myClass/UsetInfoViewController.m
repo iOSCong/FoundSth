@@ -113,6 +113,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
+        [self.view endEditing:YES];
         ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
         //设置照片最大选择数
         actionSheet.maxSelectCount = 1;
@@ -146,6 +147,16 @@
     }];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 
 
 @end
