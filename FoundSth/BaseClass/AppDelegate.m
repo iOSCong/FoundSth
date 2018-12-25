@@ -31,9 +31,9 @@
     [AVOSCloud setAllLogsEnabled:YES];
     
 //    if ([NSStrObject getAccount]) {
-//        self.window.rootViewController = [[MHTabBarViewController alloc] init];
+        self.window.rootViewController = [[MHTabBarViewController alloc] init];
 //    }else{
-        self.window.rootViewController = [[LoginViewController alloc] init];
+//        self.window.rootViewController = [[LoginViewController alloc] init];
 //    }
     
     [NSThread sleepForTimeInterval:1.0];

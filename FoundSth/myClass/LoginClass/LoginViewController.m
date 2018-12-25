@@ -41,15 +41,22 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice)name:@"login" object:nil];
     
     WSLoginView *wsLoginV = [[WSLoginView alloc]initWithFrame:CGRectMake(0, 0, mz_width, mz_height)];
-    wsLoginV.titleLabel.text = @"能手";
+    wsLoginV.titleLabel.text = @"帮我找";
     wsLoginV.titleLabel.textColor = [UIColor grayColor];
     wsLoginV.hideEyesType = LeftEyeHide;
     [self.view addSubview:wsLoginV];
     
+    //取消登录
+    [wsLoginV setClickCancelBlock:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"2"}]];
+    }];
+    
     //登录
     [wsLoginV setClickLoginBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
-            [MHProgressHUD showProgress:@"正在登录" inView:self.view];
+            [MHProgressHUD showProgress:@"正在登录..." inView:self.view];
             [AVUser logInWithUsernameInBackground:textField1Text password:textField2Text block:^(AVUser *user, NSError *error){
                 [MHProgressHUD hide];
                 if (user) {
@@ -65,7 +72,12 @@
                     [userInfo setValue:userAvatar.url forKey:@"url"];
                     [NSStrObject saveUserInfos:userInfo];
                     
-                    [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
+//                    [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    //通过通知中心发送通知
+                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                    
                 } else {
                     NSLog(@"登录失败：%@",error.localizedFailureReason);
                     [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
@@ -79,7 +91,7 @@
     //注册
     [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
-            [MHProgressHUD showProgress:@"正在注册" inView:self.view];
+            [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
             AVUser *user = [AVUser user];
             user.username = textField1Text;
             user.password = textField2Text;
@@ -92,7 +104,12 @@
 //                            FoundListViewController *home = [[FoundListViewController alloc] init];
 //                            MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
 //                            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
-                            [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
+//                            [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
+                            
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                            //通过通知中心发送通知
+                            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                            
                         } else {
                             NSLog(@"登录失败：%@",error.localizedFailureReason);
                             [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];

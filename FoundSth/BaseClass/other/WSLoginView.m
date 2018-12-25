@@ -70,6 +70,13 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     imgLogin.layer.masksToBounds = YES;
     [self addSubview:imgLogin];
     
+    //取消登录
+    self.cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.frame.size.width-60, 20, 60, 40)];
+    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cancelBtn addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.cancelBtn];
+    
     //捂眼的左右爪
     imgLeftHand = [[UIImageView alloc] initWithFrame:CGRectMake(1, 90, 40, 65)];
     imgLeftHand.image = [UIImage imageNamed:@"owl-login-arm-left"];
@@ -95,7 +102,6 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     smallView.layer.cornerRadius = 5;
     smallView.layer.masksToBounds = YES;
     [self addSubview:smallView];
-    
     
     self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, smallView.frame.size.width-20, 20)];
     self.titleLabel.textColor = [UIColor whiteColor];
@@ -165,6 +171,18 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     return YES;
 }
 
+//取消登录
+- (void)cancelAction
+{
+    if (_cancelBlock) {
+        _cancelBlock();
+    }
+}
+- (void)setClickCancelBlock:(ClicksCancelBlock)clickBlock{
+    _cancelBlock = [clickBlock copy];
+}
+
+//登录
 - (void)LoginAction
 {
     [self.textField1 resignFirstResponder];
@@ -174,19 +192,16 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
         _clickBlock(self.textField1.text, self.textField2.text);
     }
 }
-
-//登录
 - (void)setClickLoginBlock:(ClicksAlertBlock)clickBlock{
     _clickBlock = [clickBlock copy];
 }
 
-
+//注册
 - (void)registeAction:(UIButton *)sender{
     if (_lostBlock) {
         _lostBlock(self.textField1.text, self.textField2.text);
     }
 }
-//忘记密码
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock{
     _lostBlock = [clickBlock copy];
 }

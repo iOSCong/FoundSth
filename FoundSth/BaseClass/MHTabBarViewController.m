@@ -9,6 +9,7 @@
 #import "MHTabBarViewController.h"
 #import "MHNavViewController.h"
 
+#import "LoginViewController.h"
 #import "FoundListViewController.h"
 #import "FoundMyViewController.h"
 #import "MineViewController.h"
@@ -16,6 +17,7 @@
 @interface MHTabBarViewController () <UITabBarControllerDelegate>
 {
     NSInteger _currentIndex;
+    NSInteger _lastIndex;
 }
 
 @end
@@ -25,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     UIColor *textColor = [UIColor blackColor];
     UITabBarItem *item1 = [[UITabBarItem alloc] init];
@@ -86,11 +90,35 @@
     
 }
 
-
+//点击tabbar
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    //点击tabBarItem动画
-    if (self.selectedIndex != _currentIndex)[self tabBarButtonClick:[self getTabBarButton]];
+    if (self.selectedIndex != 0) {
+        AVUser *currentUser = [AVUser currentUser];
+        if (currentUser == nil) {
+            //缓存用户对象为空时，可打开用户注册界面…
+            LoginViewController *login = [[LoginViewController alloc] init];
+            [self presentViewController:login animated:YES completion:nil];
+            _currentIndex = self.selectedIndex;
+            self.selectedIndex = _lastIndex;
+            return;
+        }
+    }
+}
+
+- (void)loginViewNotice:(NSNotification *)notice
+{
+    if ([notice.userInfo[@"tag"] isEqualToString:@"0"]) { //退出登录
+        self.selectedIndex = 0;
+    }else if ([notice.userInfo[@"tag"] isEqualToString:@"1"]) { //登录成功
+        if (_currentIndex != _lastIndex) {
+            [self tabBarButtonClick:[self getTabBarButton]];
+            self.selectedIndex = _currentIndex;
+            _lastIndex = _currentIndex;
+        }
+    }else if ([notice.userInfo[@"tag"] isEqualToString:@"2"]) { //取消登录
+        self.selectedIndex = _lastIndex;
+    }
 }
 
 - (UIControl *)getTabBarButton
@@ -118,7 +146,7 @@
             [imageView.layer addAnimation:animation forKey:nil];
         }
     }
-    _currentIndex = self.selectedIndex;
+    _lastIndex = self.selectedIndex;
 }
 
 - (void)didReceiveMemoryWarning {

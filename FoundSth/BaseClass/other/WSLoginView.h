@@ -22,14 +22,16 @@ typedef enum {
 
 typedef void (^ClicksAlertBlock)(NSString *textField1Text, NSString *textField2Text);
 @property (nonatomic, copy, readonly) ClicksAlertBlock clickBlock;
-
-//typedef void (^ClicksLostBlock)(NSString *textField1Text, NSString *textField2Text);
 @property (nonatomic, copy, readonly) ClicksAlertBlock lostBlock;
+
+typedef void (^ClicksCancelBlock)(void);
+@property (nonatomic, copy, readonly) ClicksCancelBlock cancelBlock;
 
 @property(nonatomic,strong)UITextField *textField1;
 
 @property(nonatomic,strong)UITextField *textField2;
 
+@property (nonatomic,strong)UIButton *cancelBtn;
 @property(nonatomic,strong)UIButton *loginBtn;
 @property(nonatomic,strong)UIButton *lostBtn; //忘记密码
 
@@ -40,7 +42,7 @@ typedef void (^ClicksAlertBlock)(NSString *textField1Text, NSString *textField2T
  */
 @property(nonatomic,assign)HideEyesType hideEyesType;
 
-
+- (void)setClickCancelBlock:(ClicksCancelBlock)clickBlock;
 - (void)setClickLoginBlock:(ClicksAlertBlock)clickBlock;
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock;
 

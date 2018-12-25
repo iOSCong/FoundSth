@@ -140,6 +140,7 @@
     }
     [product setObject:self.titleStr forKey:@"title"];
     [product setObject:self.detailStr forKey:@"detail"];
+    [product setObject:[NSStrObject getUserInfoWith:@"owner"] forKey:@"ownerId"];
     
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];

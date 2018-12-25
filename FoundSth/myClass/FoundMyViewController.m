@@ -20,9 +20,17 @@
 
 @implementation FoundMyViewController
 
+- (void)addViewShow
+{
+    [self.navigationController pushViewController:[[FoundReleaseViewController alloc] init] animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addViewShow)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -30,12 +38,14 @@
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundMyTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundMyTableViewCell"];
     
-    [self requestData];
+//    [self requestData];
+    [self queryData];
     
     mzWeakSelf(self);
     _refresh = [[YMRefresh alloc] init];
     [_refresh gifModelRefresh:self.tableView refreshType:RefreshTypeDropDown firstRefresh:NO timeLabHidden:YES stateLabHidden:YES dropDownBlock:^{
-        [self requestData];
+//        [self requestData];
+        [self queryData];
         if ([weakself.tableView.mj_header isRefreshing]) {
             [weakself.tableView.mj_header endRefreshing];
         }
@@ -60,6 +70,26 @@
             [MHProgressHUD showMsgWithoutView:@"请求失败"];
         }
     }];
+}
+
+- (void)queryData
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"image"];
+    query.limit = 10;
+    [MHProgressHUD showProgress:@"加载中..." inView:self.view];
+    [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"owner"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MHProgressHUD hide];
+        if (!error) {
+            self.dataArr = [NSMutableArray arrayWithArray:objects];
+            [self.tableView reloadData];
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"请求失败"];
+        }
+    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

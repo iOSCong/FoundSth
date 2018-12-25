@@ -96,6 +96,11 @@
         FoundMyViewController *sett = [[FoundMyViewController alloc]init];
         sett.title = @"我的发布";
         [self.navigationController pushViewController:sett animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 1){
+        [AVUser logOut];
+        [MHProgressHUD showMsgWithoutView:@"你已退出登录状态!"];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"0"}]];
     }else if (indexPath.section == 1 && indexPath.row == 2){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];

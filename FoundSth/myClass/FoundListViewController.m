@@ -25,7 +25,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [self requestData];
+//    [self requestData];
     [AVAnalytics beginLogPageView:@"ProductList"];
     
 }
@@ -49,7 +49,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
     
-//    [self requestData];
+    [self requestData];
     
     mzWeakSelf(self);
     _refresh = [[YMRefresh alloc] init];
