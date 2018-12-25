@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="463.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mjg" translatesAutoresizingMaskIntoConstraints="NO" id="GHB-EP-UC1">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GHB-EP-UC1">
                         <rect key="frame" x="136" y="207" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="KdP-e7-NkJ"/>
                             <constraint firstAttribute="height" constant="50" id="eIo-FV-GcG"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        能手是一款轻量级的便民查询服务类的APP，不管你在何时何地，只要拿出手机打开能手APP，就可以为你答疑解惑，解决你当下遇到的问题。希望我们的产品带给你不一样的便捷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-0E-3O2">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        求帮助是一款轻量级的便民查询服务类的APP，不管你在何时何地，只要拿出手机打开能手APP，就可以为你答疑解惑，解决你当下遇到的问题。希望我们的产品带给你不一样的便捷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-0E-3O2">
                         <rect key="frame" x="40" y="284" width="242" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="ztM-es-ahK"/>
@@ -48,6 +48,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mjg" width="568" height="570"/>
+        <image name="appIcon" width="60" height="60"/>
     </resources>
 </document>

@@ -20,7 +20,7 @@
     self.title = @"关于";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
