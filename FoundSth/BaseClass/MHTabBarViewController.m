@@ -28,6 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    /*解决item上下变化位置的问题*/
+    [[UITabBar appearance] setTranslucent:NO];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     UIColor *textColor = [UIColor blackColor];
