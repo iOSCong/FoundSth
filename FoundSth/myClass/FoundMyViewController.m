@@ -25,9 +25,18 @@
     [self.navigationController pushViewController:[[FoundReleaseViewController alloc] init] animated:YES];
 }
 
+- (void)loginViewNotice:(NSNotification *)notice
+{
+    if ([notice.userInfo[@"tag"] isEqualToString:@"1"]) { //登录成功
+        [self queryData];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addViewShow)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
@@ -38,38 +47,17 @@
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundMyTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundMyTableViewCell"];
     
-//    [self requestData];
     [self queryData];
     
     mzWeakSelf(self);
     _refresh = [[YMRefresh alloc] init];
     [_refresh gifModelRefresh:self.tableView refreshType:RefreshTypeDropDown firstRefresh:NO timeLabHidden:YES stateLabHidden:YES dropDownBlock:^{
-//        [self requestData];
         [self queryData];
         if ([weakself.tableView.mj_header isRefreshing]) {
             [weakself.tableView.mj_header endRefreshing];
         }
     } upDropBlock:^{}];
     
-}
-
-- (void)requestData
-{
-    AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"owner"];
-    [query includeKey:@"image"];
-    query.limit = 10;
-    [MHProgressHUD showProgress:@"加载中..." inView:self.view];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [MHProgressHUD hide];
-        if (!error) {
-            self.dataArr = [NSMutableArray arrayWithArray:objects];
-            [self.tableView reloadData];
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"请求失败"];
-        }
-    }];
 }
 
 - (void)queryData
@@ -89,7 +77,6 @@
             [MHProgressHUD showMsgWithoutView:@"请求失败"];
         }
     }];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -150,7 +137,7 @@
         // 执行 CQL 语句实现删除一个 homeList 对象
         NSString *sql = [NSString stringWithFormat:@"delete from homeList where objectId='%@'",self.dataArr[indexPath.row][@"objectId"]];
         [AVQuery doCloudQueryInBackgroundWithCQL:sql callback:^(AVCloudQueryResult *result, NSError *error) {
-            [self requestData];
+            [self queryData];
             [self.tableView reloadData];
         }];
     }
