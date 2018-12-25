@@ -41,7 +41,7 @@
         idleImages = [NSMutableArray array];
         pullingImages = [NSMutableArray array];
         refreshingImages = [NSMutableArray array];
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 3; i++) {
             UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"yidonglogo_%d",i]];
             [idleImages addObject:image];
             [pullingImages addObject:image];
