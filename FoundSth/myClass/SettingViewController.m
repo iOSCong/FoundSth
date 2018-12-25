@@ -32,6 +32,7 @@
         [MHProgressHUD showMsgWithoutView:@"你已退出登录状态!"];
         //通过通知中心发送通知
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"0"}]];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     [footerView addSubview:button];
     self.tableView.tableFooterView = footerView;
