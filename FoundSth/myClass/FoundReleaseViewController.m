@@ -35,7 +35,13 @@
     UIButton *button = [UIButton footerButton:@"发布"];
     mzWeakSelf(self);
     [button addTarget:^(UIButton *button) {
-        [weakself requestData];
+        if (!weakself.titleStr) {
+            [MHProgressHUD showMsgWithoutView:@"请输入标题"];
+        }else if (!weakself.contentImg) {
+            [MHProgressHUD showMsgWithoutView:@"请选择图片"];
+        }else{
+            [weakself requestData];
+        }
     }];
     [footerView addSubview:button];
     self.tableView.tableFooterView = footerView;
@@ -57,15 +63,17 @@
     if (indexPath.section == 0) {
         return 44;
     }else if (indexPath.section == 1) {
-        return 220;
+        return 200;
     }
-    return 160;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 2) {
         self.imgView.image = self.contentImg ? self.contentImg : [UIImage imageNamed:@"newsPicture"];
+        self.imgView.layer.borderWidth = 0.5f;
+        self.imgView.layer.borderColor = [UIColor grayColor].CGColor;
         self.imgViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return self.imgViewCell;
     }else{
@@ -74,6 +82,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
             
             UITextField *textField = [[UITextField alloc] initWithFrame:mz_frame(20, 0, mz_width-40, 44)];
+            textField.font = mz_font(15);
             textField.placeholder = @"请输入标题";
             textField.returnKeyType = UIReturnKeyDone;
             textField.delegate = self;
@@ -81,7 +90,8 @@
             textField.tag = 2000;
             [cell addSubview:textField];
             
-            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 160-20)];
+            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 200-20)];
+            textView.font = mz_font(15);
             textView.delegate = self;
             textView.hidden = YES;
             textView.tag = 2002;
@@ -114,14 +124,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 2) {
         ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
         //设置照片最大选择数
         actionSheet.maxSelectCount = 1;
         //设置照片最大预览数
         actionSheet.maxPreviewCount = 50;
         [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
-            self.imgView.image = selectPhotos[0];
+            self.contentImg = selectPhotos[0];
+            self.imgView.image = self.contentImg;
         }];
     }
 }
@@ -146,10 +157,10 @@
     [product setObject:currentUser forKey:@"owner"];
     
     NSData * imageData;
-    if (UIImagePNGRepresentation(self.imgView.image)) {
-        imageData = UIImagePNGRepresentation(self.imgView.image);
+    if (UIImagePNGRepresentation(self.contentImg)) {
+        imageData = UIImagePNGRepresentation(self.contentImg);
     }else{
-        imageData = UIImageJPEGRepresentation(self.imgView.image, 1.0);
+        imageData = UIImageJPEGRepresentation(self.contentImg, 1.0);
     }
     AVFile *file = [AVFile fileWithData:imageData];
     [product setObject:file forKey:@"image"];

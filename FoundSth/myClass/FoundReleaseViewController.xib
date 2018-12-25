@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,25 +23,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </view>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="275" id="sZA-ah-rLy">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="sZA-ah-rLy">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sZA-ah-rLy" id="F8b-70-R60">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="274.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsPicture" translatesAutoresizingMaskIntoConstraints="NO" id="VLO-EU-0u4">
-                        <rect key="frame" x="20" y="10" width="335" height="254.5"/>
+                        <rect key="frame" x="20" y="10" width="79.5" height="79.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="VLO-EU-0u4" secondAttribute="height" multiplier="1:1" id="J2O-7K-PBg"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="VLO-EU-0u4" firstAttribute="top" secondItem="F8b-70-R60" secondAttribute="top" constant="10" id="UfO-9I-Oea"/>
-                    <constraint firstAttribute="trailing" secondItem="VLO-EU-0u4" secondAttribute="trailing" constant="20" id="a4h-NS-Suz"/>
                     <constraint firstItem="VLO-EU-0u4" firstAttribute="leading" secondItem="F8b-70-R60" secondAttribute="leading" constant="20" id="d7z-8h-H9X"/>
                     <constraint firstAttribute="bottom" secondItem="VLO-EU-0u4" secondAttribute="bottom" constant="10" id="zsc-fL-Nk1"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-455.5" y="143.5"/>
+            <point key="canvasLocation" x="-437.5" y="-26"/>
         </tableViewCell>
     </objects>
     <resources>

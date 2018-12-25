@@ -29,7 +29,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-Kp-Fvh">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placehoald" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-Kp-Fvh">
                         <rect key="frame" x="15" y="11" width="71" height="71"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ilb-Kp-Fvh" secondAttribute="height" multiplier="1:1" id="fLy-nF-xf4"/>
@@ -75,4 +75,7 @@
             <point key="canvasLocation" x="-19" y="15"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placehoald" width="305" height="180"/>
+    </resources>
 </document>

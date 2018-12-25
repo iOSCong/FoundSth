@@ -147,9 +147,9 @@
 
 //带segment的tableView的frame
 #define mz_segmentTableFrame mz_frame(0,0,mz_width,mz_height-iPhoneNavH)
-#define mz_segmentTableCarFrame mz_frame(0,0,mz_width,mz_height-iPhoneNavH-50)
-#define mz_tableTabbarFrame mz_frame(0,iPhoneNavH,mz_width,mz_height-iPhoneNavH-50)
-#define mz_tableTopFrame mz_frame(0,-iPhoneNavH,mz_width,mz_height-50+iPhoneNavH)
+#define mz_segmentTableCarFrame mz_frame(0,0,mz_width,mz_height-iPhoneNavH-49)
+#define mz_tableTabbarFrame mz_frame(0,iPhoneNavH,mz_width,mz_height-iPhoneNavH-49)
+#define mz_tableTopFrame mz_frame(0,-iPhoneNavH,mz_width,mz_height-49+iPhoneNavH)
 #define mz_tableTopFrameNoBtn mz_frame(0,-iPhoneNavH,mz_width,mz_height+iPhoneNavH)
 
 //请求tableView数据每一页的条数

@@ -41,6 +41,7 @@
     self.tableView.sectionHeaderHeight = 1.0f;
     self.tableView.estimatedRowHeight = 100; //随便设个不那么离谱的值
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.frame = mz_tableTabbarFrame;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
     
