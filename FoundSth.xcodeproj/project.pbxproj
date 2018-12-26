@@ -20,6 +20,8 @@
 		401E05A021CFF4E900D954B2 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E059E21CFF4E900D954B2 /* AboutViewController.xib */; };
 		401E05A421CFF62A00D954B2 /* AboutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A221CFF62A00D954B2 /* AboutTableViewCell.m */; };
 		401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A321CFF62A00D954B2 /* AboutTableViewCell.xib */; };
+		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
+		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -160,6 +162,9 @@
 		401E05A121CFF62A00D954B2 /* AboutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutTableViewCell.h; sourceTree = "<group>"; };
 		401E05A221CFF62A00D954B2 /* AboutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutTableViewCell.m; sourceTree = "<group>"; };
 		401E05A321CFF62A00D954B2 /* AboutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutTableViewCell.xib; sourceTree = "<group>"; };
+		401E05A621D3D1C500D954B2 /* FankuiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FankuiViewController.h; sourceTree = "<group>"; };
+		401E05A721D3D1C500D954B2 /* FankuiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FankuiViewController.m; sourceTree = "<group>"; };
+		401E05A821D3D1C500D954B2 /* FankuiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FankuiViewController.xib; sourceTree = "<group>"; };
 		85E85908ABC7ABEF711E3255 /* libPods-FoundSthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -677,6 +682,9 @@
 				D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */,
 				D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */,
 				D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */,
+				401E05A621D3D1C500D954B2 /* FankuiViewController.h */,
+				401E05A721D3D1C500D954B2 /* FankuiViewController.m */,
+				401E05A821D3D1C500D954B2 /* FankuiViewController.xib */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
@@ -932,6 +940,7 @@
 				D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */,
 				D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */,
 				D854A05B21CE8171000FD0DF /* YBImageBrowser.bundle in Resources */,
+				401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */,
 				D854A0CB21CF42B2000FD0DF /* ZLPhotoBrowserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1083,6 +1092,7 @@
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
 				D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D854A05721CE8171000FD0DF /* NSBundle+YBImageBrowser.m in Sources */,
+				401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

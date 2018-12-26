@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"个人信息";
+    self.title = @"设置";
     _titles = @[@"清除缓存",@"关于",@"版本"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

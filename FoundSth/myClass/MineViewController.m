@@ -13,13 +13,13 @@
 #import "SettingViewController.h"
 #import "FoundMyViewController.h"
 #import "InforsViewController.h"
-
+#import "FankuiViewController.h"
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
 @property (nonatomic,copy)NSString *aliasName;
 @property (nonatomic,copy)NSString *signStr;
-
+@property(nonatomic,strong)NSArray *menus;
 @end
 
 @implementation MineViewController
@@ -47,7 +47,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
+    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"设置"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -60,7 +60,7 @@
     if (section == 0) {
         return 1;
     }
-    return 3;
+    return _menus.count;
 }
 
 
@@ -83,8 +83,8 @@
     }
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
-    cell.title_lable.text = @[@"我的发布",@"我的消息",@"设置"][indexPath.row];
-    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"user_gear"][indexPath.row];
+    cell.title_lable.text = _menus[indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"user_gear"][indexPath.row];
     [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
      return cell;
 
@@ -108,6 +108,9 @@
         sett.title = @"我的消息";
         [self.navigationController pushViewController:sett animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 2){
+        FankuiViewController *fankui = [[FankuiViewController alloc]init];
+        [self.navigationController pushViewController:fankui animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 3){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
     }
