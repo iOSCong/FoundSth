@@ -120,6 +120,7 @@
 		D8FFD20021D314A600966F40 /* InforDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */; };
 		D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */; };
 		D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD20221D316D700966F40 /* Assets.xcassets */; };
+		D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD20521D31E0D00966F40 /* UIScrollView+EmptyDataSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +339,8 @@
 		D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InforDetailViewController.m; sourceTree = "<group>"; };
 		D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforDetailViewController.xib; sourceTree = "<group>"; };
 		D8FFD20221D316D700966F40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8FFD20421D31E0D00966F40 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		D8FFD20521D31E0D00966F40 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		FABDCA7DEC352F482FF4A91F /* Pods-FoundSth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -490,6 +493,8 @@
 				D8549FFD21CE8170000FD0DF /* YBImageBrowser */,
 				D854A02B21CE8170000FD0DF /* YYInfiniteLoopView */,
 				D854A08721CF42B2000FD0DF /* PhotoBrowser */,
+				D8FFD20421D31E0D00966F40 /* UIScrollView+EmptyDataSet.h */,
+				D8FFD20521D31E0D00966F40 /* UIScrollView+EmptyDataSet.m */,
 				D8549FE121CE8170000FD0DF /* MHProgressHUD.h */,
 				D8549FE221CE8170000FD0DF /* MHProgressHUD.m */,
 				D8549FE321CE8170000FD0DF /* NSStrObject.h */,
@@ -1076,6 +1081,7 @@
 				D854A05621CE8171000FD0DF /* YBImageBrowserAnimatedTransitioning.m in Sources */,
 				D854A04421CE8171000FD0DF /* SDCollectionViewCell.m in Sources */,
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
+				D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D854A05721CE8171000FD0DF /* NSBundle+YBImageBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

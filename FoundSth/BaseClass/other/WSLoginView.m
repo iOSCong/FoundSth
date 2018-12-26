@@ -149,10 +149,10 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.loginBtn addTarget:self action:@selector(LoginAction) forControlEvents:UIControlEventTouchUpInside];
     [smallView.contentView addSubview:self.loginBtn];
     
-    self.lostBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.loginBtn.frame)+10, smallView.frame.size.width-40, 40)];
+    self.lostBtn = [[UIButton alloc]initWithFrame:CGRectMake(smallView.frame.size.width/2-40, CGRectGetMaxY(self.loginBtn.frame)+10, 80, 40)];
     [self.lostBtn setTitle:@"注册" forState:UIControlStateNormal];
     self.lostBtn.layer.cornerRadius = 5;
-    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+//    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
     [self.lostBtn addTarget:self action:@selector(registeAction:) forControlEvents:UIControlEventTouchUpInside];
     [smallView.contentView addSubview:self.lostBtn];
     

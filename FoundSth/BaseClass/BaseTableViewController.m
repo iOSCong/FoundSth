@@ -7,8 +7,9 @@
 //
 
 #import "BaseTableViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface BaseTableViewController ()
+@interface BaseTableViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
 
@@ -23,6 +24,9 @@
     
     self.isShowEmptyData = YES;
     [self.view addSubview:self.tableView];
+    
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     
 }
 

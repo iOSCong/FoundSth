@@ -46,13 +46,14 @@
 
 - (void)queryData
 {
-    AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
+    AVQuery *query = [AVQuery queryWithClassName:@"message"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"image"];
     query.limit = 10;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
-    [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"owner"]];
+//    [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"owner"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.tableView.hidden = NO;
         [MHProgressHUD hide];
         if (!error) {
             self.dataArr = [NSMutableArray arrayWithArray:objects];
