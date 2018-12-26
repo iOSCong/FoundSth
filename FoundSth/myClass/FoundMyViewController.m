@@ -11,7 +11,7 @@
 #import "FoundMyTableViewCell.h"
 #import "YMRefresh.h"
 
-@interface FoundMyViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface FoundMyViewController () <UITableViewDelegate,UITableViewDataSource,ReleaseDelegate>
 
 @property (nonatomic, strong) YMRefresh *refresh;
 @property (nonatomic,strong)NSMutableArray *dataArr;
@@ -32,6 +32,11 @@
     }
 }
 
+- (void)refreshTableView
+{
+    [self queryData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -41,6 +46,7 @@
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addViewShow)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
+    self.tableView.hidden = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -69,6 +75,7 @@
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"objectId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.tableView.hidden = NO;
         [MHProgressHUD hide];
         if (!error) {
             self.dataArr = [NSMutableArray arrayWithArray:objects];
@@ -115,6 +122,7 @@
     FoundMyTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     vc.contentImg = cell.imgView.image;
     vc.detailStr = mzstring(self.dataArr[indexPath.row][@"detail"]);
+    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

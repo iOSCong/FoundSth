@@ -35,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.tableView.hidden = NO;
+    self.tableView.hidden = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionHeaderHeight = 1.0f;
@@ -67,6 +67,7 @@
     query.limit = 10;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.tableView.hidden = NO;
         [MHProgressHUD hide];
         if (!error) {
             self.dataArr = objects;

@@ -8,7 +8,14 @@
 
 #import "BaseTableViewController.h"
 
+@protocol ReleaseDelegate <NSObject>
+
+- (void)refreshTableView;
+
+@end
+
 @interface FoundReleaseViewController : BaseTableViewController
+
 @property (strong, nonatomic) IBOutlet UITableViewCell *imgViewCell;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
@@ -17,5 +24,7 @@
 @property (nonatomic,strong)UIImage *contentImg;
 @property (nonatomic,copy)NSString *detailStr;
 @property (nonatomic,assign)int tag;
+
+@property(nonatomic,weak)id<ReleaseDelegate>delegate;
 
 @end

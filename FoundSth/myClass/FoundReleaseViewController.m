@@ -20,6 +20,15 @@
 
 @implementation FoundReleaseViewController
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+        // 调用代理方法
+        [self.delegate refreshTableView];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
