@@ -38,8 +38,6 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotice)name:@"login" object:nil];
-    
     WSLoginView *wsLoginV = [[WSLoginView alloc]initWithFrame:CGRectMake(0, 0, mz_width, mz_height)];
     wsLoginV.titleLabel.text = @"帮我找";
     wsLoginV.titleLabel.textColor = [UIColor grayColor];
@@ -131,13 +129,12 @@
     
 }
 
--(void)dealloc
-{
-    //移除了所有的通知
-    //    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    //移除了名称为tongzhi的通知
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"login" object:nil];
+-(void)dealloc{
+    NSLog(@"移除了所有的通知");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {

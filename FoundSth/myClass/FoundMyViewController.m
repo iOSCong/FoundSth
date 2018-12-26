@@ -11,7 +11,7 @@
 #import "FoundMyTableViewCell.h"
 #import "YMRefresh.h"
 
-@interface FoundMyViewController () <UITableViewDelegate,UITableViewDataSource,ReleaseDelegate>
+@interface FoundMyViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) YMRefresh *refresh;
 @property (nonatomic,strong)NSMutableArray *dataArr;
@@ -30,11 +30,6 @@
     if ([notice.userInfo[@"tag"] isEqualToString:@"1"]) { //登录成功
         [self queryData];
     }
-}
-
-- (void)refreshTableView
-{
-    [self queryData];
 }
 
 - (void)viewDidLoad {
@@ -122,7 +117,6 @@
     FoundMyTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     vc.contentImg = cell.imgView.image;
     vc.detailStr = mzstring(self.dataArr[indexPath.row][@"detail"]);
-    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

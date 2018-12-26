@@ -115,4 +115,10 @@
 }
 
 
+-(void)dealloc{
+    NSLog(@"移除了所有的通知");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 @end

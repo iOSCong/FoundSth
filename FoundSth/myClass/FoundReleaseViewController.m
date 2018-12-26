@@ -23,10 +23,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
-        // 调用代理方法
-        [self.delegate refreshTableView];
-    }
+    
 }
 
 - (void)viewDidLoad {
@@ -195,6 +192,10 @@
             }else{
                 [MHProgressHUD showMsgWithoutView:@"发布成功"];
             }
+            
+            //通过通知中心发送通知
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+            
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
@@ -219,14 +220,10 @@
 }
 
 
-
-/*
- // 执行 CQL 语句实现删除一个 Todo 对象
- [AVQuery doCloudQueryInBackgroundWithCQL:@"delete from Todo where objectId='558e20cbe4b060308e3eb36c'" callback:^(AVCloudQueryResult *result, NSError *error) {
- // 如果 error 为空，说明保存成功
- }];
- */
-
+-(void)dealloc{
+    NSLog(@"移除了所有的通知");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 
