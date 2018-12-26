@@ -74,7 +74,7 @@
     }else if (indexPath.row == 2) {
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-        cell.detailTextLabel.text = app_Version;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"v%@",app_Version];
     }
     return cell;
     

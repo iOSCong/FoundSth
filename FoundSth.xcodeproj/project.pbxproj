@@ -670,13 +670,13 @@
 				D854A07B21CE8397000FD0DF /* MineViewController.h */,
 				D854A07C21CE8397000FD0DF /* MineViewController.m */,
 				D854A07D21CE8397000FD0DF /* MineViewController.xib */,
+				401E058321CFE6C500D954B2 /* UsetInfoViewController.h */,
+				401E058421CFE6C500D954B2 /* UsetInfoViewController.m */,
 				D8FFD1FA21D312B500966F40 /* InforsViewController.h */,
 				D8FFD1FB21D312B500966F40 /* InforsViewController.m */,
 				D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */,
 				D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */,
 				D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */,
-				401E058321CFE6C500D954B2 /* UsetInfoViewController.h */,
-				401E058421CFE6C500D954B2 /* UsetInfoViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
@@ -855,7 +855,7 @@
 				TargetAttributes = {
 					D8549FA021CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					D8549FB821CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
@@ -1248,9 +1248,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GHNG86Z2B3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FoundSth/PrefixHeader.pch";
@@ -1259,7 +1259,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1272,9 +1272,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GHNG86Z2B3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FoundSth/PrefixHeader.pch";
@@ -1283,7 +1283,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

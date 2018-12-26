@@ -53,7 +53,7 @@
 {
     if (indexPath.row == 0) {
         self.headCell = [[[NSBundle mainBundle]loadNibNamed:@"IconTableViewCell" owner:self options:nil] lastObject];
-        [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
+        [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"headlogo"]];
         self.headCell.selectionStyle = UITableViewCellSelectionStyleNone;
         self.headCell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
         return self.headCell;

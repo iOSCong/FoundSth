@@ -28,8 +28,9 @@
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.sectionHeaderHeight = 1.0f;
+    self.tableView.sectionHeaderHeight = 12.0f;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableHeaderView = mz_tableHeaderView;
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
     UIButton *button = [UIButton footerButton:@"发布"];
@@ -63,9 +64,20 @@
     if (indexPath.section == 0) {
         return 44;
     }else if (indexPath.section == 1) {
-        return 200;
+        return 180;
     }
     return 100;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"标题";
+    }else if (section == 1) {
+        return @"详细说明";
+    }else{
+        return @"";
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +102,7 @@
             textField.tag = 2000;
             [cell addSubview:textField];
             
-            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 200-20)];
+            UITextView *textView = [[UITextView alloc] initWithFrame:mz_frame(20, 10, mz_width-40, 180-20)];
             textView.font = mz_font(15);
             textView.delegate = self;
             textView.hidden = YES;
@@ -151,7 +163,7 @@
     }
     [product setObject:self.titleStr forKey:@"title"];
     [product setObject:self.detailStr forKey:@"detail"];
-    [product setObject:[NSStrObject getUserInfoWith:@"owner"] forKey:@"ownerId"];
+    [product setObject:[NSStrObject getUserInfoWith:@"objectId"] forKey:@"ownerId"];
     
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];

@@ -62,13 +62,12 @@
                 if (user) {
                     //存储账户密码
                     [NSStrObject saveAccount:textField1Text];
-                    [NSStrObject savePassword:textField2Text];
                     
                     //存储用户信息
                     AVFile *userAvatar = [user objectForKey:@"avatar"];
                     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
                     [userInfo setValue:user.username forKey:@"username"];
-                    [userInfo setValue:userAvatar.metaData[@"owner"] forKey:@"owner"];
+                    [userInfo setValue:user.objectId forKey:@"objectId"];
                     [userInfo setValue:userAvatar.url forKey:@"url"];
                     [NSStrObject saveUserInfos:userInfo];
                     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,27 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="436" height="107"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="403" height="106.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="398" height="106.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mjg" translatesAutoresizingMaskIntoConstraints="NO" id="aus-cq-aDS">
-                        <rect key="frame" x="20" y="18" width="70" height="70"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headlogo" translatesAutoresizingMaskIntoConstraints="NO" id="aus-cq-aDS">
+                        <rect key="frame" x="15" y="18" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Xqv-29-P2e"/>
                             <constraint firstAttribute="height" constant="70" id="tlX-Bh-1Kd"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世界如此美丽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6N-S1-LQU">
-                        <rect key="frame" x="100" y="28" width="295" height="21"/>
+                        <rect key="frame" x="95" y="18" width="295" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="yyX-yZ-jAr"/>
+                            <constraint firstAttribute="height" constant="30" id="yyX-yZ-jAr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美丽的世界我需要，我要走出去看看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QX-XT-oNB">
-                        <rect key="frame" x="100" y="57" width="295" height="21"/>
+                        <rect key="frame" x="95" y="58" width="295" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Whe-PS-HAa"/>
                         </constraints>
@@ -46,12 +46,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="t6N-S1-LQU" firstAttribute="top" secondItem="aus-cq-aDS" secondAttribute="top" constant="10" id="GOs-gh-YUh"/>
+                    <constraint firstItem="t6N-S1-LQU" firstAttribute="top" secondItem="aus-cq-aDS" secondAttribute="top" id="GOs-gh-YUh"/>
                     <constraint firstItem="1QX-XT-oNB" firstAttribute="leading" secondItem="aus-cq-aDS" secondAttribute="trailing" constant="10" id="Hs8-ob-a4X"/>
                     <constraint firstAttribute="trailingMargin" secondItem="t6N-S1-LQU" secondAttribute="trailing" id="RkD-bz-Umh"/>
-                    <constraint firstItem="aus-cq-aDS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zf8-Rn-UXh"/>
+                    <constraint firstItem="aus-cq-aDS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Zf8-Rn-UXh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1QX-XT-oNB" secondAttribute="trailing" id="bBL-wL-acP"/>
-                    <constraint firstItem="1QX-XT-oNB" firstAttribute="top" secondItem="t6N-S1-LQU" secondAttribute="bottom" constant="8" id="gbG-4i-xHP"/>
+                    <constraint firstItem="1QX-XT-oNB" firstAttribute="top" secondItem="t6N-S1-LQU" secondAttribute="bottom" constant="10" id="gbG-4i-xHP"/>
                     <constraint firstItem="aus-cq-aDS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mcr-fT-dGE"/>
                     <constraint firstItem="t6N-S1-LQU" firstAttribute="leading" secondItem="aus-cq-aDS" secondAttribute="trailing" constant="10" id="pki-RR-7gb"/>
                 </constraints>
@@ -65,6 +65,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mjg" width="568" height="570"/>
+        <image name="headlogo" width="610" height="610"/>
     </resources>
 </document>

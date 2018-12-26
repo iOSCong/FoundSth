@@ -113,6 +113,7 @@
 {
     if ([notice.userInfo[@"tag"] isEqualToString:@"0"]) { //退出登录
         self.selectedIndex = 0;
+        _lastIndex = 0;
     }else if ([notice.userInfo[@"tag"] isEqualToString:@"1"]) { //登录成功
         if (_currentIndex != _lastIndex) {
             [self tabBarButtonClick:[self getTabBarButton]];

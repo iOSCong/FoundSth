@@ -29,7 +29,7 @@
     [super viewWillAppear:animated];
     
     AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-    [query getObjectInBackgroundWithId:[NSStrObject getUserInfoWith:@"owner"] block:^(AVObject *object, NSError *error) {
+    [query getObjectInBackgroundWithId:[NSStrObject getUserInfoWith:@"objectId"] block:^(AVObject *object, NSError *error) {
         if (!error) {
             AVFile *userAvatar = [object objectForKey:@"avatar"];
             self.headUrl = userAvatar.url;
@@ -76,9 +76,9 @@
 {
     if (indexPath.section == 0) {
         UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
-        [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"NoData"]];
-        cell.userName.text = self.aliasName;
-        cell.user_detaile.text = self.signStr;
+        [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"headlogo"]];
+        cell.userName.text = self.aliasName ? self.aliasName : @"--";
+        cell.user_detaile.text = self.signStr ? self.signStr : @"还没有设置个性的签名呢~";
         return cell;
     }
     

@@ -51,7 +51,7 @@
     [query includeKey:@"image"];
     query.limit = 10;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
-//    [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"owner"]];
+//    [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"objectId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.tableView.hidden = NO;
         [MHProgressHUD hide];
