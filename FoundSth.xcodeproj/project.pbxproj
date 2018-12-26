@@ -22,6 +22,7 @@
 		401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A321CFF62A00D954B2 /* AboutTableViewCell.xib */; };
 		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
 		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
+		401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05AC21D3D95D00D954B2 /* UpdateViewController.m */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -165,6 +166,8 @@
 		401E05A621D3D1C500D954B2 /* FankuiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FankuiViewController.h; sourceTree = "<group>"; };
 		401E05A721D3D1C500D954B2 /* FankuiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FankuiViewController.m; sourceTree = "<group>"; };
 		401E05A821D3D1C500D954B2 /* FankuiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FankuiViewController.xib; sourceTree = "<group>"; };
+		401E05AB21D3D95D00D954B2 /* UpdateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
+		401E05AC21D3D95D00D954B2 /* UpdateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
 		85E85908ABC7ABEF711E3255 /* libPods-FoundSthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				401E05A621D3D1C500D954B2 /* FankuiViewController.h */,
 				401E05A721D3D1C500D954B2 /* FankuiViewController.m */,
 				401E05A821D3D1C500D954B2 /* FankuiViewController.xib */,
+				401E05AB21D3D95D00D954B2 /* UpdateViewController.h */,
+				401E05AC21D3D95D00D954B2 /* UpdateViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
@@ -1089,6 +1094,7 @@
 				D854A0CF21CF42B2000FD0DF /* ZLCollectionCell.m in Sources */,
 				D854A05621CE8171000FD0DF /* YBImageBrowserAnimatedTransitioning.m in Sources */,
 				D854A04421CE8171000FD0DF /* SDCollectionViewCell.m in Sources */,
+				401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */,
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
 				D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D854A05721CE8171000FD0DF /* NSBundle+YBImageBrowser.m in Sources */,

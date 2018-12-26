@@ -14,6 +14,7 @@
 #import "FoundMyViewController.h"
 #import "InforsViewController.h"
 #import "FankuiViewController.h"
+#import "UpdateViewController.h"
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
@@ -47,7 +48,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"设置"];
+    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"设置"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,7 +85,7 @@
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
     cell.title_lable.text = _menus[indexPath.row];
-    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"user_gear"][indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"jianchagengxin",@"user_gear"][indexPath.row];
     [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
      return cell;
 
@@ -111,6 +112,9 @@
         FankuiViewController *fankui = [[FankuiViewController alloc]init];
         [self.navigationController pushViewController:fankui animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 3){
+        [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
+
+    }else if (indexPath.section == 1 && indexPath.row == 4){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
     }
