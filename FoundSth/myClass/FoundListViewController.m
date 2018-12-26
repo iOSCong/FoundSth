@@ -103,6 +103,10 @@
     AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
     if (imageFile) {
         [cell.contentImgView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+        //图片自适应宽高
+        cell.contentImgView.contentMode = UIViewContentModeScaleAspectFill;
+        cell.contentImgView.autoresizesSubviews = YES;
+        cell.contentImgView.layer.masksToBounds = YES;
         mzWeakSelf(self);
         [cell.imageBtn addTarget:^(UIButton *button) {
             [weakself tapHeadImgViewHandle:cell.contentImgView.image];
