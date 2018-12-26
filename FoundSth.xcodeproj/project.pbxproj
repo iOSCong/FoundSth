@@ -22,7 +22,6 @@
 		401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A321CFF62A00D954B2 /* AboutTableViewCell.xib */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
-		D8549FAE21CE76AA000FD0DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAD21CE76AA000FD0DF /* Assets.xcassets */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
 		D8549FB421CE76AA000FD0DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FB321CE76AA000FD0DF /* main.m */; };
 		D8549FBE21CE76AA000FD0DF /* FoundSthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FBD21CE76AA000FD0DF /* FoundSthTests.m */; };
@@ -117,6 +116,10 @@
 		D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */; };
 		D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */; };
 		D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */; };
+		D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FB21D312B500966F40 /* InforsViewController.m */; };
+		D8FFD20021D314A600966F40 /* InforDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */; };
+		D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */; };
+		D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD20221D316D700966F40 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +167,6 @@
 		D8549FA421CE76AA000FD0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8549FA521CE76AA000FD0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D8549FAB21CE76AA000FD0DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D8549FAD21CE76AA000FD0DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8549FB021CE76AA000FD0DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8549FB221CE76AA000FD0DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8549FB321CE76AA000FD0DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -330,6 +332,12 @@
 		D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyTableViewCell.h; sourceTree = "<group>"; };
 		D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyTableViewCell.m; sourceTree = "<group>"; };
 		D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMyTableViewCell.xib; sourceTree = "<group>"; };
+		D8FFD1FA21D312B500966F40 /* InforsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforsViewController.h; sourceTree = "<group>"; };
+		D8FFD1FB21D312B500966F40 /* InforsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InforsViewController.m; sourceTree = "<group>"; };
+		D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforDetailViewController.h; sourceTree = "<group>"; };
+		D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InforDetailViewController.m; sourceTree = "<group>"; };
+		D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforDetailViewController.xib; sourceTree = "<group>"; };
+		D8FFD20221D316D700966F40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FABDCA7DEC352F482FF4A91F /* Pods-FoundSth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -407,7 +415,7 @@
 				D8549FD921CE8155000FD0DF /* BaseClass */,
 				D854A06B21CE8213000FD0DF /* myClass */,
 				D8549FAA21CE76AA000FD0DF /* Main.storyboard */,
-				D8549FAD21CE76AA000FD0DF /* Assets.xcassets */,
+				D8FFD20221D316D700966F40 /* Assets.xcassets */,
 				D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */,
 				D8549FB221CE76AA000FD0DF /* Info.plist */,
 				D8549FB321CE76AA000FD0DF /* main.m */,
@@ -657,6 +665,11 @@
 				D854A07B21CE8397000FD0DF /* MineViewController.h */,
 				D854A07C21CE8397000FD0DF /* MineViewController.m */,
 				D854A07D21CE8397000FD0DF /* MineViewController.xib */,
+				D8FFD1FA21D312B500966F40 /* InforsViewController.h */,
+				D8FFD1FB21D312B500966F40 /* InforsViewController.m */,
+				D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */,
+				D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */,
+				D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */,
 				401E058321CFE6C500D954B2 /* UsetInfoViewController.h */,
 				401E058421CFE6C500D954B2 /* UsetInfoViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
@@ -894,8 +907,8 @@
 				D854A0C721CF42B2000FD0DF /* ZLCollectionCell.xib in Resources */,
 				D854A06921CE81CB000FD0DF /* MHTabBarViewController.xib in Resources */,
 				D854A07A21CE8384000FD0DF /* FoundReleaseViewController.xib in Resources */,
-				D8549FAE21CE76AA000FD0DF /* Assets.xcassets in Resources */,
 				D854A08621CE8614000FD0DF /* LoginViewController.xib in Resources */,
+				D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */,
 				D854A06221CE8171000FD0DF /* BaseViewController.xib in Resources */,
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
@@ -912,6 +925,7 @@
 				D854A0BF21CF42B2000FD0DF /* btn_selected@2x.png in Resources */,
 				D854A0C321CF42B2000FD0DF /* btn_unselected@3x.png in Resources */,
 				D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */,
+				D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */,
 				D854A05B21CE8171000FD0DF /* YBImageBrowser.bundle in Resources */,
 				D854A0CB21CF42B2000FD0DF /* ZLPhotoBrowserCell.xib in Resources */,
 			);
@@ -1019,6 +1033,7 @@
 				D854A06321CE8171000FD0DF /* BaseTableViewController.m in Sources */,
 				D854A0D121CF42B2000FD0DF /* ZLPhotoActionSheet.m in Sources */,
 				D854A05221CE8171000FD0DF /* FLAnimatedImageView.m in Sources */,
+				D8FFD20021D314A600966F40 /* InforDetailViewController.m in Sources */,
 				D854A0CD21CF42B2000FD0DF /* ToastUtils.m in Sources */,
 				D8549FB421CE76AA000FD0DF /* main.m in Sources */,
 				D854A05A21CE8171000FD0DF /* YBImageBrowserUtilities.m in Sources */,
@@ -1039,6 +1054,7 @@
 				D854A05421CE8171000FD0DF /* YBImageBrowserFunctionModel.m in Sources */,
 				D854A0D421CF42B2000FD0DF /* ZLPhotoTool.m in Sources */,
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
+				D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */,
 				D854A0D521CF42B2000FD0DF /* ZLProgressHUD.m in Sources */,
 				D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */,
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "listchecknoteb.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "user_dizhi@2x.png",
       "scale" : "2x"
     },
     {

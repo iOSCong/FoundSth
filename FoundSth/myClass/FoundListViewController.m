@@ -125,29 +125,6 @@
 }
 
 
-#pragma mark 使用数组配置数据源
-//- (void)tapHeadImgViewHandle
-//{
-//    //创建图片浏览器
-//    YBImageBrowser *browser = [YBImageBrowser new];
-//    browser.dataSource = self;
-//    browser.currentIndex = 0;
-//    [browser show];
-//}
-////YBImageBrowserDataSource 代理实现赋值数据
-//- (NSInteger)numberInYBImageBrowser:(YBImageBrowser *)imageBrowser {
-//    return 1;
-//}
-//- (YBImageBrowserModel *)yBImageBrowser:(YBImageBrowser *)imageBrowser modelForCellAtIndex:(NSInteger)index {
-//    YBImageBrowserModel *model = [YBImageBrowserModel new];
-//    AVFile *imageFile = self.dataArr[self.indexp][@"image"];
-//    model.url = [NSURL URLWithString:[imageFile.url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//    return model;
-//}
-//- (UIImageView * _Nullable)imageViewOfTouchForImageBrowser:(nonnull YBImageBrowser *)imageBrowser {
-//    return nil;
-//}
-
 
 
 - (void)didReceiveMemoryWarning {
