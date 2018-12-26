@@ -69,15 +69,13 @@
                     [userInfo setValue:userAvatar.url forKey:@"url"];
                     [NSStrObject saveUserInfos:userInfo];
                     
-//                    [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
-                    
                     [self dismissViewControllerAnimated:YES completion:nil];
                     //通过通知中心发送通知
                     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
                     
                 } else {
-                    NSLog(@"登录失败：%@",error.localizedFailureReason);
-                    [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
+                    NSLog(@"登录失败：%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"用户未注册!"];
                 }
             }];
         }else{
@@ -98,11 +96,6 @@
                     [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error){
                         [MHProgressHUD hide];
                         if (user) {
-//                            FoundListViewController *home = [[FoundListViewController alloc] init];
-//                            MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-//                            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
-//                            [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
-                            
                             //存储账户密码
                             [NSStrObject saveAccount:textField1Text];
                             
@@ -119,17 +112,17 @@
                             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
                             
                         } else {
-                            NSLog(@"登录失败：%@",error.localizedFailureReason);
-                            [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
+                            NSLog(@"登录失败：%@",error);
+                            [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
                         }
                     }];
                 }else if(error.code == 202){
                     //注册失败的原因可能有多种，常见的是用户名已经存在。
                     NSLog(@"注册失败，用户名已经存在");
-                    [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已经存在"];
+                    [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已存在"];
                 }else{
                     NSLog(@"注册失败：%@",error.localizedFailureReason);
-                    [MHProgressHUD showMsgWithoutView:error.localizedFailureReason];
+                    [MHProgressHUD showMsgWithoutView:@"注册失败!"];
                 }
             }];
         }else{
