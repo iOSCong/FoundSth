@@ -44,6 +44,7 @@
     self.tableView.hidden = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.frame = mz_tableTabbarFrame;
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundMyTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundMyTableViewCell"];

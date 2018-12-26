@@ -38,7 +38,7 @@
     item1.tag = 1;
     [item1 setTitle:@"首页"];
     [item1 setImage:[UIImage imageNamed:@"yemian"]];
-    [item1 setSelectedImage:[[UIImage imageNamed:@"yemian"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item1 setSelectedImage:[[UIImage imageNamed:@"tab-home-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item1 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     
