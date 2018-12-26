@@ -21,6 +21,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -45,7 +46,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AboutTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"AboutTableViewCell" owner:self options:nil] lastObject];
- 
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
