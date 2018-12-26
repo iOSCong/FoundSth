@@ -103,6 +103,17 @@
 //                            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
 //                            [UIApplication sharedApplication].keyWindow.rootViewController = [[MHTabBarViewController alloc] init];
                             
+                            //存储账户密码
+                            [NSStrObject saveAccount:textField1Text];
+                            
+                            //存储用户信息
+                            AVFile *userAvatar = [user objectForKey:@"avatar"];
+                            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                            [userInfo setValue:user.username forKey:@"username"];
+                            [userInfo setValue:user.objectId forKey:@"objectId"];
+                            [userInfo setValue:userAvatar.url forKey:@"url"];
+                            [NSStrObject saveUserInfos:userInfo];
+                            
                             [self dismissViewControllerAnimated:YES completion:nil];
                             //通过通知中心发送通知
                             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
