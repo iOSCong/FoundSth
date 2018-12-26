@@ -87,6 +87,11 @@
     [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
             [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
+//            [AVSMS requestShortMessageForPhoneNumber:@"13007967307" options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+//                [MHProgressHUD hide];
+//            }];
+//            return ;
+            
             AVUser *user = [AVUser user];
             user.username = textField1Text;
             user.password = textField2Text;
