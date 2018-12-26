@@ -19,14 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GHB-EP-UC1">
-                        <rect key="frame" x="136" y="207" width="50" height="50"/>
+                        <rect key="frame" x="126" y="197" width="70" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="KdP-e7-NkJ"/>
-                            <constraint firstAttribute="height" constant="50" id="eIo-FV-GcG"/>
+                            <constraint firstAttribute="width" constant="70" id="KdP-e7-NkJ"/>
+                            <constraint firstAttribute="height" constant="70" id="eIo-FV-GcG"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        求帮助是一款轻量级的专业便民寻物服务类的APP，不管你在何时何地，只要拿出手机打开求帮助APP，发布自己丢失的物品或者宠物，有千百用户帮助寻找失物，瞬间我们会明白世界真的很小，幸福来的很突然。希望我们的产品带给你不一样的便捷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-0E-3O2">
-                        <rect key="frame" x="40" y="284" width="242" height="130"/>
+                        <rect key="frame" x="40" y="294" width="242" height="130"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="130" id="ztM-es-ahK"/>
                         </constraints>

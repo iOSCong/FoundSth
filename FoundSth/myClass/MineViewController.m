@@ -48,7 +48,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"设置"];
+    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"分享应用",@"设置"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +85,7 @@
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
     cell.title_lable.text = _menus[indexPath.row];
-    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"jianchagengxin",@"user_gear"][indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"jianchagengxin",@"fenxiang",@"user_gear"][indexPath.row];
     [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
      return cell;
 
@@ -115,11 +115,20 @@
         [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
 
     }else if (indexPath.section == 1 && indexPath.row == 4){
+        //分享APP的连接
+        [self shareAppStoryAurl];
+        
+    }else if (indexPath.section == 1 && indexPath.row == 5){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
     }
 }
 
+//分享APP的连接
+-(void)shareAppStoryAurl
+{
+    
+}
 
 
 @end

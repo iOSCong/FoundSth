@@ -95,7 +95,7 @@
         AboutViewController *about = [[AboutViewController alloc]init];
         [self.navigationController pushViewController:about animated:YES];
     }else if (indexPath.row == 2){
-        [MHProgressHUD showMsgWithoutView:@"已是最新版本"];
+//        [MHProgressHUD showMsgWithoutView:@"已是最新版本"];
         
     }
 }
