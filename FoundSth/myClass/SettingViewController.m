@@ -63,7 +63,11 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"sett"];
     }
-    cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+
+    if (indexPath.row != _titles.count- 1) {
+        cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+
+    }
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.text = _titles[indexPath.row];
@@ -74,7 +78,7 @@
     }else if (indexPath.row == 2) {
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"v%@",app_Version];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"v%@  ",app_Version];
     }
     return cell;
     
