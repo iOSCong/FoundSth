@@ -10,6 +10,7 @@
 #import "MHTabBarViewController.h"
 #import "LoginViewController.h"
 #import "WXApiManager.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
 //帮我找
 #define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
@@ -18,7 +19,13 @@
 //微信分享
 #define weixinKey @"wxad265fb5ffccace8"
 
-@interface AppDelegate ()
+//QQ分享
+#define qqID @"1107999939"
+#define qqKey @"KEYhvXoYqIGaaFIqwWi";
+
+@interface AppDelegate () <TencentSessionDelegate>
+
+@property (nonatomic,strong)TencentOAuth *tencentOAuth;
 
 @end
 
@@ -40,6 +47,10 @@
     //微信分享apikey
     [WXApi registerApp:weixinKey];
     
+    //注意： 初始化授权 开发者需要在这里填入自己申请到的 AppID
+    _tencentOAuth = [[TencentOAuth alloc] initWithAppId:qqID andDelegate:self];
+    
+    
 //    if ([NSStrObject getAccount]) {
         self.window.rootViewController = [[MHTabBarViewController alloc] init];
 //    }else{
@@ -50,6 +61,14 @@
     [self.window makeKeyWindow];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [TencentOAuth HandleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [TencentOAuth HandleOpenURL:url];
 }
 
 
@@ -79,5 +98,17 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)tencentDidLogin {
+    
+}
+
+- (void)tencentDidNotLogin:(BOOL)cancelled {
+    
+}
+
+- (void)tencentDidNotNetWork {
+    
+}
 
 @end

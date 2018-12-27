@@ -12,6 +12,11 @@
 #import "WXApi.h"
 #import "WechatAuthSDK.h"
 #import "WXApiObject.h"
+//QQ分享
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
+
 
 static CGFloat const DXShreButtonHeight = 90.f;
 static CGFloat const DXShreButtonWith = 76.f;
@@ -122,28 +127,30 @@ static CGFloat const DXShreCancelHeight = 46.f;
     switch (sender.tag) {
         case DXShareTypeWechatSession://微信好友
         {
-            [self shareBtnHandle:0];
+            [self shareWeChatBtnHandle:0];
         }
             break;
         case DXShareTypeWechatTimeline://微信朋友圈
         {
-            [self shareBtnHandle:1];
+            [self shareWeChatBtnHandle:1];
         }
             break;
         case DXShareTypeQQ://QQ好友
         {
+            [self shareToQQBtnHandle:0];
 //            [self shareLinkToPlatform:UMSocialPlatformType_QQ shareConentType:self.shareConentType];
         }
             break;
         case DXShareTypeQzone://QQ朋友圈
         {
+            [self shareToQQBtnHandle:1];
 //            [self shareLinkToPlatform:UMSocialPlatformType_Qzone shareConentType:self.shareConentType];
         }
             break;
         case DXShareTypeUrl://复制链接
         {
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-            pasteboard.string = self.shareConentType == DXShareContentTypeLink ? self.shareModel.url : self.shareModel.title;
+            pasteboard.string = self.shareModel.url;
 //            [XHToast showBottomWithText:@"复制成功"];
             [MHProgressHUD showMsgWithoutView:@"复制成功"];
         }
@@ -154,7 +161,7 @@ static CGFloat const DXShreCancelHeight = 46.f;
     [self closeShareView];
 }
 
-- (void)shareBtnHandle:(NSInteger)index
+- (void)shareWeChatBtnHandle:(NSInteger)index
 {
     // 检查是否装了微信
     if (![WXApi isWXAppInstalled])
@@ -173,7 +180,8 @@ static CGFloat const DXShreCancelHeight = 46.f;
     WXMediaMessage *urlMessage = [WXMediaMessage message];
     urlMessage.title = self.shareModel.title;//分享标题
     urlMessage.description = self.shareModel.descr;//分享描述
-    [urlMessage setThumbImage:self.shareModel.thumbImage];//分享图片,使用SDK的setThumbImage方法可压缩图片大小
+    //分享图片,使用SDK的setThumbImage方法可压缩图片大小
+    [urlMessage setThumbImage:self.shareModel.thumbImage];
     //创建多媒体对象
     WXWebpageObject *webObj = [WXWebpageObject object];
     webObj.webpageUrl = self.shareModel.url;//分享链接
@@ -183,6 +191,36 @@ static CGFloat const DXShreCancelHeight = 46.f;
     
     //发送分享信息
     [WXApi sendReq:sendReq];
+}
+
+//分享到QQ
+- (void)shareToQQBtnHandle:(NSInteger)index
+{
+    // 检查是否装了QQ
+    if (![TencentOAuth iphoneQQInstalled])
+//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未安装QQ,无法分享" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    NSString *title = self.shareModel.title;//分享标题
+    NSString *description = self.shareModel.descr;//分享描述
+    NSString *previewImageUrl = self.shareModel.url;//分享链接
+    QQApiNewsObject *newsObj = [QQApiNewsObject
+                                objectWithURL:[NSURL URLWithString:self.shareModel.url]
+                                title:title
+                                description:description
+                                previewImageURL:[NSURL URLWithString:previewImageUrl]];
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
+    if (index == 0) {
+        //将内容分享到qq
+        QQApiSendResultCode sent = [QQApiInterface sendReq:req];
+    }else{
+        //将内容分享到qzone
+        QQApiSendResultCode sent = [QQApiInterface SendReqToQZone:req];
+    }
 }
 
 - (void)getOrderPayResult:(NSNotification *)notification

@@ -55,10 +55,35 @@
     [wsLoginV setClickLoginBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
             [MHProgressHUD showProgress:@"正在登录..." inView:self.view];
+            [AVUser logInWithMobilePhoneNumberInBackground:textField1Text smsCode:textField2Text block:^(AVUser *user, NSError *error) {
+                [MHProgressHUD hide];
+                if (user) {
+                    //存储账户
+                    [NSStrObject saveAccount:textField1Text];
+                    
+                    //存储用户信息
+                    AVFile *userAvatar = [user objectForKey:@"avatar"];
+                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                    [userInfo setValue:user.username forKey:@"username"];
+                    [userInfo setValue:user.objectId forKey:@"objectId"];
+                    [userInfo setValue:userAvatar.url forKey:@"url"];
+                    [NSStrObject saveUserInfos:userInfo];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    //通过通知中心发送通知
+                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                    
+                } else {
+                    NSLog(@"登录失败：%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"用户未注册!"];
+                }
+            }];
+            return ;
+            
             [AVUser logInWithUsernameInBackground:textField1Text password:textField2Text block:^(AVUser *user, NSError *error){
                 [MHProgressHUD hide];
                 if (user) {
-                    //存储账户密码
+                    //存储账户
                     [NSStrObject saveAccount:textField1Text];
                     
                     //存储用户信息
@@ -87,54 +112,82 @@
     [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
             [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
-//            [AVSMS requestShortMessageForPhoneNumber:@"13007967307" options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
-//                [MHProgressHUD hide];
-//            }];
-//            return ;
-            
-            AVUser *user = [AVUser user];
-            user.username = textField1Text;
-            user.password = textField2Text;
-            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    // 注册成功直接登录
-                    [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error){
-                        [MHProgressHUD hide];
-                        if (user) {
-                            //存储账户密码
-                            [NSStrObject saveAccount:textField1Text];
-                            
-                            //存储用户信息
-                            AVFile *userAvatar = [user objectForKey:@"avatar"];
-                            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                            [userInfo setValue:user.username forKey:@"username"];
-                            [userInfo setValue:user.objectId forKey:@"objectId"];
-                            [userInfo setValue:userAvatar.url forKey:@"url"];
-                            [NSStrObject saveUserInfos:userInfo];
-                            
-                            [self dismissViewControllerAnimated:YES completion:nil];
-                            //通过通知中心发送通知
-                            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
-                            
-                        } else {
-                            NSLog(@"登录失败：%@",error);
-                            [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
-                        }
-                    }];
-                }else if(error.code == 202){
-                    //注册失败的原因可能有多种，常见的是用户名已经存在。
-                    NSLog(@"注册失败，用户名已经存在");
-                    [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已存在"];
-                }else{
-                    NSLog(@"注册失败：%@",error.localizedFailureReason);
-                    [MHProgressHUD showMsgWithoutView:@"注册失败!"];
+            [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:textField1Text smsCode:textField2Text block:^(AVUser *user, NSError *error) {
+                [MHProgressHUD hide];
+                if (user) {
+                    //存储账户
+                    [NSStrObject saveAccount:textField1Text];
+                    
+                    //存储用户信息
+                    AVFile *userAvatar = [user objectForKey:@"avatar"];
+                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                    [userInfo setValue:user.username forKey:@"username"];
+                    [userInfo setValue:user.objectId forKey:@"objectId"];
+                    [userInfo setValue:userAvatar.url forKey:@"url"];
+                    [NSStrObject saveUserInfos:userInfo];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    //通过通知中心发送通知
+                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                    
+                } else {
+                    NSLog(@"登录失败：%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
                 }
             }];
         }else{
             [MHProgressHUD showMsgWithoutView:@"请输入账号和密码"];
         }
-
+        
     }];
+    
+//    //注册
+//    [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
+//        if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
+//            [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
+//            AVUser *user = [AVUser user];
+//            user.username = textField1Text;
+//            user.password = textField2Text;
+//            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    // 注册成功直接登录
+//                    [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error){
+//                        [MHProgressHUD hide];
+//                        if (user) {
+//                            //存储账户密码
+//                            [NSStrObject saveAccount:textField1Text];
+//
+//                            //存储用户信息
+//                            AVFile *userAvatar = [user objectForKey:@"avatar"];
+//                            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+//                            [userInfo setValue:user.username forKey:@"username"];
+//                            [userInfo setValue:user.objectId forKey:@"objectId"];
+//                            [userInfo setValue:userAvatar.url forKey:@"url"];
+//                            [NSStrObject saveUserInfos:userInfo];
+//
+//                            [self dismissViewControllerAnimated:YES completion:nil];
+//                            //通过通知中心发送通知
+//                            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+//
+//                        } else {
+//                            NSLog(@"登录失败：%@",error);
+//                            [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
+//                        }
+//                    }];
+//                }else if(error.code == 202){
+//                    //注册失败的原因可能有多种，常见的是用户名已经存在。
+//                    NSLog(@"注册失败，用户名已经存在");
+//                    [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已存在"];
+//                }else{
+//                    NSLog(@"注册失败：%@",error.localizedFailureReason);
+//                    [MHProgressHUD showMsgWithoutView:@"注册失败!"];
+//                }
+//            }];
+//        }else{
+//            [MHProgressHUD showMsgWithoutView:@"请输入账号和密码"];
+//        }
+//
+//    }];
     
 }
 

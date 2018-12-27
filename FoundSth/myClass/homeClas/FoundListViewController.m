@@ -116,6 +116,7 @@
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     mzWeakSelf(self);
     cell.likeLabel.text = self.dataArr[indexPath.row][@"dianzan"] ? mzstring(self.dataArr[indexPath.row][@"dianzan"]) : @"0";
+    //点赞
     [cell.likeBtn addTarget:^(UIButton *button) {
         AVObject *product = [AVObject objectWithClassName:@"homeList" objectId:weakself.dataArr[indexPath.row][@"objectId"]];
         NSInteger zanNum = [self.dataArr[indexPath.row][@"dianzan"] integerValue] + 1;
@@ -132,12 +133,13 @@
             }
         }];
     }];
+    //分享
     [cell.shareBtn addTarget:^(UIButton *button) {
         NSDictionary *dic = @{
-                              @"title":cell.nameLabel.text,
-                              @"imgUrl":imageFile.url,
-                              @"detail":cell.detailLabel.text,
-                              @"image":cell.contentImgView.image
+                              @"title":cell.nameLabel.text ? cell.nameLabel.text : @"",
+                              @"imgUrl":imageFile.url ? imageFile.url : @"",
+                              @"detail":cell.detailLabel.text ? cell.detailLabel.text : @"",
+                              @"image":cell.contentImgView.image ? cell.contentImgView.image : @""
                               };
         [weakself shareButtonEvent:dic];
     }];
