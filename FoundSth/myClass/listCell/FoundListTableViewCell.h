@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *contentImgView;
 @property (weak, nonatomic) IBOutlet UIButton *imageBtn;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (weak, nonatomic) IBOutlet UILabel *likeLabel;
 
 @end

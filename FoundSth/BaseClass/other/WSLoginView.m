@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 };
 @interface WSLoginView ()<UITextFieldDelegate>
 
+@property (nonatomic,strong)UIScrollView *scrollView;
 
 @end
 
@@ -60,7 +61,18 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     
 }
 
+//- (void)loginViewNotice:(NSNotification *)notice
+//{
+//    if ([notice.userInfo[@"tag"] isEqualToString:@"5"]) { //注册成功
+//        [UIView animateWithDuration:0.3f animations:^{
+//            self.scrollView.contentOffset = CGPointMake(0, 0);
+//        }];
+//    }
+//}
+
 - (void)creatSubViews {
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     _hideEyesType = AllEyesHide;
     
@@ -103,58 +115,196 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     smallView.layer.masksToBounds = YES;
     [self addSubview:smallView];
     
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(20, 150, smallView.frame.size.width, smallView.frame.size.height-80)];
+    scrollView.contentSize = CGSizeMake((smallView.frame.size.width)*2, smallView.frame.size.height-80);
+    scrollView.bounces = NO;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView = scrollView;
+    [self addSubview:scrollView];
+    
+    UIView *loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, smallView.frame.size.width, smallView.frame.size.height)];
+    [scrollView addSubview:loginView];
+    
+    UIButton *goRegisteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    goRegisteBtn.frame = CGRectMake(loginView.frame.size.width-95, 15, 100, 20);
+    [goRegisteBtn setTitle:@"注册 >" forState:UIControlStateNormal];
+    goRegisteBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [goRegisteBtn addTarget:^(UIButton *button) {
+        [UIView animateWithDuration:0.3f animations:^{
+            scrollView.contentOffset = CGPointMake(smallView.frame.size.width, 0);
+        }];
+    }];
+    [loginView addSubview:goRegisteBtn];
+    
+    UIView *registeView = [[UIView alloc] initWithFrame:CGRectMake(smallView.frame.size.width, 0, smallView.frame.size.width, smallView.frame.size.height)];
+    [scrollView addSubview:registeView];
+    
+    UIButton *goLoginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    goLoginBtn.frame = CGRectMake(-10, 15, 100, 20);
+    [goLoginBtn setTitle:@"< 登录" forState:UIControlStateNormal];
+    goLoginBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [goLoginBtn addTarget:^(UIButton *button) {
+        [UIView animateWithDuration:0.3f animations:^{
+            scrollView.contentOffset = CGPointMake(0, 0);
+        }];
+    }];
+    [registeView addSubview:goLoginBtn];
+    
     self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, smallView.frame.size.width-20, 20)];
     self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize:15];
-    [smallView.contentView addSubview:self.titleLabel];
+    [loginView addSubview:self.titleLabel];
     
-    self.textField1 = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.titleLabel.frame)+15, smallView.frame.size.width-40, 40)];
-    self.textField1.delegate = self;
-    self.textField1.layer.cornerRadius = 5;
-    self.textField1.layer.borderWidth = .5;
-    self.textField1.keyboardType = UIKeyboardTypeASCIICapable;
-    self.textField1.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.textField1.layer.borderColor = [UIColor grayColor].CGColor;
-    self.textField1.placeholder = @"请输入账号";
-    self.textField1.text = [NSStrObject getAccount].length ? [NSStrObject getAccount] : @"";
-    self.textField1.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.textField1.frame), CGRectGetHeight(self.textField1.frame))];
-    self.textField1.leftViewMode = UITextFieldViewModeAlways;
+    self.logNameTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.titleLabel.frame)+15, smallView.frame.size.width-40, 40)];
+    self.logNameTextF.delegate = self;
+    self.logNameTextF.layer.cornerRadius = 5;
+    self.logNameTextF.layer.borderWidth = .5;
+    self.logNameTextF.keyboardType = UIKeyboardTypePhonePad; //UIKeyboardTypeASCIICapable
+    self.logNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.logNameTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.logNameTextF.placeholder = @"请输入登录手机号码";
+    self.logNameTextF.text = [NSStrObject getAccount].length ? [NSStrObject getAccount] : @"";
+    self.logNameTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.logNameTextF.frame), CGRectGetHeight(self.logNameTextF.frame))];
+    self.logNameTextF.leftViewMode = UITextFieldViewModeAlways;
     UIImageView* imgUser = [[UIImageView alloc] initWithFrame:CGRectMake(9, 9, 22, 22)];
     imgUser.image = [UIImage imageNamed:@"iconfont-user"];
-    [self.textField1.leftView addSubview:imgUser];
-    [smallView.contentView addSubview:self.textField1];
+    [self.logNameTextF.leftView addSubview:imgUser];
+    [loginView addSubview:self.logNameTextF];
     
-    self.textField2 = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.textField1.frame), CGRectGetMaxY(self.textField1.frame)+10, CGRectGetWidth(self.textField1.frame), CGRectGetHeight(self.textField1.frame))];
-    self.textField2.delegate = self;
-    self.textField2.layer.cornerRadius = 5;
-    self.textField2.layer.borderWidth = .5;
-    self.textField2.returnKeyType = UIReturnKeyDone;
-    self.textField2.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.textField2.layer.borderColor = [UIColor grayColor].CGColor;
-    self.textField2.placeholder = @"请输入密码";
-    self.textField2.secureTextEntry = YES;
-    self.textField2.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.textField2.frame), CGRectGetHeight(self.textField2.frame))];
-    self.textField2.leftViewMode = UITextFieldViewModeAlways;
-    UIImageView* imgPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
-    imgPwd.image = [UIImage imageNamed:@"iconfont-password"];
-    [self.textField2.leftView addSubview:imgPwd];
-    [smallView.contentView addSubview:self.textField2];
+    self.logPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.logNameTextF.frame), CGRectGetMaxY(self.logNameTextF.frame)+10, self.logNameTextF.frame.size.width-60, CGRectGetHeight(self.logNameTextF.frame))];
+    self.logPassTextF.delegate = self;
+    self.logPassTextF.layer.cornerRadius = 5;
+    self.logPassTextF.layer.borderWidth = .5;
+    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
+    self.logPassTextF.returnKeyType = UIReturnKeyDone;
+    self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.logPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.logPassTextF.placeholder = @"请输入短信验证码";
+    self.logPassTextF.secureTextEntry = YES;
+//    self.logPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.logPassTextF.frame), CGRectGetHeight(self.logPassTextF.frame))];
+//    self.logPassTextF.leftViewMode = UITextFieldViewModeAlways;
+//    UIImageView* imgPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
+//    imgPwd.image = [UIImage imageNamed:@"iconfont-password"];
+//    [self.logPassTextF.leftView addSubview:imgPwd];
+    [loginView addSubview:self.logPassTextF];
+    
+    UIButton *logSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    logSimBtn.frame = CGRectMake(CGRectGetWidth(self.logNameTextF.frame)-30, CGRectGetMaxY(self.logNameTextF.frame)+10, 50, CGRectGetHeight(self.logNameTextF.frame));
+    [logSimBtn setTitle:@"获取" forState:UIControlStateNormal];
+    [logSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
+    logSimBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    logSimBtn.layer.cornerRadius = 5;
+    logSimBtn.layer.borderWidth = .5;
+    logSimBtn.layer.borderColor = [UIColor grayColor].CGColor;
+    [logSimBtn addTarget:^(UIButton *button) {
+        if ([self.logNameTextF.text isEqualToString:@""]) {
+            [MHProgressHUD showMsgWithoutView:@"请输入手机号码"];
+        }else if (self.logNameTextF.text.length != 11) {
+            [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
+        }else{
+            [MHProgressHUD showProgress:@"正在获取..." inView:self];
+            [AVUser requestLoginSmsCode:self.logNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [MHProgressHUD hide];
+                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+                }else{
+                    NSLog(@"登录error==%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+                }
+            }];
+        }
+    }];
+    [loginView addSubview:logSimBtn];
     
     
-    self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.textField2.frame)+10, smallView.frame.size.width-40, 40)];
+    
+    self.regNameTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.titleLabel.frame)+15, smallView.frame.size.width-40, 40)];
+    self.regNameTextF.delegate = self;
+    self.regNameTextF.layer.cornerRadius = 5;
+    self.regNameTextF.layer.borderWidth = .5;
+    self.regNameTextF.keyboardType = UIKeyboardTypePhonePad;
+    self.regNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.regNameTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.regNameTextF.placeholder = @"请输入注册手机号码";
+    self.regNameTextF.text = [NSStrObject getAccount].length ? [NSStrObject getAccount] : @"";
+    self.regNameTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.logNameTextF.frame), CGRectGetHeight(self.logNameTextF.frame))];
+    self.regNameTextF.leftViewMode = UITextFieldViewModeAlways;
+    UIImageView* regUser = [[UIImageView alloc] initWithFrame:CGRectMake(9, 9, 22, 22)];
+    regUser.image = [UIImage imageNamed:@"iconfont-user"];
+    [self.regNameTextF.leftView addSubview:regUser];
+    [registeView addSubview:self.regNameTextF];
+    
+    self.regSimTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.regNameTextF.frame)+10, self.regNameTextF.frame.size.width-60, CGRectGetHeight(self.regNameTextF.frame))];
+    self.regSimTextF.delegate = self;
+    self.regSimTextF.layer.cornerRadius = 5;
+    self.regSimTextF.layer.borderWidth = .5;
+    self.regSimTextF.keyboardType = UIKeyboardTypeNumberPad;
+    self.regSimTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.regSimTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.regSimTextF.placeholder = @"请输入短信验证码";
+    self.regSimTextF.text = @"";
+    [registeView addSubview:self.regSimTextF];
+    
+    UIButton *getSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    getSimBtn.frame = CGRectMake(CGRectGetWidth(self.regNameTextF.frame)-30, CGRectGetMaxY(self.regNameTextF.frame)+10, 50, CGRectGetHeight(self.regSimTextF.frame));
+    [getSimBtn setTitle:@"获取" forState:UIControlStateNormal];
+    [getSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
+    getSimBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    getSimBtn.layer.cornerRadius = 5;
+    getSimBtn.layer.borderWidth = .5;
+    getSimBtn.layer.borderColor = [UIColor grayColor].CGColor;
+    [getSimBtn addTarget:^(UIButton *button) {
+        if ([self.regNameTextF.text isEqualToString:@""]) {
+            [MHProgressHUD showMsgWithoutView:@"请输入手机号码"];
+        }else if (self.regNameTextF.text.length != 11) {
+            [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
+        }else{
+            [MHProgressHUD showProgress:@"正在获取..." inView:self];
+            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+                if (!error) {
+                    [MHProgressHUD hide];
+                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+                }else{
+                    NSLog(@"注册error==%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+                }
+            }];
+        }
+    }];
+    [registeView addSubview:getSimBtn];
+    
+    
+//    self.regPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.regNameTextF.frame), CGRectGetMaxY(self.regSimTextF.frame)+10, CGRectGetWidth(self.regNameTextF.frame), CGRectGetHeight(self.regNameTextF.frame))];
+//    self.regPassTextF.delegate = self;
+//    self.regPassTextF.layer.cornerRadius = 5;
+//    self.regPassTextF.layer.borderWidth = .5;
+//    self.regPassTextF.returnKeyType = UIReturnKeyDone;
+//    self.regPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.regPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
+//    self.regPassTextF.placeholder = @"请输入注册密码";
+//    self.regPassTextF.secureTextEntry = YES;
+//    self.regPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.regPassTextF.frame), CGRectGetHeight(self.regPassTextF.frame))];
+//    self.regPassTextF.leftViewMode = UITextFieldViewModeAlways;
+//    UIImageView* regPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
+//    regPwd.image = [UIImage imageNamed:@"iconfont-password"];
+//    [self.regPassTextF.leftView addSubview:regPwd];
+//    [registeView addSubview:self.regPassTextF];
+    
+    self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.logPassTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     self.loginBtn.layer.cornerRadius = 5;
     [self.loginBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
     [self.loginBtn addTarget:self action:@selector(LoginAction) forControlEvents:UIControlEventTouchUpInside];
-    [smallView.contentView addSubview:self.loginBtn];
+    [loginView addSubview:self.loginBtn];
     
-    self.lostBtn = [[UIButton alloc]initWithFrame:CGRectMake(smallView.frame.size.width/2-40, CGRectGetMaxY(self.loginBtn.frame)+10, 80, 40)];
+    self.lostBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.regSimTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.lostBtn setTitle:@"注册" forState:UIControlStateNormal];
     self.lostBtn.layer.cornerRadius = 5;
-//    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
-    [self.lostBtn addTarget:self action:@selector(registeAction:) forControlEvents:UIControlEventTouchUpInside];
-    [smallView.contentView addSubview:self.lostBtn];
+    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+    [self.lostBtn addTarget:self action:@selector(registeAction) forControlEvents:UIControlEventTouchUpInside];
+    [registeView addSubview:self.lostBtn];
     
     smallView.frame = CGRectMake(20, 150, self.frame.size.width-40, CGRectGetMaxY(self.lostBtn.frame)+15);
 
@@ -162,8 +312,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 - (BOOL)textFieldShouldReturn:(UITextField *)aTextfield
 {
-    if (aTextfield == self.textField1) {
-        [self.textField2 becomeFirstResponder];
+    if (aTextfield == self.logNameTextF) {
+        [self.logPassTextF becomeFirstResponder];
     }else {
         [aTextfield resignFirstResponder];//关闭键盘
         [self LoginAction];
@@ -185,11 +335,11 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 //登录
 - (void)LoginAction
 {
-    [self.textField1 resignFirstResponder];
-    [self.textField2 resignFirstResponder];
+    [self.logNameTextF resignFirstResponder];
+    [self.logPassTextF resignFirstResponder];
     
     if (_clickBlock) {
-        _clickBlock(self.textField1.text, self.textField2.text);
+        _clickBlock(self.logNameTextF.text, self.logPassTextF.text);
     }
 }
 - (void)setClickLoginBlock:(ClicksAlertBlock)clickBlock{
@@ -197,9 +347,13 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 }
 
 //注册
-- (void)registeAction:(UIButton *)sender{
+- (void)registeAction
+{
+    [self.regNameTextF resignFirstResponder];
+    [self.regSimTextF resignFirstResponder];
+    
     if (_lostBlock) {
-        _lostBlock(self.textField1.text, self.textField2.text);
+        _lostBlock(self.regNameTextF.text, self.regSimTextF.text);
     }
 }
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock{
@@ -208,12 +362,13 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.textField1 resignFirstResponder];
-    [self.textField2 resignFirstResponder];
+    [self.logNameTextF resignFirstResponder];
+    [self.logPassTextF resignFirstResponder];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.window resignFirstResponder];
+    [self endEditing:YES];
 }
 
 -(void)setHideEyesType:(HideEyesType)hideEyesType {
@@ -222,7 +377,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 //猫咪动画
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if ([textField isEqual:self.textField1]) {
+    if ([textField isEqual:self.logNameTextF]) {
         if (showType != WSLoginShowType_PASS)
         {
             showType = WSLoginShowType_USER;
@@ -244,7 +399,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
         }];
         
     }
-    else if ([textField isEqual:self.textField2]) {
+    else if ([textField isEqual:self.logPassTextF]) {
         if (showType == WSLoginShowType_PASS)
         {
             showType = WSLoginShowType_PASS;
@@ -325,7 +480,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    if ([textField isEqual:self.textField2]) {
+    if ([textField isEqual:self.logPassTextF]) {
         if (showType == WSLoginShowType_PASS)
         {
             showType = WSLoginShowType_USER;

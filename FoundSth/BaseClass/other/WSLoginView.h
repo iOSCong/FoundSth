@@ -27,9 +27,12 @@ typedef void (^ClicksAlertBlock)(NSString *textField1Text, NSString *textField2T
 typedef void (^ClicksCancelBlock)(void);
 @property (nonatomic, copy, readonly) ClicksCancelBlock cancelBlock;
 
-@property(nonatomic,strong)UITextField *textField1;
+@property(nonatomic,strong)UITextField *logNameTextF;
+@property(nonatomic,strong)UITextField *regNameTextF;
+@property(nonatomic,strong)UITextField *regSimTextF;
 
-@property(nonatomic,strong)UITextField *textField2;
+@property(nonatomic,strong)UITextField *logPassTextF;
+@property(nonatomic,strong)UITextField *regPassTextF;
 
 @property (nonatomic,strong)UIButton *cancelBtn;
 @property(nonatomic,strong)UIButton *loginBtn;

@@ -10,5 +10,6 @@ target 'FoundSth' do
   pod 'SDWebImage', '~> 4.1.0'
   pod 'MJRefresh', '~> 3.1.13'
   pod 'AVOSCloud'
+  pod 'WechatOpenSDK'
   
 end
