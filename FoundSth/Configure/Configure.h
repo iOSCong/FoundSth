@@ -18,6 +18,7 @@
 #import "NSStrObject.h"
 #import <MJRefresh.h>
 #import "UIImageView+WebCache.h"
+#import "MZAlertSheet.h"
 
 
 #define HZMH_APPICONIMAGE [UIImage imageNamed:[[[[NSBundle mainBundle] infoDictionary] valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject]]

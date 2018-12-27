@@ -9,10 +9,14 @@
 #import "AppDelegate.h"
 #import "MHTabBarViewController.h"
 #import "LoginViewController.h"
+#import "WXApiManager.h"
 
 //帮我找
 #define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
 #define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
+
+//微信分享
+#define weixinKey @"wxad265fb5ffccace8"
 
 @interface AppDelegate ()
 
@@ -32,6 +36,9 @@
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
     [AVOSCloud setAllLogsEnabled:YES];
+    
+    //微信分享apikey
+    [WXApi registerApp:weixinKey];
     
 //    if ([NSStrObject getAccount]) {
         self.window.rootViewController = [[MHTabBarViewController alloc] init];
