@@ -15,6 +15,8 @@
 #import "InforsViewController.h"
 #import "FankuiViewController.h"
 #import "UpdateViewController.h"
+#import "DXShareView.h"
+
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
@@ -140,7 +142,20 @@
 //分享APP的连接
 -(void)shareAppStoryAurl
 {
-    
+    NSDictionary *dic = @{
+                          @"title": @"求帮助APP",
+                          @"imgUrl":@"https://www.pgyer.com/xPig",
+                          @"detail" : @"求帮助是一款轻量级的专业便民寻物服务类的APP，不管你在何时何地，只要拿出手机打开求帮助APP，发布自己帮助，瞬间我们会明白世界真的很小，幸福来的很突然",
+                          @"image":[UIImage imageNamed:@"appIcon"]
+                          };
+        DXShareView *shareView = [[DXShareView alloc] init];
+        DXShareModel *shareModel = [[DXShareModel alloc] init];
+        shareModel.title = mzstring(dic[@"title"]);
+        shareModel.descr = mzstring(dic[@"detail"]);
+        shareModel.url = mzempstr(dic[@"imgUrl"]);
+        shareModel.thumbImage = [NSStrObject imageWithImage:dic[@"image"] scaledToSize:CGSizeMake(200, 200)];
+        [shareView showShareViewWithDXShareModel:shareModel shareContentType:DXShareContentTypeImage];
+
 }
 
 
