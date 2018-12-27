@@ -39,11 +39,16 @@
             [self.tableView reloadData];
         }
     }];
+    
+    //视图将要显示时隐藏
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
@@ -68,9 +73,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 100;
+        return 180;
     }
     return 50;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView*view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, mz_width, 20)];
+    view.backgroundColor = mz_yiDongBlueColor;
+    return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,6 +92,7 @@
         [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"headlogo"]];
         cell.userName.text = self.aliasName ? self.aliasName : @"--";
         cell.user_detaile.text = self.signStr ? self.signStr : @"还没有设置个性的签名呢~";
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

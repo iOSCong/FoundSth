@@ -31,12 +31,25 @@
                             <constraint firstAttribute="width" constant="25" id="DqX-P5-gkM"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXb-uq-Tl8">
+                        <rect key="frame" x="10" y="42" width="310" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="nbn-y9-uZt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Nmu-Fc-NRb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2rH-Ml-AqK"/>
+                    <constraint firstItem="IXb-uq-Tl8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7es-QJ-huk"/>
                     <constraint firstItem="Nmu-Fc-NRb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NP8-Kq-oPj"/>
                     <constraint firstAttribute="trailing" secondItem="Sdb-Ql-qbg" secondAttribute="trailing" id="PVj-HD-KVr"/>
+                    <constraint firstAttribute="trailing" secondItem="IXb-uq-Tl8" secondAttribute="trailing" constant="-33" id="RrB-rD-TS3"/>
                     <constraint firstItem="Sdb-Ql-qbg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h8v-Ep-aFC"/>
+                    <constraint firstAttribute="bottom" secondItem="IXb-uq-Tl8" secondAttribute="bottom" id="m1q-DZ-1ro"/>
                     <constraint firstAttribute="bottom" secondItem="Sdb-Ql-qbg" secondAttribute="bottom" id="mKY-Yl-znn"/>
                     <constraint firstItem="Sdb-Ql-qbg" firstAttribute="leading" secondItem="Nmu-Fc-NRb" secondAttribute="trailing" constant="14" id="r22-vy-dfC"/>
                 </constraints>

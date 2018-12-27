@@ -16,4 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *user_detaile;
 
+@property (weak, nonatomic) IBOutlet UIImageView *iamgeBGveiw;
+
 @end
