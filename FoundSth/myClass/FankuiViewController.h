@@ -6,8 +6,7 @@
 //  Copyright © 2018年 MCEJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface FankuiViewController : UIViewController
+#import "BaseViewController.h"
+@interface FankuiViewController : BaseViewController
 
 @end
