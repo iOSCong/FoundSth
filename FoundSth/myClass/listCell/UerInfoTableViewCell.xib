@@ -23,23 +23,23 @@
                         <color key="backgroundColor" red="0.078431372550000003" green="0.58823529409999997" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headlogo" translatesAutoresizingMaskIntoConstraints="NO" id="aus-cq-aDS">
-                        <rect key="frame" x="152.5" y="52.5" width="90" height="90"/>
+                        <rect key="frame" x="152.5" y="72.5" width="90" height="90"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="D95-jx-XKu"/>
                             <constraint firstAttribute="height" constant="90" id="j0k-jx-q4c"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世界如此美丽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6N-S1-LQU">
-                        <rect key="frame" x="0.0" y="150" width="395" height="30"/>
+                        <rect key="frame" x="0.0" y="167.5" width="395" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="fwd-uy-cny"/>
+                            <constraint firstAttribute="height" constant="26" id="fwd-uy-cny"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美丽的世界我需要，我要走出去看看" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QX-XT-oNB">
-                        <rect key="frame" x="0.0" y="183" width="395" height="30"/>
+                        <rect key="frame" x="0.0" y="193.5" width="395" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="7hY-FM-0ha"/>
                         </constraints>
@@ -52,13 +52,13 @@
                     <constraint firstAttribute="bottom" secondItem="X1n-Y4-oqv" secondAttribute="bottom" id="5x0-GB-CDc"/>
                     <constraint firstItem="t6N-S1-LQU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AYc-fr-NHM"/>
                     <constraint firstItem="X1n-Y4-oqv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-2" id="ChS-Zp-CuW"/>
-                    <constraint firstItem="t6N-S1-LQU" firstAttribute="top" secondItem="aus-cq-aDS" secondAttribute="bottom" constant="7.5" id="HP8-yH-SAH"/>
+                    <constraint firstItem="t6N-S1-LQU" firstAttribute="top" secondItem="aus-cq-aDS" secondAttribute="bottom" constant="5" id="HP8-yH-SAH"/>
                     <constraint firstItem="aus-cq-aDS" firstAttribute="centerX" secondItem="X1n-Y4-oqv" secondAttribute="centerX" id="PBA-lA-FmC"/>
                     <constraint firstAttribute="trailing" secondItem="t6N-S1-LQU" secondAttribute="trailing" id="SjL-fw-6vP"/>
                     <constraint firstAttribute="trailing" secondItem="X1n-Y4-oqv" secondAttribute="trailing" id="YSK-Ok-uwd"/>
                     <constraint firstItem="X1n-Y4-oqv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yqe-ml-u81"/>
-                    <constraint firstItem="1QX-XT-oNB" firstAttribute="top" secondItem="t6N-S1-LQU" secondAttribute="bottom" constant="3" id="gwz-Sg-Y95"/>
-                    <constraint firstItem="aus-cq-aDS" firstAttribute="centerY" secondItem="X1n-Y4-oqv" secondAttribute="centerY" constant="-30" id="jsQ-dR-w0u"/>
+                    <constraint firstItem="1QX-XT-oNB" firstAttribute="top" secondItem="t6N-S1-LQU" secondAttribute="bottom" id="gwz-Sg-Y95"/>
+                    <constraint firstItem="aus-cq-aDS" firstAttribute="centerY" secondItem="X1n-Y4-oqv" secondAttribute="centerY" constant="-10" id="jsQ-dR-w0u"/>
                     <constraint firstAttribute="trailing" secondItem="1QX-XT-oNB" secondAttribute="trailing" id="rGt-Ur-aMT"/>
                     <constraint firstItem="1QX-XT-oNB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="s9y-li-aZh"/>
                 </constraints>
@@ -69,7 +69,7 @@
                 <outlet property="userName" destination="t6N-S1-LQU" id="slO-uE-qgs"/>
                 <outlet property="user_detaile" destination="1QX-XT-oNB" id="0L1-p9-smv"/>
             </connections>
-            <point key="canvasLocation" x="-58.5" y="47.5"/>
+            <point key="canvasLocation" x="-203" y="52"/>
         </tableViewCell>
     </objects>
     <resources>
