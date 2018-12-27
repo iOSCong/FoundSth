@@ -70,7 +70,7 @@
     projectNavController.tabBarItem = item2;
     
     MineViewController *myController = [[MineViewController alloc] init];
-    myController.title = item4.title;
+//    myController.title = item4.title;
     MHNavViewController *myNavController = [[MHNavViewController alloc] initWithRootViewController:myController];
     myNavController.tabBarItem = item4;
     

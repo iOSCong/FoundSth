@@ -23,6 +23,8 @@
 @property (nonatomic,copy)NSString *aliasName;
 @property (nonatomic,copy)NSString *signStr;
 @property(nonatomic,strong)NSArray *menus;
+@property (nonatomic,strong)UIView *heView;
+
 @end
 
 @implementation MineViewController
@@ -54,6 +56,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
+    self.tableView.frame = mz_tableTopFrame;
+    
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"分享应用",@"设置"];
 }
