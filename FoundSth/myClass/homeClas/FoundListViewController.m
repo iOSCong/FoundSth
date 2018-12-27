@@ -112,6 +112,8 @@
         [cell.imageBtn addTarget:^(UIButton *button) {
             [weakself tapHeadImgViewHandle:cell.contentImgView.image];
         }];
+    }else{
+        cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     mzWeakSelf(self);

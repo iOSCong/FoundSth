@@ -67,15 +67,15 @@
                         <rect key="frame" x="65" y="320.5" width="240" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKP-fi-jgd">
-                                <rect key="frame" x="225" y="11.5" width="15" height="17"/>
+                                <rect key="frame" x="224" y="11.5" width="16" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="NxD-8Y-y6A"/>
+                                    <constraint firstAttribute="width" constant="16" id="NxD-8Y-y6A"/>
                                     <constraint firstAttribute="height" constant="17" id="RIM-3K-rZt"/>
                                 </constraints>
                                 <state key="normal" image="home_fenxiang"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANA-Yp-Mtn">
-                                <rect key="frame" x="176" y="10" width="20" height="20"/>
+                                <rect key="frame" x="175" y="10" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ANA-Yp-Mtn" secondAttribute="height" multiplier="1:1" id="hYa-CV-QS5"/>
                                     <constraint firstAttribute="width" constant="20" id="ucu-hV-TYH"/>
@@ -83,7 +83,7 @@
                                 <state key="normal" image="home_dianzan"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWW-Ic-CRP">
-                                <rect key="frame" x="196" y="12" width="9" height="17"/>
+                                <rect key="frame" x="195" y="12" width="9" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
