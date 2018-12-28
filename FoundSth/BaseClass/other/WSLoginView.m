@@ -205,19 +205,25 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
             [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
         }else{
             [MHProgressHUD showProgress:@"正在获取..." inView:self];
-            [AVUser requestLoginSmsCode:self.logNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    [MHProgressHUD hide];
-                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
-                }else{
-                    NSLog(@"登录error==%@",error);
-                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
-                }
-            }];
+            AVUser *user = [AVUser user];
+            user.username = @"13007";
+            user.password =  @"123";
+            user.email = @"951994611@qq.com";
+            user.mobilePhoneNumber = self.logNameTextF.text;
+            NSError *error = nil;
+            [user signUp:&error];
+//            [AVUser requestLoginSmsCode:self.logNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"登录error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
         }
     }];
     [loginView addSubview:logSimBtn];
-    
     
     
     self.regNameTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.titleLabel.frame)+15, smallView.frame.size.width-40, 40)];
@@ -262,7 +268,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
             [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
         }else{
             [MHProgressHUD showProgress:@"正在获取..." inView:self];
-            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+            [AVUser verifyMobilePhone:self.regNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     [MHProgressHUD hide];
                     [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
@@ -271,6 +277,15 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
                     [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
                 }
             }];
+//            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"注册error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
         }
     }];
     [registeView addSubview:getSimBtn];
