@@ -63,7 +63,7 @@
     homeController.title = item1.title;
     MHNavViewController *homeNavController = [[MHNavViewController alloc] initWithRootViewController:homeController];
     homeNavController.tabBarItem = item1;
-    //dd
+    
     FoundMyViewController *investController = [[FoundMyViewController alloc] init];
     investController.title = item2.title;
     MHNavViewController *projectNavController = [[MHNavViewController alloc] initWithRootViewController:investController];
