@@ -41,7 +41,7 @@
     [item1 setSelectedImage:[[UIImage imageNamed:@"tab-home-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item1 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
-    //我在远程仓库的这里加了点代码呢
+    //我在远程仓库的这里加了点代码呢sdss
     UITabBarItem *item2 = [[UITabBarItem alloc] init];
     item2.tag = 2;
     [item2 setTitle:@"发布"];//设置了的啊
