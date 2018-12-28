@@ -30,7 +30,7 @@
     
     /*解决item上下变化位置的问题*/
     [[UITabBar appearance] setTranslucent:NO];
-    
+    //github上的
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     UIColor *textColor = [UIColor blackColor];
