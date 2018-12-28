@@ -36,7 +36,7 @@
     [self.navigationController.navigationBar setShadowImage:nil];
     
 }
-//本地改动的
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
