@@ -990,7 +990,7 @@
 				TargetAttributes = {
 					D8549FA021CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					D8549FB821CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
@@ -1395,9 +1395,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GHNG86Z2B3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6Y6PJDEC8X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1446,8 +1446,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
+				PROVISIONING_PROFILE_SPECIFIER = jixiaokaohe;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1459,9 +1459,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GHNG86Z2B3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6Y6PJDEC8X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1510,8 +1510,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
+				PROVISIONING_PROFILE_SPECIFIER = jixiaokaohe;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

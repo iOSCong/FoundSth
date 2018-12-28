@@ -56,7 +56,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
-    self.tableView.frame = mz_tableTopFrame;
+    self.tableView.frame = mz_tableTopAndTabbarFrame;
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"分享应用",@"设置"];
