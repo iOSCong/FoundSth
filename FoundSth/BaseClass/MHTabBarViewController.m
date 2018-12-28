@@ -30,7 +30,7 @@
     
     /*解决item上下变化位置的问题*/
     [[UITabBar appearance] setTranslucent:NO];
-    //试试
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
     UIColor *textColor = [UIColor blackColor];
@@ -49,7 +49,7 @@
     [item2 setSelectedImage:[[UIImage imageNamed:@"tab-Project-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item2 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
-    
+    //发布
     UITabBarItem *item4 = [[UITabBarItem alloc] init];
     item4.tag = 4;
     [item4 setTitle:@"我的"];
