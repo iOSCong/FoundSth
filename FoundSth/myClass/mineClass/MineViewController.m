@@ -161,7 +161,7 @@
     shareModel.title = mzstring(dic[@"title"]);
     shareModel.descr = mzstring(dic[@"detail"]);
     shareModel.url = mzempstr(dic[@"imgUrl"]);
-//    shareModel.thumbImage = dic[@"image"];
+    shareModel.thumbImage = dic[@"image"];
         [shareView showShareViewWithDXShareModel:shareModel shareContentType:DXShareContentTypeImage];
 
 }

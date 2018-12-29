@@ -207,12 +207,12 @@ static CGFloat const DXShreCancelHeight = 46.f;
     
     NSString *title = self.shareModel.title;//分享标题
     NSString *description = self.shareModel.descr;//分享描述
-    NSString *previewImageUrl = self.shareModel.url;//分享链接
+    NSData *previewImageData = UIImagePNGRepresentation(self.shareModel.thumbImage);
     QQApiNewsObject *newsObj = [QQApiNewsObject
-                                objectWithURL:[NSURL URLWithString:self.shareModel.url]
+                                objectWithURL:[NSURL URLWithString:self.shareModel.url]//分享链接
                                 title:title
                                 description:description
-                                previewImageURL:[NSURL URLWithString:previewImageUrl]];
+                                previewImageData:previewImageData];
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
     if (index == 0) {
         //将内容分享到qq
@@ -293,11 +293,11 @@ static CGFloat const DXShreCancelHeight = 46.f;
 -(void)shareResult:(id)result error:(NSError*)error
 {
     if (!error) {
-//        [XHToast showBottomWithText:@"分享成功"];
+        [MHProgressHUD showMsgWithoutView:@"分享成功"];
     }
     else
     {
-//        [XHToast showBottomWithText:@"分享失败"];
+        [MHProgressHUD showMsgWithoutView:@"分享失败"];
     }
 }
 
