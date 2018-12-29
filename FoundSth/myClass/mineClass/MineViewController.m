@@ -20,10 +20,10 @@
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)NSString *headUrl;
+@property (nonatomic,copy)NSString *sexStr;
 @property (nonatomic,copy)NSString *aliasName;
 @property (nonatomic,copy)NSString *signStr;
 @property(nonatomic,strong)NSArray *menus;
-@property (nonatomic,strong)UIView *heView;
 
 @end
 
@@ -38,6 +38,7 @@
         if (!error) {
             AVFile *userAvatar = [object objectForKey:@"avatar"];
             self.headUrl = userAvatar.url;
+            self.sexStr = [object objectForKey:@"sex"];
             self.aliasName = [object objectForKey:@"alias"];
             self.signStr = [object objectForKey:@"sign"];
             [self.tableView reloadData];
@@ -100,6 +101,7 @@
     if (indexPath.section == 0) {
         UerInfoTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"UerInfoTableViewCell" owner:self options:nil] lastObject];
         [cell.icon_imageView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"headlogo"]];
+        cell.sexImgV.image = [self.sexStr isEqualToString:@"男"] ? mz_image(@"icon_boy") : ([self.sexStr isEqualToString:@"女"] ? mz_image(@"icon_girl") : nil);
         cell.userName.text = self.aliasName ? self.aliasName : @"--";
         cell.user_detaile.text = self.signStr ? self.signStr : @"还没有设置个性的签名呢~";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -120,6 +122,7 @@
     if (indexPath.section == 0) {
         UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
         userinfo.headUrl = self.headUrl;
+        userinfo.sexStr = self.sexStr;
         userinfo.aliasName = self.aliasName;
         userinfo.signStr = self.signStr;
         [self.navigationController pushViewController:userinfo animated:YES];
@@ -136,7 +139,6 @@
         [self.navigationController pushViewController:fankui animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 3){
         [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
-
     }else if (indexPath.section == 1 && indexPath.row == 4){
         //分享APP的连接
         [self shareAppStoryAurl];

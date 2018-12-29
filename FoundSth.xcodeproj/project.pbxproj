@@ -136,6 +136,15 @@
 		D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */; };
 		D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */; };
 		D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */; };
+		D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */; };
+		D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */; };
+		D8F24A7A21D7C3C2003FF814 /* CGXDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */; };
+		D8F24A7B21D7C3C2003FF814 /* CGXPickerUIBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */; };
+		D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */; };
+		D8F24A7D21D7C3C2003FF814 /* CGXPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */; };
+		D8F24A7E21D7C3C2003FF814 /* CGXPickerViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */; };
+		D8F24A7F21D7C3C2003FF814 /* CGXStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */; };
+		D8F24A8021D7C3C2003FF814 /* NSDate+CGXPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */; };
 		D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FB21D312B500966F40 /* InforsViewController.m */; };
 		D8FFD20021D314A600966F40 /* InforDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */; };
 		D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */; };
@@ -382,6 +391,23 @@
 		D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyTableViewCell.h; sourceTree = "<group>"; };
 		D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyTableViewCell.m; sourceTree = "<group>"; };
 		D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMyTableViewCell.xib; sourceTree = "<group>"; };
+		D8F24A6721D7C3C1003FF814 /* CGXAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXAddressModel.h; sourceTree = "<group>"; };
+		D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXAddressModel.m; sourceTree = "<group>"; };
+		D8F24A6921D7C3C1003FF814 /* CGXAddressPcikerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXAddressPcikerView.h; sourceTree = "<group>"; };
+		D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXAddressPcikerView.m; sourceTree = "<group>"; };
+		D8F24A6B21D7C3C1003FF814 /* CGXDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDatePickerView.h; sourceTree = "<group>"; };
+		D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDatePickerView.m; sourceTree = "<group>"; };
+		D8F24A6D21D7C3C1003FF814 /* CGXPickerUIBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerUIBaseView.h; sourceTree = "<group>"; };
+		D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerUIBaseView.m; sourceTree = "<group>"; };
+		D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CGXPickerView.bundle; sourceTree = "<group>"; };
+		D8F24A7021D7C3C1003FF814 /* CGXPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerView.h; sourceTree = "<group>"; };
+		D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerView.m; sourceTree = "<group>"; };
+		D8F24A7221D7C3C1003FF814 /* CGXPickerViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerViewManager.h; sourceTree = "<group>"; };
+		D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerViewManager.m; sourceTree = "<group>"; };
+		D8F24A7421D7C3C1003FF814 /* CGXStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXStringPickerView.h; sourceTree = "<group>"; };
+		D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXStringPickerView.m; sourceTree = "<group>"; };
+		D8F24A7621D7C3C1003FF814 /* NSDate+CGXPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CGXPicker.h"; sourceTree = "<group>"; };
+		D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CGXPicker.m"; sourceTree = "<group>"; };
 		D8FFD1FA21D312B500966F40 /* InforsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforsViewController.h; sourceTree = "<group>"; };
 		D8FFD1FB21D312B500966F40 /* InforsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InforsViewController.m; sourceTree = "<group>"; };
 		D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforDetailViewController.h; sourceTree = "<group>"; };
@@ -555,6 +581,7 @@
 		D8549FE021CE8170000FD0DF /* other */ = {
 			isa = PBXGroup;
 			children = (
+				D8F24A6621D7C3C1003FF814 /* CGXPickerView */,
 				D865784421D4A9CA00CBAD64 /* QQShare */,
 				D865783121D4709C00CBAD64 /* DXShareView */,
 				D865782D21D46F3800CBAD64 /* WeChatShare */,
@@ -920,6 +947,30 @@
 			path = QQShare;
 			sourceTree = "<group>";
 		};
+		D8F24A6621D7C3C1003FF814 /* CGXPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D8F24A6721D7C3C1003FF814 /* CGXAddressModel.h */,
+				D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */,
+				D8F24A6921D7C3C1003FF814 /* CGXAddressPcikerView.h */,
+				D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */,
+				D8F24A6B21D7C3C1003FF814 /* CGXDatePickerView.h */,
+				D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */,
+				D8F24A6D21D7C3C1003FF814 /* CGXPickerUIBaseView.h */,
+				D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */,
+				D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */,
+				D8F24A7021D7C3C1003FF814 /* CGXPickerView.h */,
+				D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */,
+				D8F24A7221D7C3C1003FF814 /* CGXPickerViewManager.h */,
+				D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */,
+				D8F24A7421D7C3C1003FF814 /* CGXStringPickerView.h */,
+				D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */,
+				D8F24A7621D7C3C1003FF814 /* NSDate+CGXPicker.h */,
+				D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */,
+			);
+			path = CGXPickerView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1052,6 +1103,7 @@
 				D854A06221CE8171000FD0DF /* BaseViewController.xib in Resources */,
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
+				D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */,
 				D854A0B921CF42B2000FD0DF /* btn_circle@2x.png in Resources */,
 				D854A0C221CF42B2000FD0DF /* btn_unselected@2x.png in Resources */,
 				401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */,
@@ -1150,9 +1202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D854A05021CE8171000FD0DF /* YBImageBrowserViewLayout.m in Sources */,
+				D8F24A7D21D7C3C2003FF814 /* CGXPickerView.m in Sources */,
 				D854A04A21CE8171000FD0DF /* WSLoginView.m in Sources */,
 				401E058521CFE6C500D954B2 /* UsetInfoViewController.m in Sources */,
 				D854A0B821CF42B2000FD0DF /* NSBundle+ZLPhotoBrowser.m in Sources */,
+				D8F24A7B21D7C3C2003FF814 /* CGXPickerUIBaseView.m in Sources */,
 				D854A04C21CE8171000FD0DF /* YBImageBrowserPromptBar.m in Sources */,
 				D854A07921CE8384000FD0DF /* FoundReleaseViewController.m in Sources */,
 				D854A06A21CE81CB000FD0DF /* MHTabBarViewController.m in Sources */,
@@ -1173,7 +1227,9 @@
 				D865783021D46F3800CBAD64 /* WXApiManager.m in Sources */,
 				D865784021D4709C00CBAD64 /* MapNavView.m in Sources */,
 				401E05A421CFF62A00D954B2 /* AboutTableViewCell.m in Sources */,
+				D8F24A7F21D7C3C2003FF814 /* CGXStringPickerView.m in Sources */,
 				D854A04821CE8171000FD0DF /* UITextField+MZTextField.m in Sources */,
+				D8F24A8021D7C3C2003FF814 /* NSDate+CGXPicker.m in Sources */,
 				D865783E21D4709C00CBAD64 /* DXSharePlatform.m in Sources */,
 				D854A0D821CF42B2000FD0DF /* ZLThumbnailViewController.m in Sources */,
 				D854A04921CE8171000FD0DF /* WebView.m in Sources */,
@@ -1192,13 +1248,16 @@
 				D854A07421CE8357000FD0DF /* FoundListViewController.m in Sources */,
 				D854A05821CE8171000FD0DF /* YBImageBrowserCopywriter.m in Sources */,
 				D854A08521CE8614000FD0DF /* LoginViewController.m in Sources */,
+				D8F24A7A21D7C3C2003FF814 /* CGXDatePickerView.m in Sources */,
 				D854A0D721CF42B2000FD0DF /* ZLShowBigImgViewController.m in Sources */,
 				D854A0D021CF42B2000FD0DF /* ZLNoAuthorityViewController.m in Sources */,
 				D854A04621CE8171000FD0DF /* UIView+SDExtension.m in Sources */,
 				D854A0D221CF42B2000FD0DF /* ZLPhotoBrowser.m in Sources */,
+				D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */,
 				D854A05521CE8171000FD0DF /* YBImageBrowserToolBar.m in Sources */,
 				D854A0CE21CF42B2000FD0DF /* ZLBigImageCell.m in Sources */,
 				D854A04321CE8171000FD0DF /* TAPageControl.m in Sources */,
+				D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */,
 				D865783C21D4709C00CBAD64 /* DXShareButton.m in Sources */,
 				D854A0DD21CFD2D2000FD0DF /* FoundListTableViewCell.m in Sources */,
 				D854A05421CE8171000FD0DF /* YBImageBrowserFunctionModel.m in Sources */,
@@ -1210,6 +1269,7 @@
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,
 				D854A04F21CE8171000FD0DF /* YBImageBrowserView.m in Sources */,
 				D854A05921CE8171000FD0DF /* YBImageBrowserDownloader.m in Sources */,
+				D8F24A7E21D7C3C2003FF814 /* CGXPickerViewManager.m in Sources */,
 				D854A05121CE8171000FD0DF /* FLAnimatedImage.m in Sources */,
 				D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */,
 				D854A03F21CE8171000FD0DF /* NSStrObject.m in Sources */,

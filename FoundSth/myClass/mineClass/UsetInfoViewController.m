@@ -9,6 +9,7 @@
 #import "UsetInfoViewController.h"
 #import "IconTableViewCell.h"
 #import "ZLPhotoActionSheet.h"
+#import "CGXPickerView.h"
 
 @interface UsetInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -25,7 +26,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
@@ -41,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +88,11 @@
         UITextField *textField1 = (UITextField *)[cell viewWithTag:2001];
         UITextField *textField2 = (UITextField *)[cell viewWithTag:2002];
         if (indexPath.row == 1) {
+            cell.textLabel.text = @"性别";
+            textField1.hidden = NO;
+            textField1.enabled = NO;
+            textField1.text = self.sexStr ? self.sexStr : @"--";
+        }else if (indexPath.row == 2) {
             cell.textLabel.text = @"昵称";
             textField1.hidden = NO;
             textField1.text = self.aliasName;
@@ -123,6 +128,14 @@
             self.headCell.headImgView.image = selectPhotos[0];
         }];
         return;
+    }else if (indexPath.row == 1) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UITextField *textField1 = (UITextField *)[cell viewWithTag:2001];
+        mzWeakSelf(self);
+        [CGXPickerView showStringPickerWithDataSource:@[@"男",@"女"] ResultBlock:^(id selectValue, id selectRow) {
+            textField1.text = selectValue;
+            weakself.sexStr = selectValue;
+        }];
     }
 }
 
@@ -132,6 +145,7 @@
     AVUser *currentuser = [AVUser currentUser];
     AVFile *avatarFile = [AVFile fileWithData:imageData];
     [currentuser setObject:avatarFile forKey:@"avatar"];
+    [currentuser setObject:self.sexStr forKey:@"sex"];
     [currentuser setObject:self.aliasName forKey:@"alias"];
     [currentuser setObject:self.signStr forKey:@"sign"];
     [MHProgressHUD showProgress:@"正在提交..." inView:self.view];

@@ -32,6 +32,12 @@
     [AVAnalytics endLogPageView:@"ProductList"];
 }
 
+//重新加载
+-(void)buttonEvent
+{
+    [self requestData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -45,6 +51,9 @@
     self.tableView.frame = mz_tableTabbarFrame;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FoundListTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoundListTableViewCell"];
+    
+    self.noDataTitle = @"";
+    self.btnTitle = @"重新加载";
     
     [self requestData];
     
@@ -92,7 +101,9 @@
     AVUser *owner = self.dataArr[indexPath.row][@"owner"];
     AVFile *userAvatar =[owner objectForKey:@"avatar"];
     if (userAvatar) {
-        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:userAvatar.url] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+        [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:userAvatar.url] placeholderImage:[UIImage imageNamed:@"headlogo"]];
+    }else{
+        cell.headImgView.image = [UIImage imageNamed:@"headlogo"];
     }
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
     

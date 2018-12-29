@@ -1,0 +1,279 @@
+//
+//  CGXPickerView.m
+//  CGXPickerView
+//
+//  Created by 曹贵鑫 on 2017/8/23.
+//  Copyright © 2017年 曹贵鑫. All rights reserved.
+//
+
+#import "CGXPickerView.h"
+
+#import "CGXStringPickerView.h"
+#import "CGXDatePickerView.h"
+#import "CGXAddressPcikerView.h"
+
+@implementation CGXPickerView
+
++ (void)showStringPickerWithTitle:(NSString *)title
+                         FileName:(NSString *)fileName
+                  DefaultSelValue:(id)defaultSelValue
+                     IsAutoSelect:(BOOL)isAutoSelect
+                         Manager:(CGXPickerViewManager *)manager
+                      ResultBlock:(CGXStringResultBlock)resultBlock
+{
+    [CGXStringPickerView showStringPickerWithTitle:title
+                                          FileName:fileName
+                                   DefaultSelValue:defaultSelValue
+                                      IsAutoSelect:isAutoSelect
+                                           Manager:(CGXPickerViewManager *)manager
+                                       ResultBlock:^(id selectValue, id selectRow) {
+        if (resultBlock) {
+            resultBlock(selectValue,selectRow);
+        } ;
+    }];
+    
+
+}
+
+//自定义一行简易版
++ (void)showStringPickerWithDataSource:(NSArray *)dataSource ResultBlock:(CGXStringResultBlock)resultBlock
+{
+    /*
+     
+     一行用法
+     [CGXPickerView showStringPickerWithDataSource:@[@"ha",@"haha"] ResultBlock:^(id selectValue, id selectRow) {
+     cell.rightLabel.text = selectValue;
+     }];
+     
+     多行用法
+     [CGXPickerView showStringPickerWithDataSource:@[@[@"ee",@"eehh"],@[@"ha",@"haha"]] ResultBlock:^(id selectValue, id selectRow) {
+     cell.rightLabel.text = [NSString stringWithFormat:@"%@---%@",selectValue[0],selectValue[1]];
+     }];
+     
+     */
+    [CGXStringPickerView showStringPickerWithTitle:nil
+                                        DataSource:dataSource
+                                   DefaultSelValue:nil
+                                      IsAutoSelect:YES
+                                           Manager:nil
+                                       ResultBlock:^(id selectValue, id selectRow) {
+                                           if (resultBlock) {
+                                               resultBlock(selectValue,selectRow);
+                                           } ;
+                                       }];
+}
+
++ (void)showStringPickerWithTitle:(NSString *)title
+                       DataSource:(NSArray *)dataSource
+                  DefaultSelValue:(id)defaultSelValue
+                     IsAutoSelect:(BOOL)isAutoSelect
+                          Manager:(CGXPickerViewManager *)manager
+                      ResultBlock:(CGXStringResultBlock)resultBlock
+{
+    [CGXStringPickerView showStringPickerWithTitle:title
+                                        DataSource:dataSource
+                                   DefaultSelValue:defaultSelValue
+                                      IsAutoSelect:isAutoSelect
+                                           Manager:(CGXPickerViewManager *)manager
+                                       ResultBlock:^(id selectValue, id selectRow) {
+                                           if (resultBlock) {
+                                               resultBlock(selectValue,selectRow);
+                                           } ;
+    }];
+}
+
++ (void)showStringPickerWithTitle:(NSString *)title
+                  DefaultSelValue:(id)defaultSelValue
+                     IsAutoSelect:(BOOL)isAutoSelect
+                         Manager:(CGXPickerViewManager *)manager
+                      ResultBlock:(CGXStringResultBlock)resultBlock
+                            Style:(CGXStringPickerViewStyle)style
+{
+    [CGXStringPickerView showStringPickerWithTitle:title
+                                   DefaultSelValue:defaultSelValue
+                                      IsAutoSelect:isAutoSelect
+                                           Manager:(CGXPickerViewManager *)manager
+                                       ResultBlock:^(id selectValue, id selectRow) {
+                                           if (resultBlock) {
+                                               resultBlock(selectValue,selectRow);
+                                           } ;
+    } Style:style];
+}
++ (NSArray *)showStringPickerDataSourceStyle:(CGXStringPickerViewStyle)style
+{
+    NSArray *dataSource =[NSArray array];
+    
+    if (style == CGXStringPickerViewStyleEducation ||
+        style == CGXStringPickerViewStyleBlood ||
+        style == CGXStringPickerViewStyleAnimal ||
+        style == CGXStringPickerViewStylConstellation ||
+        style == CGXStringPickerViewStyleGender ||
+        style == CGXStringPickerViewStylNation ||
+        style == CGXStringPickerViewStylReligious ||
+        style == CGXStringPickerViewStyleAge ||
+        style == CGXStringPickerViewStylHeight ||
+        style == CGXStringPickerViewStylWeight ||
+        style == CGXStringPickerViewStylWeek) {
+        dataSource  =[CGXStringPickerView showStringPickerDataSourceStyle:style];
+    } else if (style == CGXStringPickerViewStyleAgeScope ||
+               style == CGXStringPickerViewStylHeightScope ||
+               style ==CGXStringPickerViewStylWeightScope){
+        dataSource  =[[CGXStringPickerView showStringPickerDataSourceStyle:style] firstObject];
+    }
+    
+    return dataSource;
+}
+
+//年月日
++ (void)showDatePickerWithDefaultYearMonthDay:(NSString *)yearMonthDay ResultBlock:(CGXDateResultBlock)resultBlock
+{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSString *nowStr = [fmt stringFromDate:now];
+    
+    if ([yearMonthDay isEqualToString:@"--"]) {
+        yearMonthDay = nowStr;
+    }
+    [CGXDatePickerView showDatePickerWithTitle:nil
+                                      DateType:UIDatePickerModeDate
+                               DefaultSelValue:yearMonthDay
+                                    MinDateStr:nil
+                                    MaxDateStr:nowStr
+                                  IsAutoSelect:YES
+                                   ResultBlock:^(NSString *selectValue) {
+                                       if (resultBlock) {
+                                           resultBlock(selectValue);
+                                       }
+                                   }];
+}
+
+//只用年月
++ (void)showDatePickerWithDefaultYearMonth:(NSString *)yearMonth ResultBlock:(CGXDateResultBlock)resultBlock
+{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM";
+    NSString *nowStr = [fmt stringFromDate:now];
+    
+    if ([yearMonth isEqualToString:@"--"]) {
+        yearMonth = nowStr;
+    }
+    [CGXDatePickerView showDatePickerWithTitle:nil
+                                      DateType:UIDatePickerModeDateAndTime
+                               DefaultSelValue:yearMonth
+                                    MinDateStr:nil
+                                    MaxDateStr:nowStr
+                                  IsAutoSelect:YES
+                                   ResultBlock:^(NSString *selectValue) {
+                                       if (resultBlock) {
+                                           resultBlock(selectValue);
+                                       }
+                                   }];
+}
+
++ (void)showDatePickerWithDefaultSelValue:(NSString *)defaultSelValue ResultBlock:(CGXDateResultBlock)resultBlock
+{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    NSString *nowStr = [fmt stringFromDate:now];
+    
+    [CGXDatePickerView showDatePickerWithTitle:nil
+                                      DateType:UIDatePickerModeDateAndTime
+                               DefaultSelValue:defaultSelValue
+                                    MinDateStr:nowStr
+                                    MaxDateStr:nil
+                                  IsAutoSelect:YES
+                                   ResultBlock:^(NSString *selectValue) {
+                                       if (resultBlock) {
+                                           resultBlock(selectValue);
+                                       }
+                                   }];
+}
+
++ (void)showDatePickerWithTitle:(NSString *)title
+                       DateType:(UIDatePickerMode)type
+                DefaultSelValue:(NSString *)defaultSelValue
+                     MinDateStr:(NSString *)minDateStr
+                     MaxDateStr:(NSString *)maxDateStr
+                   IsAutoSelect:(BOOL)isAutoSelect
+                        Manager:(CGXPickerViewManager *)manager
+                    ResultBlock:(CGXDateResultBlock)resultBlock
+{
+    if (manager) {
+        [CGXDatePickerView showDatePickerWithTitle:title
+                                          DateType:type
+                                   DefaultSelValue:defaultSelValue
+                                        MinDateStr:minDateStr
+                                        MaxDateStr:maxDateStr
+                                      IsAutoSelect:isAutoSelect
+                                       ResultBlock:^(NSString *selectValue) {
+            if (resultBlock) {
+                resultBlock(selectValue);
+            }
+        } Manager:manager];
+    } else{
+        [CGXDatePickerView showDatePickerWithTitle:title
+                                          DateType:type
+                                   DefaultSelValue:defaultSelValue
+                                        MinDateStr:minDateStr
+                                        MaxDateStr:maxDateStr
+                                      IsAutoSelect:isAutoSelect
+                                       ResultBlock:^(NSString *selectValue) {
+            if (resultBlock) {
+                resultBlock(selectValue);
+            }
+        }];
+    }
+
+}
++ (void)showAddressPickerWithTitle:(NSString *)title
+                   DefaultSelected:(NSArray *)defaultSelectedArr
+                      IsAutoSelect:(BOOL)isAutoSelect
+                           Manager:(CGXPickerViewManager *)manager
+                       ResultBlock:(CGXAddressResultBlock)resultBlock
+{
+    [CGXAddressPcikerView showAddressPickerWithTitle:title DefaultSelected:defaultSelectedArr IsAutoSelect:isAutoSelect Manager:manager ResultBlock:^(NSArray *selectAddressArr, NSArray *selectAddressRow) {
+        if (resultBlock) {
+            resultBlock(selectAddressArr,selectAddressRow);
+        }; ;
+    }];
+}
+
++ (void)showAddressPickerWithTitle:(NSString *)title
+                   DefaultSelected:(NSArray *)defaultSelectedArr
+                          FileName:(NSString *)fileName
+                      IsAutoSelect:(BOOL)isAutoSelect
+                           Manager:(CGXPickerViewManager *)manager
+                       ResultBlock:(CGXAddressResultBlock)resultBlock
+{
+    [CGXAddressPcikerView showAddressPickerWithTitle:title DefaultSelected:defaultSelectedArr FileName:fileName IsAutoSelect:isAutoSelect Manager:manager ResultBlock:^(NSArray *selectAddressArr, NSArray *selectAddressRow) {
+        if (resultBlock) {
+            resultBlock(selectAddressArr,selectAddressRow);
+        }; ;
+    }];
+}
+
++ (NSString *)showSelectAddressProvince_id:(NSString *)province_id City_id:(NSString *)city_id
+{
+    NSString *mulStr = @"不限";
+    NSString *strResourcesBundle = [[NSBundle mainBundle] pathForResource:@"CGXPickerView" ofType:@"bundle"];
+    NSString *filePath = [[NSBundle bundleWithPath:strResourcesBundle] pathForResource:@"CGXAddressCity" ofType:@"plist"];
+    NSMutableArray *arrData = [NSMutableArray arrayWithContentsOfFile:filePath];
+    NSInteger inter1= [province_id integerValue];
+    NSInteger inter2= [city_id integerValue];
+    if (![province_id isEqualToString:@"0"]) {
+        NSDictionary *dict1 = arrData[inter1];
+        mulStr =[dict1 objectForKey:@"v"];
+        NSArray *arr = [dict1 objectForKey:@"n"];
+        if (![city_id isEqualToString:@"0"]) {
+            NSDictionary *dict2 = arr[inter2];
+            mulStr = [NSString stringWithFormat:@"%@-%@",mulStr,[dict2 objectForKey:@"v"]];
+        }
+    }
+    return mulStr;
+    
+}
+
+@end

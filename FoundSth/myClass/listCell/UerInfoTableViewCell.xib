@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,6 +47,13 @@
                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Th-kV-99v">
+                        <rect key="frame" x="222" y="134.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Dra-Nm-kK4"/>
+                            <constraint firstAttribute="height" constant="20" id="dXZ-uO-zFe"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="X1n-Y4-oqv" secondAttribute="bottom" id="5x0-GB-CDc"/>
@@ -59,17 +66,20 @@
                     <constraint firstItem="X1n-Y4-oqv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yqe-ml-u81"/>
                     <constraint firstItem="1QX-XT-oNB" firstAttribute="top" secondItem="t6N-S1-LQU" secondAttribute="bottom" id="gwz-Sg-Y95"/>
                     <constraint firstItem="aus-cq-aDS" firstAttribute="centerY" secondItem="X1n-Y4-oqv" secondAttribute="centerY" constant="-10" id="jsQ-dR-w0u"/>
+                    <constraint firstItem="4Th-kV-99v" firstAttribute="centerY" secondItem="aus-cq-aDS" secondAttribute="centerY" constant="27" id="otI-i2-0mi"/>
                     <constraint firstAttribute="trailing" secondItem="1QX-XT-oNB" secondAttribute="trailing" id="rGt-Ur-aMT"/>
                     <constraint firstItem="1QX-XT-oNB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="s9y-li-aZh"/>
+                    <constraint firstItem="4Th-kV-99v" firstAttribute="trailing" secondItem="aus-cq-aDS" secondAttribute="trailing" id="yZh-rR-vBd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iamgeBGveiw" destination="X1n-Y4-oqv" id="7pr-R3-We7"/>
                 <outlet property="icon_imageView" destination="aus-cq-aDS" id="MSP-HC-JaQ"/>
+                <outlet property="sexImgV" destination="4Th-kV-99v" id="sSm-mj-GzU"/>
                 <outlet property="userName" destination="t6N-S1-LQU" id="slO-uE-qgs"/>
                 <outlet property="user_detaile" destination="1QX-XT-oNB" id="0L1-p9-smv"/>
             </connections>
-            <point key="canvasLocation" x="-203" y="52"/>
+            <point key="canvasLocation" x="-203.5" y="51.5"/>
         </tableViewCell>
     </objects>
     <resources>
