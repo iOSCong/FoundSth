@@ -116,22 +116,20 @@
         cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
-    mzWeakSelf(self);
     cell.likeLabel.text = self.dataArr[indexPath.row][@"dianzan"] ? mzstring(self.dataArr[indexPath.row][@"dianzan"]) : @"0";
     //点赞
+    mzWeakSelf(self);
     [cell.likeBtn addTarget:^(UIButton *button) {
         AVObject *product = [AVObject objectWithClassName:@"homeList" objectId:weakself.dataArr[indexPath.row][@"objectId"]];
-        NSInteger zanNum = [self.dataArr[indexPath.row][@"dianzan"] integerValue] + 1;
-        [product setObject:@(zanNum) forKey:@"dianzan"];
-//        [MHProgressHUD showProgress:nil inView:self.view];
+        NSInteger dianzan = [weakself.dataArr[indexPath.row][@"dianzan"] integerValue] + 1;
+        [product setObject:@(dianzan) forKey:@"dianzan"];
         [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            [MHProgressHUD hide];
             if (succeeded) {
-                NSLog(@"保存新物品成功");
+                NSLog(@"点赞成功");
                 [weakself requestData];
             } else {
-                NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
-                [MHProgressHUD showMsgWithoutView:@"更新失败"];
+                NSLog(@"点赞出错 %@", error);
+                [MHProgressHUD showMsgWithoutView:@"点赞失败"];
             }
         }];
     }];
