@@ -173,7 +173,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.logNameTextF.leftView addSubview:imgUser];
     [loginView addSubview:self.logNameTextF];
     
-    self.logPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.logNameTextF.frame), CGRectGetMaxY(self.logNameTextF.frame)+10, self.logNameTextF.frame.size.width-60, CGRectGetHeight(self.logNameTextF.frame))];
+    self.logPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.logNameTextF.frame), CGRectGetMaxY(self.logNameTextF.frame)+10, smallView.frame.size.width-40, CGRectGetHeight(self.logNameTextF.frame))];
     self.logPassTextF.delegate = self;
     self.logPassTextF.layer.cornerRadius = 5;
     self.logPassTextF.layer.borderWidth = .5;
@@ -181,13 +181,13 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.logPassTextF.returnKeyType = UIReturnKeyDone;
     self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.logPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
-    self.logPassTextF.placeholder = @"请输入短信验证码";
+    self.logPassTextF.placeholder = @"请输入登录密码";
     self.logPassTextF.secureTextEntry = YES;
-//    self.logPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.logPassTextF.frame), CGRectGetHeight(self.logPassTextF.frame))];
-//    self.logPassTextF.leftViewMode = UITextFieldViewModeAlways;
-//    UIImageView* imgPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
-//    imgPwd.image = [UIImage imageNamed:@"iconfont-password"];
-//    [self.logPassTextF.leftView addSubview:imgPwd];
+    self.logPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.logPassTextF.frame), CGRectGetHeight(self.logPassTextF.frame))];
+    self.logPassTextF.leftViewMode = UITextFieldViewModeAlways;
+    UIImageView* imgPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
+    imgPwd.image = [UIImage imageNamed:@"iconfont-password"];
+    [self.logPassTextF.leftView addSubview:imgPwd];
     [loginView addSubview:self.logPassTextF];
     
     UIButton *logSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -204,20 +204,19 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
         }else if (self.logNameTextF.text.length != 11) {
             [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
         }else{
-            [MHProgressHUD showProgress:@"正在获取..." inView:self];
-            [AVUser requestLoginSmsCode:self.logNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    [MHProgressHUD hide];
-                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
-                }else{
-                    NSLog(@"登录error==%@",error);
-                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
-                }
-            }];
+//            [MHProgressHUD showProgress:@"正在获取..." inView:self];
+//            [AVUser requestLoginSmsCode:self.logNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"登录error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
         }
     }];
-    [loginView addSubview:logSimBtn];
-    
+//    [loginView addSubview:logSimBtn];
     
     
     self.regNameTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.titleLabel.frame)+15, smallView.frame.size.width-40, 40)];
@@ -245,7 +244,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.regSimTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.regSimTextF.placeholder = @"请输入短信验证码";
     self.regSimTextF.text = @"";
-    [registeView addSubview:self.regSimTextF];
+//    [registeView addSubview:self.regSimTextF];
     
     UIButton *getSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     getSimBtn.frame = CGRectMake(CGRectGetWidth(self.regNameTextF.frame)-30, CGRectGetMaxY(self.regNameTextF.frame)+10, 50, CGRectGetHeight(self.regSimTextF.frame));
@@ -262,7 +261,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
             [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
         }else{
             [MHProgressHUD showProgress:@"正在获取..." inView:self];
-            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+            [AVUser verifyMobilePhone:self.regNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     [MHProgressHUD hide];
                     [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
@@ -271,26 +270,36 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
                     [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
                 }
             }];
+            
+//            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"注册error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
         }
     }];
-    [registeView addSubview:getSimBtn];
+//    [registeView addSubview:getSimBtn];
     
     
-//    self.regPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.regNameTextF.frame), CGRectGetMaxY(self.regSimTextF.frame)+10, CGRectGetWidth(self.regNameTextF.frame), CGRectGetHeight(self.regNameTextF.frame))];
-//    self.regPassTextF.delegate = self;
-//    self.regPassTextF.layer.cornerRadius = 5;
-//    self.regPassTextF.layer.borderWidth = .5;
-//    self.regPassTextF.returnKeyType = UIReturnKeyDone;
-//    self.regPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    self.regPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
-//    self.regPassTextF.placeholder = @"请输入注册密码";
-//    self.regPassTextF.secureTextEntry = YES;
-//    self.regPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.regPassTextF.frame), CGRectGetHeight(self.regPassTextF.frame))];
-//    self.regPassTextF.leftViewMode = UITextFieldViewModeAlways;
-//    UIImageView* regPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
-//    regPwd.image = [UIImage imageNamed:@"iconfont-password"];
-//    [self.regPassTextF.leftView addSubview:regPwd];
-//    [registeView addSubview:self.regPassTextF];
+    self.regPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.regNameTextF.frame), CGRectGetMaxY(self.regNameTextF.frame)+10, CGRectGetWidth(self.regNameTextF.frame), CGRectGetHeight(self.regNameTextF.frame))];
+    self.regPassTextF.delegate = self;
+    self.regPassTextF.layer.cornerRadius = 5;
+    self.regPassTextF.layer.borderWidth = .5;
+    self.regPassTextF.returnKeyType = UIReturnKeyDone;
+    self.regPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.regPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.regPassTextF.placeholder = @"请输入注册密码";
+    self.regPassTextF.secureTextEntry = YES;
+    self.regPassTextF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.regPassTextF.frame), CGRectGetHeight(self.regPassTextF.frame))];
+    self.regPassTextF.leftViewMode = UITextFieldViewModeAlways;
+    UIImageView* regPwd = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
+    regPwd.image = [UIImage imageNamed:@"iconfont-password"];
+    [self.regPassTextF.leftView addSubview:regPwd];
+    [registeView addSubview:self.regPassTextF];
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.logPassTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
@@ -350,10 +359,12 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 - (void)registeAction
 {
     [self.regNameTextF resignFirstResponder];
-    [self.regSimTextF resignFirstResponder];
+    [self.regPassTextF resignFirstResponder];
+//    [self.regSimTextF resignFirstResponder];
     
     if (_lostBlock) {
-        _lostBlock(self.regNameTextF.text, self.regSimTextF.text);
+//        _lostBlock(self.regNameTextF.text, self.regSimTextF.text);
+        _lostBlock(self.regNameTextF.text, self.regPassTextF.text);
     }
 }
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock{
@@ -377,7 +388,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 //猫咪动画
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if ([textField isEqual:self.logNameTextF]) {
+    if ([textField isEqual:self.logNameTextF] || [textField isEqual:self.regNameTextF]) {
         if (showType != WSLoginShowType_PASS)
         {
             showType = WSLoginShowType_USER;
@@ -389,63 +400,50 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
             imgLeftHand.frame = CGRectMake(imgLeftHand.frame.origin.x - 60, imgLeftHand.frame.origin.y + 30, imgLeftHand.frame.size.width, imgLeftHand.frame.size.height);
             imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x + 48, imgRightHand.frame.origin.y + 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
             
-            
             imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x - 70, imgLeftHandGone.frame.origin.y, 40, 40);
             
             imgRightHandGone.frame = CGRectMake(imgRightHandGone.frame.origin.x + 30, imgRightHandGone.frame.origin.y, 40, 40);
             
-            
-        } completion:^(BOOL b) {
-        }];
-        
+        } completion:^(BOOL b) {}];
     }
-    else if ([textField isEqual:self.logPassTextF]) {
+    else if ([textField isEqual:self.logPassTextF] || [textField isEqual:self.regPassTextF]) {
         if (showType == WSLoginShowType_PASS)
         {
             showType = WSLoginShowType_PASS;
             return;
         }
         showType = WSLoginShowType_PASS;
-        
         if (_hideEyesType == AllEyesHide) { //全部遮住
             [UIView animateWithDuration:0.5 animations:^{
                 imgLeftHand.frame = CGRectMake(imgLeftHand.frame.origin.x + 60, imgLeftHand.frame.origin.y - 30, imgLeftHand.frame.size.width, imgLeftHand.frame.size.height);
                 imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x - 48, imgRightHand.frame.origin.y - 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
                 
-                
                 imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x + 70, imgLeftHandGone.frame.origin.y, 0, 0);
                 
                 imgRightHandGone.frame = CGRectMake(imgRightHandGone.frame.origin.x - 30, imgRightHandGone.frame.origin.y, 0, 0);
                 
-            } completion:^(BOOL b) {
-            }];
-
+            } completion:^(BOOL b) {}];
         }
         else if (_hideEyesType == LeftEyeHide) { //遮住左眼
             [UIView animateWithDuration:0.5 animations:^{
                 imgLeftHand.frame = CGRectMake(imgLeftHand.frame.origin.x + 60, imgLeftHand.frame.origin.y - 30, imgLeftHand.frame.size.width, imgLeftHand.frame.size.height);
                 imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x - 48, imgRightHand.frame.origin.y - 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
                 
-                
                 imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x + 70, imgLeftHandGone.frame.origin.y, 0, 0);
                 
                 imgRightHandGone.frame = CGRectMake(imgRightHandGone.frame.origin.x - 30, imgRightHandGone.frame.origin.y, 0, 0);
                 
             } completion:^(BOOL b) {
-                
                 [UIView animateWithDuration:1.5 animations:^{
                     imgRightHand.transform = CGAffineTransformMakeTranslation(10, 0);
                 }];
-                
             }];
-            
         }
         else if (_hideEyesType == RightEyeHide) { //遮住右眼
             [UIView animateWithDuration:0.5 animations:^{
                 imgLeftHand.frame = CGRectMake(imgLeftHand.frame.origin.x + 60, imgLeftHand.frame.origin.y - 30, imgLeftHand.frame.size.width, imgLeftHand.frame.size.height);
                 imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x - 48, imgRightHand.frame.origin.y - 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
                 
-                
                 imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x + 70, imgLeftHandGone.frame.origin.y, 0, 0);
                 
                 imgRightHandGone.frame = CGRectMake(imgRightHandGone.frame.origin.x - 30, imgRightHandGone.frame.origin.y, 0, 0);
@@ -455,13 +453,11 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
                     imgLeftHand.transform = CGAffineTransformMakeTranslation(-13, 0);
                 }];
             }];
-            
         }
         else if (_hideEyesType == NOEyesHide) { //两个都漏一半眼睛
             [UIView animateWithDuration:0.5 animations:^{
                 imgLeftHand.frame = CGRectMake(imgLeftHand.frame.origin.x + 60, imgLeftHand.frame.origin.y - 30, imgLeftHand.frame.size.width, imgLeftHand.frame.size.height);
                 imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x - 48, imgRightHand.frame.origin.y - 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
-                
                 
                 imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x + 70, imgLeftHandGone.frame.origin.y, 0, 0);
                 
@@ -473,16 +469,14 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
                     imgRightHand.transform = CGAffineTransformMakeTranslation(10, 0);
                 }];
             }];
-            
         }
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    if ([textField isEqual:self.logPassTextF]) {
-        if (showType == WSLoginShowType_PASS)
-        {
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField isEqual:self.logPassTextF] || [textField isEqual:self.regPassTextF]) {
+        if (showType == WSLoginShowType_PASS) {
             showType = WSLoginShowType_USER;
             [UIView animateWithDuration:0.5 animations:^{
                 imgLeftHand.transform = CGAffineTransformIdentity;
@@ -490,18 +484,13 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
                 imgRightHand.transform = CGAffineTransformIdentity;
                 imgRightHand.frame = CGRectMake(imgRightHand.frame.origin.x + 48, imgRightHand.frame.origin.y + 30, imgRightHand.frame.size.width, imgRightHand.frame.size.height);
                 
-                
                 imgLeftHandGone.frame = CGRectMake(imgLeftHandGone.frame.origin.x - 70, imgLeftHandGone.frame.origin.y, 40, 40);
                 
                 imgRightHandGone.frame = CGRectMake(imgRightHandGone.frame.origin.x + 30, imgRightHandGone.frame.origin.y, 40, 40);
                 
-                
-            } completion:^(BOOL b) {
-            }];
-            
+            } completion:^(BOOL b) {}];
         }
     }
-    
 }
 
 

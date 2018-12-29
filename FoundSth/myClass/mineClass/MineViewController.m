@@ -57,7 +57,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
     self.tableView.frame = mz_frame(0, iPhoneNavH, mz_width, mz_height);
-    
+
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"分享应用",@"设置"];
 }
