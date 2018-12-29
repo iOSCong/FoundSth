@@ -161,7 +161,7 @@
         shareModel.title = mzstring(dic[@"title"]);
         shareModel.descr = mzstring(dic[@"detail"]);
         shareModel.url = mzempstr(dic[@"imgUrl"]);
-        shareModel.thumbImage = [NSStrObject imageWithImage:dic[@"appIcon"] scaledToSize:CGSizeMake(200, 200)];
+        shareModel.thumbImage = [NSStrObject imageWithImage:[UIImage imageNamed:@"appIcon"] scaledToSize:CGSizeMake(200, 200)];
         [shareView showShareViewWithDXShareModel:shareModel shareContentType:DXShareContentTypeImage];
 
 }
