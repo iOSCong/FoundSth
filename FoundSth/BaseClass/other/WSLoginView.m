@@ -177,7 +177,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.logPassTextF.delegate = self;
     self.logPassTextF.layer.cornerRadius = 5;
     self.logPassTextF.layer.borderWidth = .5;
-    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
+//    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
     self.logPassTextF.returnKeyType = UIReturnKeyDone;
     self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.logPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
