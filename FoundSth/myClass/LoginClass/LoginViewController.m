@@ -55,7 +55,7 @@
     [wsLoginV setClickLoginBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
             [MHProgressHUD showProgress:@"正在登录..." inView:self.view];
-            [AVUser logInWithMobilePhoneNumberInBackground:textField1Text smsCode:textField2Text block:^(AVUser *user, NSError *error) {
+            [AVUser logInWithUsernameInBackground:textField1Text password:textField2Text block:^(AVUser *user, NSError *error) {
                 [MHProgressHUD hide];
                 if (user) {
                     //存储账户
@@ -86,30 +86,78 @@
     //注册
     [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
-            [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
-            [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:textField1Text smsCode:textField2Text block:^(AVUser *user, NSError *error) {
-                [MHProgressHUD hide];
-                if (user) {
-                    //存储账户
-                    [NSStrObject saveAccount:textField1Text];
-                    
-                    //存储用户信息
-                    AVFile *userAvatar = [user objectForKey:@"avatar"];
-                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                    [userInfo setValue:user.username forKey:@"username"];
-                    [userInfo setValue:user.objectId forKey:@"objectId"];
-                    [userInfo setValue:userAvatar.url forKey:@"url"];
-                    [NSStrObject saveUserInfos:userInfo];
-                    
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                    //通过通知中心发送通知
-                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
-                    
-                } else {
-                    NSLog(@"注册失败：%@",error);
-                    [MHProgressHUD showMsgWithoutView:@"注册失败,请稍后再试!"];
+            if (textField1Text.length != 11) {
+                [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
+            }else{
+                if ([self validateCellPhoneNumber:textField1Text]) {
+                    [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
+                    AVUser *user = [AVUser user];
+                    user.username = textField1Text;
+                    user.password = textField2Text;
+                    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            // 注册成功直接登录
+                            [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error){
+                                [MHProgressHUD hide];
+                                if (user) {
+                                    //存储账户密码
+                                    [NSStrObject saveAccount:textField1Text];
+                                    
+                                    //存储用户信息
+                                    AVFile *userAvatar = [user objectForKey:@"avatar"];
+                                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                                    [userInfo setValue:user.username forKey:@"username"];
+                                    [userInfo setValue:user.objectId forKey:@"objectId"];
+                                    [userInfo setValue:userAvatar.url forKey:@"url"];
+                                    [NSStrObject saveUserInfos:userInfo];
+                                    
+                                    [self dismissViewControllerAnimated:YES completion:nil];
+                                    //通过通知中心发送通知
+                                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                                    
+                                } else {
+                                    NSLog(@"登录失败：%@",error);
+                                    [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
+                                }
+                            }];
+                        }else if(error.code == 202){
+                            //注册失败的原因可能有多种，常见的是用户名已经存在。
+                            NSLog(@"注册失败，用户名已经存在");
+                            [MHProgressHUD showMsgWithoutView:@"注册失败，用户名已存在"];
+                        }else{
+                            NSLog(@"注册失败：%@",error.localizedFailureReason);
+                            [MHProgressHUD showMsgWithoutView:@"注册失败!"];
+                        }
+                    }];
+
+                }else{
+                    [MHProgressHUD showMsgWithoutView:@"手机号码有误,请重新输入"];
                 }
-            }];
+            }
+//            [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
+//            [AVUser signUpOrLoginWithMobilePhoneNumberInBackground:textField1Text smsCode:textField2Text block:^(AVUser *user, NSError *error) {
+//                [MHProgressHUD hide];
+//                if (user) {
+//                    //存储账户
+//                    [NSStrObject saveAccount:textField1Text];
+//
+//                    //存储用户信息
+//                    AVFile *userAvatar = [user objectForKey:@"avatar"];
+//                    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+//                    [userInfo setValue:user.username forKey:@"username"];
+//                    [userInfo setValue:user.objectId forKey:@"objectId"];
+//                    [userInfo setValue:userAvatar.url forKey:@"url"];
+//                    [NSStrObject saveUserInfos:userInfo];
+//
+//                    [self dismissViewControllerAnimated:YES completion:nil];
+//                    //通过通知中心发送通知
+//                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+//
+//                } else {
+//                    NSLog(@"注册失败：%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"注册失败,请稍后再试!"];
+//                }
+//            }];
         }else{
             [MHProgressHUD showMsgWithoutView:@"请输入账号和密码"];
         }
@@ -165,6 +213,60 @@
 //    }];
     
 }
+
+
+- (BOOL)validateCellPhoneNumber:(NSString *)cellNum
+{
+    /**
+     * 手机号码
+     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+     * 联通：130,131,132,152,155,156,185,186
+     * 电信：133,1349,153,180,189
+     */
+    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
+    
+    /**
+     10         * 中国移动：China Mobile
+     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+     12         */
+    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
+    
+    /**
+     15         * 中国联通：China Unicom
+     16         * 130,131,132,152,155,156,175,176,185,186
+     17         */
+    NSString * CU = @"^1(3[0-2]|5[256]|7[56]|8[56])\\d{8}$";
+    
+    /**
+     20         * 中国电信：China Telecom
+     21         * 133,1349,153,177,180,189
+     22         */
+    NSString * CT = @"^1((33|53|77|8[09])[0-9]|349)\\d{7}$";
+    
+    /**
+     25         * 大陆地区固话及小灵通
+     26         * 区号：010,020,021,022,023,024,025,027,028,029
+     27         * 号码：七位或八位
+     28         */
+    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+    
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
+    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
+    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
+    // NSPredicate *regextestPHS = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", PHS];
+    
+    if(([regextestmobile evaluateWithObject:cellNum] == YES)
+       || ([regextestcm evaluateWithObject:cellNum] == YES)
+       || ([regextestct evaluateWithObject:cellNum] == YES)
+       || ([regextestcu evaluateWithObject:cellNum] == YES)){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+
 
 -(void)dealloc{
     NSLog(@"移除了所有的通知");
