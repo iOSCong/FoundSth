@@ -34,7 +34,7 @@
     self.tableView.hidden = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.sectionHeaderHeight = 12.0f;
+    self.tableView.sectionHeaderHeight = 0.1f;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = mz_tableHeaderView;
     
@@ -75,12 +75,12 @@
     return 100;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"标题";
-    }else if (section == 1) {
         return @"详细说明";
+    }else if (section == 1) {
+        return @"上传图片";
     }else{
         return @"";
     }

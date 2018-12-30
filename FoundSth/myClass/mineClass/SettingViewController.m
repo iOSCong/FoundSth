@@ -8,6 +8,8 @@
 
 #import "SettingViewController.h"
 #import "AboutViewController.h"
+#import "ModifyPasswordViewController.h"
+
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray *titles;
 
@@ -22,7 +24,7 @@
     _titles = @[@"清除缓存",@"关于",@"版本"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.sectionFooterHeight = 0.1;
+    self.tableView.sectionFooterHeight = 0.1;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
@@ -41,19 +43,20 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    if (section == 0) {
+        return 1;
+    }
     return _titles.count;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     return 50;
 }
 
@@ -64,21 +67,26 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"sett"];
     }
 
-    if (indexPath.row != _titles.count- 1) {
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"重置密码";
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
-
-    }
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
-    cell.textLabel.text = _titles[indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    if (indexPath.row == 0) {
-        cell.detailTextLabel.text = [self sizeTmpPics];
-    }else if (indexPath.row == 2) {
-        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-        NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"v%@  ",app_Version];
+    }else{
+        if (indexPath.row != _titles.count- 1) {
+            cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+        }
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+        cell.textLabel.text = _titles[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [self sizeTmpPics];
+        }else if (indexPath.row == 2) {
+            NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+            NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"v%@  ",app_Version];
+        }
     }
     return cell;
     
@@ -86,21 +94,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        //清除图片缓存
-        [MHProgressHUD showProgress:@"正在清除..." inView:self.view];
-        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-            [MHProgressHUD hide];
-            [MHProgressHUD showMsgWithoutView:@"清除完成"];
-            [self.tableView reloadData];
-        }];
-        [[SDImageCache sharedImageCache] clearMemory];//可不写
-    }else if (indexPath.row == 1 ){
-        AboutViewController *about = [[AboutViewController alloc]init];
-        [self.navigationController pushViewController:about animated:YES];
-    }else if (indexPath.row == 2){
-//        [MHProgressHUD showMsgWithoutView:@"已是最新版本"];
-        
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        ModifyPasswordViewController *vc = [[ModifyPasswordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        if (indexPath.row == 0) {
+            //清除图片缓存
+            [MHProgressHUD showProgress:@"正在清除..." inView:self.view];
+            [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+                [MHProgressHUD hide];
+                [MHProgressHUD showMsgWithoutView:@"清除完成"];
+                [self.tableView reloadData];
+            }];
+            [[SDImageCache sharedImageCache] clearMemory];//可不写
+        }else if (indexPath.row == 1 ){
+            AboutViewController *about = [[AboutViewController alloc]init];
+            [self.navigationController pushViewController:about animated:YES];
+        }
     }
 }
 

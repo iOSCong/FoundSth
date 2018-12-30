@@ -21,8 +21,10 @@ typedef enum {
 
 
 typedef void (^ClicksAlertBlock)(NSString *textField1Text, NSString *textField2Text);
+typedef void (^ClicksRegistBlock)(AVUser *user, NSString *simCode);
 @property (nonatomic, copy, readonly) ClicksAlertBlock clickBlock;
 @property (nonatomic, copy, readonly) ClicksAlertBlock lostBlock;
+@property (nonatomic, copy, readonly) ClicksRegistBlock registeBlock;
 
 typedef void (^ClicksCancelBlock)(void);
 @property (nonatomic, copy, readonly) ClicksCancelBlock cancelBlock;
@@ -48,5 +50,6 @@ typedef void (^ClicksCancelBlock)(void);
 - (void)setClickCancelBlock:(ClicksCancelBlock)clickBlock;
 - (void)setClickLoginBlock:(ClicksAlertBlock)clickBlock;
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock;
+- (void)setClickRegisteBlock:(ClicksRegistBlock)clickBlock;
 
 @end

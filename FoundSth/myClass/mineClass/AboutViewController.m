@@ -15,8 +15,7 @@
 @implementation AboutViewController
 
 - (void)viewDidLoad {
-    //开始可推送了
-    
+   
     [super viewDidLoad];
     self.title = @"关于";
     self.tableView.delegate = self;

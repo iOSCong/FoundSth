@@ -11,6 +11,7 @@
 @interface UerInfoTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon_imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *sexImgV;
 
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 

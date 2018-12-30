@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 @interface WSLoginView ()<UITextFieldDelegate>
 
 @property (nonatomic,strong)UIScrollView *scrollView;
+@property (nonatomic,strong)AVUser *user;
 
 @end
 
@@ -177,7 +178,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.logPassTextF.delegate = self;
     self.logPassTextF.layer.cornerRadius = 5;
     self.logPassTextF.layer.borderWidth = .5;
-    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
+//    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
     self.logPassTextF.returnKeyType = UIReturnKeyDone;
     self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.logPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
@@ -235,56 +236,6 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.regNameTextF.leftView addSubview:regUser];
     [registeView addSubview:self.regNameTextF];
     
-    self.regSimTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.regNameTextF.frame)+10, self.regNameTextF.frame.size.width-60, CGRectGetHeight(self.regNameTextF.frame))];
-    self.regSimTextF.delegate = self;
-    self.regSimTextF.layer.cornerRadius = 5;
-    self.regSimTextF.layer.borderWidth = .5;
-    self.regSimTextF.keyboardType = UIKeyboardTypeNumberPad;
-    self.regSimTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.regSimTextF.layer.borderColor = [UIColor grayColor].CGColor;
-    self.regSimTextF.placeholder = @"请输入短信验证码";
-    self.regSimTextF.text = @"";
-//    [registeView addSubview:self.regSimTextF];
-    
-    UIButton *getSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    getSimBtn.frame = CGRectMake(CGRectGetWidth(self.regNameTextF.frame)-30, CGRectGetMaxY(self.regNameTextF.frame)+10, 50, CGRectGetHeight(self.regSimTextF.frame));
-    [getSimBtn setTitle:@"获取" forState:UIControlStateNormal];
-    [getSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
-    getSimBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    getSimBtn.layer.cornerRadius = 5;
-    getSimBtn.layer.borderWidth = .5;
-    getSimBtn.layer.borderColor = [UIColor grayColor].CGColor;
-    [getSimBtn addTarget:^(UIButton *button) {
-        if ([self.regNameTextF.text isEqualToString:@""]) {
-            [MHProgressHUD showMsgWithoutView:@"请输入手机号码"];
-        }else if (self.regNameTextF.text.length != 11) {
-            [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
-        }else{
-            [MHProgressHUD showProgress:@"正在获取..." inView:self];
-            [AVUser verifyMobilePhone:self.regNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    [MHProgressHUD hide];
-                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
-                }else{
-                    NSLog(@"注册error==%@",error);
-                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
-                }
-            }];
-            
-//            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
-//                if (!error) {
-//                    [MHProgressHUD hide];
-//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
-//                }else{
-//                    NSLog(@"注册error==%@",error);
-//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
-//                }
-//            }];
-        }
-    }];
-//    [registeView addSubview:getSimBtn];
-    
-    
     self.regPassTextF = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.regNameTextF.frame), CGRectGetMaxY(self.regNameTextF.frame)+10, CGRectGetWidth(self.regNameTextF.frame), CGRectGetHeight(self.regNameTextF.frame))];
     self.regPassTextF.delegate = self;
     self.regPassTextF.layer.cornerRadius = 5;
@@ -300,6 +251,75 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     regPwd.image = [UIImage imageNamed:@"iconfont-password"];
     [self.regPassTextF.leftView addSubview:regPwd];
     [registeView addSubview:self.regPassTextF];
+    
+    self.regSimTextF = [[UITextField alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.regPassTextF.frame)+10, self.regPassTextF.frame.size.width-60, CGRectGetHeight(self.regPassTextF.frame))];
+    self.regSimTextF.delegate = self;
+    self.regSimTextF.layer.cornerRadius = 5;
+    self.regSimTextF.layer.borderWidth = .5;
+    self.regSimTextF.keyboardType = UIKeyboardTypeNumberPad;
+    self.regSimTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.regSimTextF.layer.borderColor = [UIColor grayColor].CGColor;
+    self.regSimTextF.placeholder = @"请输入短信验证码";
+    self.regSimTextF.text = @"";
+    [registeView addSubview:self.regSimTextF];
+    
+    UIButton *getSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    getSimBtn.frame = CGRectMake(CGRectGetWidth(self.regPassTextF.frame)-30, CGRectGetMaxY(self.regPassTextF.frame)+10, 50, CGRectGetHeight(self.regPassTextF.frame));
+    [getSimBtn setTitle:@"获取" forState:UIControlStateNormal];
+    [getSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
+    getSimBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    getSimBtn.layer.cornerRadius = 5;
+    getSimBtn.layer.borderWidth = .5;
+    getSimBtn.layer.borderColor = [UIColor grayColor].CGColor;
+    [getSimBtn addTarget:^(UIButton *button) {
+        if ([self.regNameTextF.text isEqualToString:@""]) {
+            [MHProgressHUD showMsgWithoutView:@"请输入手机号码"];
+        }else if (self.regNameTextF.text.length != 11) {
+            [MHProgressHUD showMsgWithoutView:@"请输入11位正确的手机号码"];
+        }else if ([self.regPassTextF.text isEqualToString:@""]) {
+            [MHProgressHUD showMsgWithoutView:@"请输入注册密码"];
+        }else if (self.regPassTextF.text.length < 6 || self.regPassTextF.text.length > 16) {
+            [MHProgressHUD showMsgWithoutView:@"密码长度不能小于6位或大于16位"];
+        }else{
+            [MHProgressHUD showProgress:@"正在获取..." inView:self];
+//            [AVUser verifyMobilePhone:self.regNameTextF.text withBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"注册error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
+            
+            
+            AVUser *user = [AVUser user];
+            user.username = self.regNameTextF.text;
+            user.password = self.regPassTextF.text;
+            user.mobilePhoneNumber = self.regNameTextF.text;
+            NSError *error = nil;
+            [user signUp:&error];
+            self.user = user;
+            
+            [MHProgressHUD hide];
+            [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+            
+            
+//            [AVSMS requestShortMessageForPhoneNumber:self.regNameTextF.text options:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
+//                if (!error) {
+//                    [MHProgressHUD hide];
+//                    [MHProgressHUD showMsgWithoutView:@"短信验证码已发送"];
+//                }else{
+//                    NSLog(@"注册error==%@",error);
+//                    [MHProgressHUD showMsgWithoutView:@"发送短信过快，请稍后重试"];
+//                }
+//            }];
+        }
+    }];
+    [registeView addSubview:getSimBtn];
+    
+    
+    
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.logPassTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
@@ -356,7 +376,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 }
 
 //注册
-- (void)registeAction
+- (void)registeActionsss
 {
     [self.regNameTextF resignFirstResponder];
     [self.regPassTextF resignFirstResponder];
@@ -369,6 +389,22 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 }
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock{
     _lostBlock = [clickBlock copy];
+}
+
+
+- (void)registeAction
+{
+    [self.regNameTextF resignFirstResponder];
+    [self.regPassTextF resignFirstResponder];
+    [self.regSimTextF resignFirstResponder];
+    
+    if (_registeBlock) {
+        _registeBlock(self.user, self.regSimTextF.text);
+    }
+}
+- (void)setClickRegisteBlock:(ClicksRegistBlock)clickBlock
+{
+    _registeBlock = [clickBlock copy];
 }
 
 

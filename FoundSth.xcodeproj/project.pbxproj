@@ -23,6 +23,10 @@
 		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
 		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
 		401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05AC21D3D95D00D954B2 /* UpdateViewController.m */; };
+		D8336B1E21D86BA500A381CB /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */; };
+		D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */; };
+		D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */; };
+		D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2221D86BF700A381CB /* SMSTableViewCell.m */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -136,6 +140,15 @@
 		D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */; };
 		D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */; };
 		D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */; };
+		D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */; };
+		D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */; };
+		D8F24A7A21D7C3C2003FF814 /* CGXDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */; };
+		D8F24A7B21D7C3C2003FF814 /* CGXPickerUIBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */; };
+		D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */; };
+		D8F24A7D21D7C3C2003FF814 /* CGXPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */; };
+		D8F24A7E21D7C3C2003FF814 /* CGXPickerViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */; };
+		D8F24A7F21D7C3C2003FF814 /* CGXStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */; };
+		D8F24A8021D7C3C2003FF814 /* NSDate+CGXPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */; };
 		D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FB21D312B500966F40 /* InforsViewController.m */; };
 		D8FFD20021D314A600966F40 /* InforDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */; };
 		D8FFD20121D314A600966F40 /* InforDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */; };
@@ -189,6 +202,12 @@
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
 		B5F042CBAEF94CC12D94C629 /* libPods-FoundSth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
+		D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
+		D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		D8336B2021D86BF700A381CB /* SMSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSTableViewCell.h; sourceTree = "<group>"; };
+		D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSTableViewCell.xib; sourceTree = "<group>"; };
+		D8336B2221D86BF700A381CB /* SMSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSTableViewCell.m; sourceTree = "<group>"; };
 		D8549FA121CE76AA000FD0DF /* FoundSth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoundSth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8549FA421CE76AA000FD0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8549FA521CE76AA000FD0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -382,6 +401,23 @@
 		D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyTableViewCell.h; sourceTree = "<group>"; };
 		D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyTableViewCell.m; sourceTree = "<group>"; };
 		D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMyTableViewCell.xib; sourceTree = "<group>"; };
+		D8F24A6721D7C3C1003FF814 /* CGXAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXAddressModel.h; sourceTree = "<group>"; };
+		D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXAddressModel.m; sourceTree = "<group>"; };
+		D8F24A6921D7C3C1003FF814 /* CGXAddressPcikerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXAddressPcikerView.h; sourceTree = "<group>"; };
+		D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXAddressPcikerView.m; sourceTree = "<group>"; };
+		D8F24A6B21D7C3C1003FF814 /* CGXDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXDatePickerView.h; sourceTree = "<group>"; };
+		D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXDatePickerView.m; sourceTree = "<group>"; };
+		D8F24A6D21D7C3C1003FF814 /* CGXPickerUIBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerUIBaseView.h; sourceTree = "<group>"; };
+		D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerUIBaseView.m; sourceTree = "<group>"; };
+		D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CGXPickerView.bundle; sourceTree = "<group>"; };
+		D8F24A7021D7C3C1003FF814 /* CGXPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerView.h; sourceTree = "<group>"; };
+		D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerView.m; sourceTree = "<group>"; };
+		D8F24A7221D7C3C1003FF814 /* CGXPickerViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXPickerViewManager.h; sourceTree = "<group>"; };
+		D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXPickerViewManager.m; sourceTree = "<group>"; };
+		D8F24A7421D7C3C1003FF814 /* CGXStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXStringPickerView.h; sourceTree = "<group>"; };
+		D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXStringPickerView.m; sourceTree = "<group>"; };
+		D8F24A7621D7C3C1003FF814 /* NSDate+CGXPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CGXPicker.h"; sourceTree = "<group>"; };
+		D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CGXPicker.m"; sourceTree = "<group>"; };
 		D8FFD1FA21D312B500966F40 /* InforsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforsViewController.h; sourceTree = "<group>"; };
 		D8FFD1FB21D312B500966F40 /* InforsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InforsViewController.m; sourceTree = "<group>"; };
 		D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InforDetailViewController.h; sourceTree = "<group>"; };
@@ -555,6 +591,7 @@
 		D8549FE021CE8170000FD0DF /* other */ = {
 			isa = PBXGroup;
 			children = (
+				D8F24A6621D7C3C1003FF814 /* CGXPickerView */,
 				D865784421D4A9CA00CBAD64 /* QQShare */,
 				D865783121D4709C00CBAD64 /* DXShareView */,
 				D865782D21D46F3800CBAD64 /* WeChatShare */,
@@ -815,6 +852,9 @@
 		D854A0D921CFD294000FD0DF /* listCell */ = {
 			isa = PBXGroup;
 			children = (
+				D8336B2021D86BF700A381CB /* SMSTableViewCell.h */,
+				D8336B2221D86BF700A381CB /* SMSTableViewCell.m */,
+				D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */,
 				D854A0DA21CFD2D2000FD0DF /* FoundListTableViewCell.h */,
 				D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */,
 				D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */,
@@ -878,6 +918,9 @@
 				401E05AC21D3D95D00D954B2 /* UpdateViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
+				D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */,
+				D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */,
+				D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
 				401E059D21CFF4E900D954B2 /* AboutViewController.m */,
 				401E059E21CFF4E900D954B2 /* AboutViewController.xib */,
@@ -918,6 +961,30 @@
 				D865784521D4A9DE00CBAD64 /* TencentOpenAPI.framework */,
 			);
 			path = QQShare;
+			sourceTree = "<group>";
+		};
+		D8F24A6621D7C3C1003FF814 /* CGXPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D8F24A6721D7C3C1003FF814 /* CGXAddressModel.h */,
+				D8F24A6821D7C3C1003FF814 /* CGXAddressModel.m */,
+				D8F24A6921D7C3C1003FF814 /* CGXAddressPcikerView.h */,
+				D8F24A6A21D7C3C1003FF814 /* CGXAddressPcikerView.m */,
+				D8F24A6B21D7C3C1003FF814 /* CGXDatePickerView.h */,
+				D8F24A6C21D7C3C1003FF814 /* CGXDatePickerView.m */,
+				D8F24A6D21D7C3C1003FF814 /* CGXPickerUIBaseView.h */,
+				D8F24A6E21D7C3C1003FF814 /* CGXPickerUIBaseView.m */,
+				D8F24A6F21D7C3C1003FF814 /* CGXPickerView.bundle */,
+				D8F24A7021D7C3C1003FF814 /* CGXPickerView.h */,
+				D8F24A7121D7C3C1003FF814 /* CGXPickerView.m */,
+				D8F24A7221D7C3C1003FF814 /* CGXPickerViewManager.h */,
+				D8F24A7321D7C3C1003FF814 /* CGXPickerViewManager.m */,
+				D8F24A7421D7C3C1003FF814 /* CGXStringPickerView.h */,
+				D8F24A7521D7C3C1003FF814 /* CGXStringPickerView.m */,
+				D8F24A7621D7C3C1003FF814 /* NSDate+CGXPicker.h */,
+				D8F24A7721D7C3C1003FF814 /* NSDate+CGXPicker.m */,
+			);
+			path = CGXPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1046,12 +1113,15 @@
 				D854A03C21CE8171000FD0DF /* MHNavViewController.xib in Resources */,
 				D854A0C721CF42B2000FD0DF /* ZLCollectionCell.xib in Resources */,
 				D854A06921CE81CB000FD0DF /* MHTabBarViewController.xib in Resources */,
+				D8336B1E21D86BA500A381CB /* ModifyPasswordViewController.xib in Resources */,
 				D854A07A21CE8384000FD0DF /* FoundReleaseViewController.xib in Resources */,
+				D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */,
 				D854A08621CE8614000FD0DF /* LoginViewController.xib in Resources */,
 				D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */,
 				D854A06221CE8171000FD0DF /* BaseViewController.xib in Resources */,
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
+				D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */,
 				D854A0B921CF42B2000FD0DF /* btn_circle@2x.png in Resources */,
 				D854A0C221CF42B2000FD0DF /* btn_unselected@2x.png in Resources */,
 				401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */,
@@ -1150,9 +1220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D854A05021CE8171000FD0DF /* YBImageBrowserViewLayout.m in Sources */,
+				D8F24A7D21D7C3C2003FF814 /* CGXPickerView.m in Sources */,
 				D854A04A21CE8171000FD0DF /* WSLoginView.m in Sources */,
 				401E058521CFE6C500D954B2 /* UsetInfoViewController.m in Sources */,
 				D854A0B821CF42B2000FD0DF /* NSBundle+ZLPhotoBrowser.m in Sources */,
+				D8F24A7B21D7C3C2003FF814 /* CGXPickerUIBaseView.m in Sources */,
 				D854A04C21CE8171000FD0DF /* YBImageBrowserPromptBar.m in Sources */,
 				D854A07921CE8384000FD0DF /* FoundReleaseViewController.m in Sources */,
 				D854A06A21CE81CB000FD0DF /* MHTabBarViewController.m in Sources */,
@@ -1168,12 +1240,15 @@
 				D854A03B21CE8171000FD0DF /* MHNavViewController.m in Sources */,
 				D865784321D4720A00CBAD64 /* MZAlertSheet.m in Sources */,
 				D854A04521CE8171000FD0DF /* SDCycleScrollView.m in Sources */,
+				D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */,
 				D854A07E21CE8397000FD0DF /* MineViewController.m in Sources */,
 				D865783D21D4709C00CBAD64 /* DXShareModel.m in Sources */,
 				D865783021D46F3800CBAD64 /* WXApiManager.m in Sources */,
 				D865784021D4709C00CBAD64 /* MapNavView.m in Sources */,
 				401E05A421CFF62A00D954B2 /* AboutTableViewCell.m in Sources */,
+				D8F24A7F21D7C3C2003FF814 /* CGXStringPickerView.m in Sources */,
 				D854A04821CE8171000FD0DF /* UITextField+MZTextField.m in Sources */,
+				D8F24A8021D7C3C2003FF814 /* NSDate+CGXPicker.m in Sources */,
 				D865783E21D4709C00CBAD64 /* DXSharePlatform.m in Sources */,
 				D854A0D821CF42B2000FD0DF /* ZLThumbnailViewController.m in Sources */,
 				D854A04921CE8171000FD0DF /* WebView.m in Sources */,
@@ -1192,24 +1267,29 @@
 				D854A07421CE8357000FD0DF /* FoundListViewController.m in Sources */,
 				D854A05821CE8171000FD0DF /* YBImageBrowserCopywriter.m in Sources */,
 				D854A08521CE8614000FD0DF /* LoginViewController.m in Sources */,
+				D8F24A7A21D7C3C2003FF814 /* CGXDatePickerView.m in Sources */,
 				D854A0D721CF42B2000FD0DF /* ZLShowBigImgViewController.m in Sources */,
 				D854A0D021CF42B2000FD0DF /* ZLNoAuthorityViewController.m in Sources */,
 				D854A04621CE8171000FD0DF /* UIView+SDExtension.m in Sources */,
 				D854A0D221CF42B2000FD0DF /* ZLPhotoBrowser.m in Sources */,
+				D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */,
 				D854A05521CE8171000FD0DF /* YBImageBrowserToolBar.m in Sources */,
 				D854A0CE21CF42B2000FD0DF /* ZLBigImageCell.m in Sources */,
 				D854A04321CE8171000FD0DF /* TAPageControl.m in Sources */,
+				D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */,
 				D865783C21D4709C00CBAD64 /* DXShareButton.m in Sources */,
 				D854A0DD21CFD2D2000FD0DF /* FoundListTableViewCell.m in Sources */,
 				D854A05421CE8171000FD0DF /* YBImageBrowserFunctionModel.m in Sources */,
 				D854A0D421CF42B2000FD0DF /* ZLPhotoTool.m in Sources */,
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
 				D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */,
+				D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */,
 				D854A0D521CF42B2000FD0DF /* ZLProgressHUD.m in Sources */,
 				D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */,
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,
 				D854A04F21CE8171000FD0DF /* YBImageBrowserView.m in Sources */,
 				D854A05921CE8171000FD0DF /* YBImageBrowserDownloader.m in Sources */,
+				D8F24A7E21D7C3C2003FF814 /* CGXPickerViewManager.m in Sources */,
 				D854A05121CE8171000FD0DF /* FLAnimatedImage.m in Sources */,
 				D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */,
 				D854A03F21CE8171000FD0DF /* NSStrObject.m in Sources */,
@@ -1394,10 +1474,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Y6PJDEC8X;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1447,7 +1527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
-				PROVISIONING_PROFILE_SPECIFIER = jixiaokaohe;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1458,10 +1538,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: China Mobile Group Zhejiang Co., Ltd";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 6Y6PJDEC8X;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1511,7 +1591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.hz.jxkh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a7204cd8-579e-46b0-b60a-0201e1092624";
-				PROVISIONING_PROFILE_SPECIFIER = jixiaokaohe;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
