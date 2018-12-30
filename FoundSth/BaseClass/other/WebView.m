@@ -93,7 +93,7 @@ static void *ContextProgressValueChange = &ContextProgressValueChange;
     self.backgroundColor = [UIColor clearColor];
     self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
-    self.barTitle = @"加载中……";
+    self.barTitle = @"加载中...";
 }
 
 #pragma mark - 视图

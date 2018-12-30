@@ -22,20 +22,21 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"个人信息";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
-    UIButton *button = [UIButton footerButton:@"提交"];
-    mzWeakSelf(self);
-    [button addTarget:^(UIButton *button) {
-        [weakself settingSelfInformation];
-    }];
-    [footerView addSubview:button];
-    self.tableView.tableFooterView = footerView;
+    if (self.type) {
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, mz_width, 60)];
+        UIButton *button = [UIButton footerButton:@"提交"];
+        mzWeakSelf(self);
+        [button addTarget:^(UIButton *button) {
+            [weakself settingSelfInformation];
+        }];
+        [footerView addSubview:button];
+        self.tableView.tableFooterView = footerView;
+    }
     
 }
 
@@ -55,7 +56,11 @@
         self.headCell = [[[NSBundle mainBundle]loadNibNamed:@"IconTableViewCell" owner:self options:nil] lastObject];
         [self.headCell.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headUrl] placeholderImage:[UIImage imageNamed:@"headlogo"]];
         self.headCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.headCell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+        if (self.type) {
+            self.headCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }else{
+            self.headCell.accessoryType = UITableViewCellAccessoryNone;
+        }
         return self.headCell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"icon"];
@@ -96,10 +101,18 @@
             cell.textLabel.text = @"昵称";
             textField1.hidden = NO;
             textField1.text = self.aliasName;
+            if (!self.type) {
+                textField1.enabled = NO;
+                textField1.text = self.aliasName ? self.aliasName : @"--";
+            }
         }else{
             cell.textLabel.text = @"个性签名";
             textField2.hidden = NO;
             textField2.text = self.signStr;
+            if (!self.type) {
+                textField2.enabled = NO;
+                textField2.text = self.signStr ? self.signStr : @"--";;
+            }
         }
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         mzWeakSelf(self);
@@ -117,25 +130,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        [self.view endEditing:YES];
-        ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
-        //设置照片最大选择数
-        actionSheet.maxSelectCount = 1;
-        //设置照片最大预览数
-        actionSheet.maxPreviewCount = 50;
-        [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:nil completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
-            self.headCell.headImgView.image = selectPhotos[0];
-        }];
-        return;
-    }else if (indexPath.row == 1) {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        UITextField *textField1 = (UITextField *)[cell viewWithTag:2001];
-        mzWeakSelf(self);
-        [CGXPickerView showStringPickerWithDataSource:@[@"男",@"女"] ResultBlock:^(id selectValue, id selectRow) {
-            textField1.text = selectValue;
-            weakself.sexStr = selectValue;
-        }];
+    if (self.type) {
+        if (indexPath.row == 0) {
+            [self.view endEditing:YES];
+            ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+            //设置照片最大选择数
+            actionSheet.maxSelectCount = 1;
+            //设置照片最大预览数
+            actionSheet.maxPreviewCount = 50;
+            [actionSheet showPreviewPhotoWithSender:self animate:YES lastSelectPhotoModels:nil completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
+                self.headCell.headImgView.image = selectPhotos[0];
+            }];
+            return;
+        }else if (indexPath.row == 1) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            UITextField *textField1 = (UITextField *)[cell viewWithTag:2001];
+            mzWeakSelf(self);
+            [CGXPickerView showStringPickerWithDataSource:@[@"男",@"女"] ResultBlock:^(id selectValue, id selectRow) {
+                textField1.text = selectValue;
+                weakself.sexStr = selectValue;
+            }];
+        }
     }
 }
 
