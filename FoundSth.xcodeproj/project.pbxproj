@@ -23,6 +23,10 @@
 		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
 		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
 		401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05AC21D3D95D00D954B2 /* UpdateViewController.m */; };
+		D8336B1E21D86BA500A381CB /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */; };
+		D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */; };
+		D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */; };
+		D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2221D86BF700A381CB /* SMSTableViewCell.m */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -198,6 +202,12 @@
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
 		B5F042CBAEF94CC12D94C629 /* libPods-FoundSth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
+		D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
+		D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		D8336B2021D86BF700A381CB /* SMSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSTableViewCell.h; sourceTree = "<group>"; };
+		D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSTableViewCell.xib; sourceTree = "<group>"; };
+		D8336B2221D86BF700A381CB /* SMSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSTableViewCell.m; sourceTree = "<group>"; };
 		D8549FA121CE76AA000FD0DF /* FoundSth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoundSth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8549FA421CE76AA000FD0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8549FA521CE76AA000FD0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -842,6 +852,9 @@
 		D854A0D921CFD294000FD0DF /* listCell */ = {
 			isa = PBXGroup;
 			children = (
+				D8336B2021D86BF700A381CB /* SMSTableViewCell.h */,
+				D8336B2221D86BF700A381CB /* SMSTableViewCell.m */,
+				D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */,
 				D854A0DA21CFD2D2000FD0DF /* FoundListTableViewCell.h */,
 				D854A0DB21CFD2D2000FD0DF /* FoundListTableViewCell.m */,
 				D854A0DC21CFD2D2000FD0DF /* FoundListTableViewCell.xib */,
@@ -905,6 +918,9 @@
 				401E05AC21D3D95D00D954B2 /* UpdateViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
+				D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */,
+				D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */,
+				D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */,
 				401E059C21CFF4E900D954B2 /* AboutViewController.h */,
 				401E059D21CFF4E900D954B2 /* AboutViewController.m */,
 				401E059E21CFF4E900D954B2 /* AboutViewController.xib */,
@@ -1097,7 +1113,9 @@
 				D854A03C21CE8171000FD0DF /* MHNavViewController.xib in Resources */,
 				D854A0C721CF42B2000FD0DF /* ZLCollectionCell.xib in Resources */,
 				D854A06921CE81CB000FD0DF /* MHTabBarViewController.xib in Resources */,
+				D8336B1E21D86BA500A381CB /* ModifyPasswordViewController.xib in Resources */,
 				D854A07A21CE8384000FD0DF /* FoundReleaseViewController.xib in Resources */,
+				D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */,
 				D854A08621CE8614000FD0DF /* LoginViewController.xib in Resources */,
 				D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */,
 				D854A06221CE8171000FD0DF /* BaseViewController.xib in Resources */,
@@ -1222,6 +1240,7 @@
 				D854A03B21CE8171000FD0DF /* MHNavViewController.m in Sources */,
 				D865784321D4720A00CBAD64 /* MZAlertSheet.m in Sources */,
 				D854A04521CE8171000FD0DF /* SDCycleScrollView.m in Sources */,
+				D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */,
 				D854A07E21CE8397000FD0DF /* MineViewController.m in Sources */,
 				D865783D21D4709C00CBAD64 /* DXShareModel.m in Sources */,
 				D865783021D46F3800CBAD64 /* WXApiManager.m in Sources */,
@@ -1264,6 +1283,7 @@
 				D854A0D421CF42B2000FD0DF /* ZLPhotoTool.m in Sources */,
 				D854A04D21CE8171000FD0DF /* YBImageBrowserCell.m in Sources */,
 				D8FFD1FC21D312B500966F40 /* InforsViewController.m in Sources */,
+				D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */,
 				D854A0D521CF42B2000FD0DF /* ZLProgressHUD.m in Sources */,
 				D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */,
 				401E058121CFE19500D954B2 /* UstSettTableViewCell.m in Sources */,

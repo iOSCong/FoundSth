@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SMSTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入正确的短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-ee-y5R">
+                        <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrm-KQ-iQo">
+                        <rect key="frame" x="255" y="0.0" width="50" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="RRW-1S-BVJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="获取">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMz-1d-h3h">
+                        <rect key="frame" x="239" y="12" width="1" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="f3o-bk-ZBI"/>
+                            <constraint firstAttribute="height" constant="20" id="rad-sq-hjt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Mrm-KQ-iQo" secondAttribute="bottom" id="3HL-4C-lPJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Mrm-KQ-iQo" secondAttribute="trailing" constant="15" id="83N-s5-dSP"/>
+                    <constraint firstItem="Mrm-KQ-iQo" firstAttribute="leading" secondItem="vMz-1d-h3h" secondAttribute="trailing" constant="15" id="ABU-gV-8oa"/>
+                    <constraint firstItem="Mrm-KQ-iQo" firstAttribute="centerY" secondItem="vMz-1d-h3h" secondAttribute="centerY" id="BgP-5D-OVc"/>
+                    <constraint firstItem="vMz-1d-h3h" firstAttribute="leading" secondItem="fgY-ee-y5R" secondAttribute="trailing" constant="10" id="M6I-Yq-Ci4"/>
+                    <constraint firstItem="fgY-ee-y5R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="NEZ-bL-HvK"/>
+                    <constraint firstItem="Mrm-KQ-iQo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lxu-JA-uJG"/>
+                    <constraint firstItem="fgY-ee-y5R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sdb-zs-jmi"/>
+                    <constraint firstAttribute="bottom" secondItem="fgY-ee-y5R" secondAttribute="bottom" id="wWj-vp-C7b"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="smsBtn" destination="Mrm-KQ-iQo" id="KXg-Un-onm"/>
+                <outlet property="smsTextF" destination="fgY-ee-y5R" id="N9F-xS-Ppv"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

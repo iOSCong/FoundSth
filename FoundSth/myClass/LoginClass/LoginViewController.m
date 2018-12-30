@@ -69,6 +69,8 @@
                     [userInfo setValue:userAvatar.url forKey:@"url"];
                     [NSStrObject saveUserInfos:userInfo];
                     
+                    [MHProgressHUD showMsgWithoutView:@"登录成功"];
+                    
                     [self dismissViewControllerAnimated:YES completion:nil];
                     //通过通知中心发送通知
                     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
@@ -83,6 +85,45 @@
         }
     }];
     
+    [wsLoginV setClickRegisteBlock:^(AVUser *user, NSString *simCode) {
+        if (simCode.length != 6) {
+            [MHProgressHUD showMsgWithoutView:@"请输入6位正确的验证码"];
+        }else{
+            [MHProgressHUD showProgress:@"正在注册..." inView:self.view];
+            [AVUser verifyMobilePhone:simCode withBlock:^(BOOL succeeded, NSError *error) {
+                [MHProgressHUD hide];
+                if (!error) {
+                    if (user) {
+                        //存储账户密码
+                        [NSStrObject saveAccount:user.username];
+                        
+                        //存储用户信息
+                        AVFile *userAvatar = [user objectForKey:@"avatar"];
+                        NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                        [userInfo setValue:user.username forKey:@"username"];
+                        [userInfo setValue:user.objectId forKey:@"objectId"];
+                        [userInfo setValue:userAvatar.url forKey:@"url"];
+                        [NSStrObject saveUserInfos:userInfo];
+                        
+                        [MHProgressHUD showMsgWithoutView:@"注册成功"];
+                        
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        //通过通知中心发送通知
+                        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"1"}]];
+                        
+                    } else {
+                        NSLog(@"登录失败：%@",error);
+                        [MHProgressHUD showMsgWithoutView:@"登录失败,请稍后再试!"];
+                    }
+                } else {
+                    NSLog(@"登录失败：%@",error);
+                    [MHProgressHUD showMsgWithoutView:@"短信验证码验证失败!"];
+                }
+            }];
+        }
+    }];
+    
+    /*
     //注册
     [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
         if (![textField1Text isEqualToString:@""] && ![textField2Text isEqualToString:@""]) {
@@ -162,7 +203,7 @@
             [MHProgressHUD showMsgWithoutView:@"请输入账号和密码"];
         }
         
-    }];
+    }];*/
     
 //    //注册
 //    [wsLoginV setClickLostBlock:^(NSString *textField1Text, NSString *textField2Text) {
