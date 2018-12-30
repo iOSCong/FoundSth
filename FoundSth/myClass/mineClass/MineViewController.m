@@ -121,6 +121,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         UsetInfoViewController *userinfo = [[UsetInfoViewController alloc]init];
+        userinfo.title = @"个人信息";
+        userinfo.type = 1;
         userinfo.headUrl = self.headUrl;
         userinfo.sexStr = self.sexStr;
         userinfo.aliasName = self.aliasName;

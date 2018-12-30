@@ -8,6 +8,7 @@
 
 #import "FoundListViewController.h"
 #import "FoundListTableViewCell.h"
+#import "UsetInfoViewController.h"
 #import "YBImageBrowser.h"
 #import "YMRefresh.h"
 #import "DXShareView.h"
@@ -98,13 +99,24 @@
 {
     FoundListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoundListTableViewCell"];
     
+    mzWeakSelf(self);
     AVUser *owner = self.dataArr[indexPath.row][@"owner"];
-    AVFile *userAvatar =[owner objectForKey:@"avatar"];
+    AVFile *userAvatar = [owner objectForKey:@"avatar"];
     if (userAvatar) {
         [cell.headImgView sd_setImageWithURL:[NSURL URLWithString:userAvatar.url] placeholderImage:[UIImage imageNamed:@"headlogo"]];
     }else{
         cell.headImgView.image = [UIImage imageNamed:@"headlogo"];
     }
+    [cell.headBtn addTarget:^(UIButton *button) {
+        UsetInfoViewController *userinfo = [[UsetInfoViewController alloc] init];
+        userinfo.title = [owner objectForKey:@"alias"];
+        userinfo.type = 0;
+        userinfo.headUrl = userAvatar.url;
+        userinfo.sexStr = [owner objectForKey:@"sex"];
+        userinfo.aliasName = [owner objectForKey:@"alias"];
+        userinfo.signStr = [owner objectForKey:@"sign"];
+        [self.navigationController pushViewController:userinfo animated:YES];
+    }];
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
     
     NSDate *createdAt = self.dataArr[indexPath.row][@"updatedAt"];
@@ -129,7 +141,6 @@
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     cell.likeLabel.text = self.dataArr[indexPath.row][@"dianzan"] ? mzstring(self.dataArr[indexPath.row][@"dianzan"]) : @"0";
     //点赞
-    mzWeakSelf(self);
     [cell.likeBtn addTarget:^(UIButton *button) {
         AVObject *product = [AVObject objectWithClassName:@"homeList" objectId:weakself.dataArr[indexPath.row][@"objectId"]];
         NSInteger dianzan = [weakself.dataArr[indexPath.row][@"dianzan"] integerValue] + 1;

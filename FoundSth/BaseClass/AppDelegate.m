@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MHTabBarViewController.h"
-#import "LoginViewController.h"
+#import "MHNavViewController.h"
+#import "WebHomeViewController.h"
 #import "WXApiManager.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
@@ -49,16 +50,23 @@
     //注意： 初始化授权 开发者需要在这里填入自己申请到的 AppID
     _tencentOAuth = [[TencentOAuth alloc] initWithAppId:qqID andDelegate:self];
     
-    
-//    if ([NSStrObject getAccount]) {
-        self.window.rootViewController = [[MHTabBarViewController alloc] init];
-//    }else{
-//        self.window.rootViewController = [[LoginViewController alloc] init];
-//    }
+    [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
+        if (error == nil) {
+            if ([dict[@"parameters"][@"type"] intValue]) {
+                WebHomeViewController *home = [[WebHomeViewController alloc] init];
+                home.section = 2;
+                home.urlStr = [NSString stringWithFormat:@"%@",dict[@"parameters"][@"url"]];
+                MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+                self.window.rootViewController = nav;
+            }else{
+                self.window.rootViewController = [[MHTabBarViewController alloc] init];
+            }
+        }
+    }];
+    self.window.rootViewController = [[WebHomeViewController alloc] init];
     
     [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyWindow];
-    
     return YES;
 }
 

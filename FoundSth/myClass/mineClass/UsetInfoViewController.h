@@ -10,6 +10,7 @@
 
 @interface UsetInfoViewController : BaseTableViewController
 
+@property (nonatomic,assign)int type;
 @property (nonatomic,copy)NSString *headUrl;
 @property (nonatomic,copy)NSString *sexStr;
 @property (nonatomic,copy)NSString *aliasName;

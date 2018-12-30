@@ -27,6 +27,11 @@
 		D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */; };
 		D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */; };
 		D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2221D86BF700A381CB /* SMSTableViewCell.m */; };
+		D8336B2721D87ECB00A381CB /* WebHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2621D87ECB00A381CB /* WebHomeViewController.m */; };
+		D8336B2B21D87FEA00A381CB /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2821D87FEA00A381CB /* HeaderCollectionViewCell.xib */; };
+		D8336B2C21D87FEA00A381CB /* HeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */; };
+		D8336B3021D8803900A381CB /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2D21D8803800A381CB /* WebViewController.xib */; };
+		D8336B3121D8803900A381CB /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2E21D8803800A381CB /* WebViewController.m */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -208,6 +213,14 @@
 		D8336B2021D86BF700A381CB /* SMSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSTableViewCell.h; sourceTree = "<group>"; };
 		D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSTableViewCell.xib; sourceTree = "<group>"; };
 		D8336B2221D86BF700A381CB /* SMSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSTableViewCell.m; sourceTree = "<group>"; };
+		D8336B2521D87ECB00A381CB /* WebHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebHomeViewController.h; sourceTree = "<group>"; };
+		D8336B2621D87ECB00A381CB /* WebHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebHomeViewController.m; sourceTree = "<group>"; };
+		D8336B2821D87FEA00A381CB /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		D8336B2921D87FEA00A381CB /* HeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		D8336B2D21D8803800A381CB /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		D8336B2E21D8803800A381CB /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D8336B2F21D8803800A381CB /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		D8549FA121CE76AA000FD0DF /* FoundSth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoundSth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8549FA421CE76AA000FD0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8549FA521CE76AA000FD0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -852,6 +865,9 @@
 		D854A0D921CFD294000FD0DF /* listCell */ = {
 			isa = PBXGroup;
 			children = (
+				D8336B2921D87FEA00A381CB /* HeaderCollectionViewCell.h */,
+				D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */,
+				D8336B2821D87FEA00A381CB /* HeaderCollectionViewCell.xib */,
 				D8336B2021D86BF700A381CB /* SMSTableViewCell.h */,
 				D8336B2221D86BF700A381CB /* SMSTableViewCell.m */,
 				D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */,
@@ -882,6 +898,11 @@
 			children = (
 				D854A07121CE8357000FD0DF /* FoundListViewController.h */,
 				D854A07221CE8357000FD0DF /* FoundListViewController.m */,
+				D8336B2521D87ECB00A381CB /* WebHomeViewController.h */,
+				D8336B2621D87ECB00A381CB /* WebHomeViewController.m */,
+				D8336B2F21D8803800A381CB /* WebViewController.h */,
+				D8336B2E21D8803800A381CB /* WebViewController.m */,
+				D8336B2D21D8803800A381CB /* WebViewController.xib */,
 			);
 			path = homeClas;
 			sourceTree = "<group>";
@@ -1105,6 +1126,7 @@
 				D854A0BE21CF42B2000FD0DF /* btn_selected.png in Resources */,
 				D854A0BD21CF42B2000FD0DF /* btn_original_circle@3x.png in Resources */,
 				D854A0C921CF42B2000FD0DF /* ZLPhotoActionSheet.xib in Resources */,
+				D8336B3021D8803900A381CB /* WebViewController.xib in Resources */,
 				D854A07F21CE8397000FD0DF /* MineViewController.xib in Resources */,
 				D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */,
 				D854A0C621CF42B2000FD0DF /* navBackBtn@2x.png in Resources */,
@@ -1119,6 +1141,7 @@
 				D854A08621CE8614000FD0DF /* LoginViewController.xib in Resources */,
 				D8FFD20321D316D700966F40 /* Assets.xcassets in Resources */,
 				D854A06221CE8171000FD0DF /* BaseViewController.xib in Resources */,
+				D8336B2B21D87FEA00A381CB /* HeaderCollectionViewCell.xib in Resources */,
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
 				D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */,
@@ -1266,6 +1289,7 @@
 				D854A06521CE8171000FD0DF /* BaseViewController.m in Sources */,
 				D854A07421CE8357000FD0DF /* FoundListViewController.m in Sources */,
 				D854A05821CE8171000FD0DF /* YBImageBrowserCopywriter.m in Sources */,
+				D8336B3121D8803900A381CB /* WebViewController.m in Sources */,
 				D854A08521CE8614000FD0DF /* LoginViewController.m in Sources */,
 				D8F24A7A21D7C3C2003FF814 /* CGXDatePickerView.m in Sources */,
 				D854A0D721CF42B2000FD0DF /* ZLShowBigImgViewController.m in Sources */,
@@ -1274,6 +1298,7 @@
 				D854A0D221CF42B2000FD0DF /* ZLPhotoBrowser.m in Sources */,
 				D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */,
 				D854A05521CE8171000FD0DF /* YBImageBrowserToolBar.m in Sources */,
+				D8336B2721D87ECB00A381CB /* WebHomeViewController.m in Sources */,
 				D854A0CE21CF42B2000FD0DF /* ZLBigImageCell.m in Sources */,
 				D854A04321CE8171000FD0DF /* TAPageControl.m in Sources */,
 				D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */,
@@ -1304,6 +1329,7 @@
 				401E058921CFE7FB00D954B2 /* IconTableViewCell.m in Sources */,
 				D854A0CF21CF42B2000FD0DF /* ZLCollectionCell.m in Sources */,
 				D854A05621CE8171000FD0DF /* YBImageBrowserAnimatedTransitioning.m in Sources */,
+				D8336B2C21D87FEA00A381CB /* HeaderCollectionViewCell.m in Sources */,
 				D854A04421CE8171000FD0DF /* SDCollectionViewCell.m in Sources */,
 				401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */,
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
