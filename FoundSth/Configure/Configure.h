@@ -24,12 +24,28 @@
 #define HZMH_APPICONIMAGE [UIImage imageNamed:[[[[NSBundle mainBundle] infoDictionary] valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject]]
 #define HZMH_APPNAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
 
+//leanCloud云存储
+#define APP_ID @"q2bVzGltsIqv0BbBGIOJ6luL-gzGzoHsz"
+#define APP_KEY @"xeyGFW3rYEFSxjILR2Sslmut"
+//#define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
+//#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
 
-//高德地图apikey
-#define AMAPAPIKEY @"b6aec21e99349b0de10d068ffc3d8bc8"
+//微信分享
+#define weixin_ID @"wx010cd9436a4d0b40"
 
-//微信分享apikey
-#define WEIXINAPIKEY @"wxad265fb5ffccace8"
+//QQ分享
+#define qqID @"1107999939"
+#define qqKey @"KEYhvXoYqIGaaFIqwWi";
+
+//极光推送
+#define JPushKey @"6af04920ae86ba66c65182c7"
+
+
+
+
+
+
+
 
 
 /**屏幕宽度*/
