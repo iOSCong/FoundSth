@@ -47,7 +47,7 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-//    [AVOSCloud setAllLogsEnabled:YES];
+    [AVOSCloud setAllLogsEnabled:YES];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
@@ -137,7 +137,7 @@
     // 如需继续使用 pushConfig.plist 文件声明 appKey 等配置内容，请依旧使用 [JPUSHService setupWithOption:launchOptions] 方式初始化。
     [JPUSHService setupWithOption:launchOptions appKey:JPushKey
                           channel:@"app story"
-                 apsForProduction:1
+                 apsForProduction:kisProduction
             advertisingIdentifier:advertisingId];
     
 }
