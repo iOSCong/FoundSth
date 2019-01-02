@@ -77,7 +77,7 @@
                     
                 } else {
                     NSLog(@"登录失败：%@",error);
-                    [MHProgressHUD showMsgWithoutView:@"用户未注册!"];
+                    [MHProgressHUD showMsgWithoutView:@"登录失败"];
                 }
             }];
         }else{

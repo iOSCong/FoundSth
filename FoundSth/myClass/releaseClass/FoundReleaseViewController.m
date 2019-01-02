@@ -205,14 +205,10 @@
     }];
 }
 
-- (void)updateObject
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // 第一个参数是 className，第二个参数是 objectId
-    AVObject *todo =[AVObject objectWithClassName:@"homeList" objectId:self.objectId];
-    // 修改属性
-    [todo setObject:@"每周工程师会议，本周改为周三下午3点半。" forKey:@"content"];
-    // 保存到云端
-    [todo saveInBackground];
+    [self.view endEditing:YES];
+    return YES;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

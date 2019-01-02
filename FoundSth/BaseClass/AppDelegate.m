@@ -14,8 +14,11 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 
 //帮我找
-#define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
-#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
+#define APP_ID @"q2bVzGltsIqv0BbBGIOJ6luL-gzGzoHsz"
+#define APP_KEY @"xeyGFW3rYEFSxjILR2Sslmut"
+
+//#define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
+//#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
 
 //微信分享
 #define weixinKey @"wxad265fb5ffccace8"
