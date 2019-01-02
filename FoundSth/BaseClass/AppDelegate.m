@@ -11,7 +11,6 @@
 #import "MHNavViewController.h"
 #import "WebHomeViewController.h"
 #import <WXApi.h>
-//#import "WXApiManager.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
 //帮我找
@@ -22,7 +21,7 @@
 //#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
 
 //微信分享
-#define weixinKey @"wx010cd9436a4d0b40"
+#define weixin_ID @"wx010cd9436a4d0b40"
 
 //QQ分享
 #define qqID @"1107999939"
@@ -52,7 +51,7 @@
     [AVOSCloud setAllLogsEnabled:YES];
     
     //微信分享apikey
-    [WXApi registerApp:weixinKey];
+    [WXApi registerApp:weixin_ID];
     
     //注意： 初始化授权 开发者需要在这里填入自己申请到的 AppID
     _tencentOAuth = [[TencentOAuth alloc] initWithAppId:qqID andDelegate:self];

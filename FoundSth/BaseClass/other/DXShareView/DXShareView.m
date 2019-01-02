@@ -28,7 +28,7 @@ static CGFloat const DXShreCancelHeight = 46.f;
 
 #define SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface DXShareView()<UIGestureRecognizerDelegate,WXApiDelegate>
+@interface DXShareView()<UIGestureRecognizerDelegate>
 
 //底部view
 @property (nonatomic,strong) UIView *bottomPopView;
@@ -181,18 +181,6 @@ static CGFloat const DXShreCancelHeight = 46.f;
     sendReq.message = urlMessage;
     //发送分享信息
     [WXApi sendReq:sendReq];
-}
-
-#pragma mark - WXDelegate 微信分享
-- (void)onResp:(BaseResp *)resp {
-    // 1.分享后回调类
-    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-        if (resp.errCode == 0) {
-            [MHProgressHUD showMsgWithoutView:@"分享成功"];
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"分享失败"];
-        }
-    }
 }
 
 //分享到QQ

@@ -35,7 +35,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>foundstr</string>
+				<string>wx010cd9436a4d0b40</string>
 			</array>
 		</dict>
 	</array>
@@ -45,7 +45,6 @@
 	<array>
 		<string>wechat</string>
 		<string>weixin</string>
-		<string>foundstr</string>
 		<string>mqq</string>
 		<string>mqzone</string>
 	</array>
