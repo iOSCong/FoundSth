@@ -137,7 +137,7 @@
     // 如需继续使用 pushConfig.plist 文件声明 appKey 等配置内容，请依旧使用 [JPUSHService setupWithOption:launchOptions] 方式初始化。
     [JPUSHService setupWithOption:launchOptions appKey:JPushKey
                           channel:@"app story"
-                 apsForProduction:kisProduction
+                 apsForProduction:1
             advertisingIdentifier:advertisingId];
     
 }
@@ -161,8 +161,13 @@
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
     if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //从通知界面直接进入应用
+        self.window.rootViewController = [[MHTabBarViewController alloc] init];
     }else{
         //从通知设置界面进入应用
+        WebHomeViewController *home = [[WebHomeViewController alloc] init];
+        home.section = 2;
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+        self.window.rootViewController = nav;
     }
 }
 
