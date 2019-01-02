@@ -11,6 +11,6 @@ target 'FoundSth' do
   pod 'MJRefresh', '~> 3.1.13'
   pod 'AVOSCloud'
   pod 'WechatOpenSDK'
-#  pod 'JPush'
+  pod 'JPush'
 
 end
