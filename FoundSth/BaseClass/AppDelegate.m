@@ -13,24 +13,23 @@
 #import <WXApi.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
-//帮我找
-#define APP_ID @"q2bVzGltsIqv0BbBGIOJ6luL-gzGzoHsz"
-#define APP_KEY @"xeyGFW3rYEFSxjILR2Sslmut"
+// JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+// 如果需要使用 idfa 功能所需要引入的头文件（可选）
+#import <AdSupport/AdSupport.h>
 
-//#define APP_ID @"a16bHTX46r5qFgsvtiK6i2Pj-gzGzoHsz"
-//#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
+#ifdef DEBUG
+#define kisProduction 0      //开发产品
+#else
+#define kisProduction 1      //发布产品
+#endif
 
-//微信分享
-#define weixin_ID @"wx010cd9436a4d0b40"
 
-//QQ分享
-#define qqID @"1107999939"
-#define qqKey @"KEYhvXoYqIGaaFIqwWi";
-
-//极光推送
-#define JPushKey @"6af04920ae86ba66c65182c7"
-
-@interface AppDelegate () <TencentSessionDelegate,WXApiDelegate>
+@interface AppDelegate () <TencentSessionDelegate,WXApiDelegate,JPUSHRegisterDelegate>
 
 @property (nonatomic,strong)TencentOAuth *tencentOAuth;
 
@@ -48,13 +47,16 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-    [AVOSCloud setAllLogsEnabled:YES];
+//    [AVOSCloud setAllLogsEnabled:YES];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
     
     //注意： 初始化授权 开发者需要在这里填入自己申请到的 AppID
     _tencentOAuth = [[TencentOAuth alloc] initWithAppId:qqID andDelegate:self];
+    
+    //设置激光推送
+    [self jpushInitWith:launchOptions Application:application];
     
     [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
         if (error == nil) {
@@ -103,6 +105,115 @@
         }
     }
 }
+
+
+#pragma ****************************极光推送***************************************
+-(void)jpushInitWith:(NSDictionary*)launchOptions Application:(UIApplication *)application {
+    
+//    // Optional
+//    // 获取 IDFA
+//    // 如需使用 IDFA 功能请添加此代码并在初始化方法的 advertisingIdentifier 参数中填写对应值
+//    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+//
+//    // Required
+//    // init Push
+//    // notice: 2.1.5 版本的 SDK 新增的注册方法，改成可上报 IDFA，如果没有使用 IDFA 直接传 nil
+//    // 如需继续使用 pushConfig.plist 文件声明 appKey 等配置内容，请依旧使用 [JPUSHService setupWithOption:launchOptions] 方式初始化。
+//    [JPUSHService setupWithOption:launchOptions appKey:JPushKey
+//                          channel:@"app story"
+//                 apsForProduction:1
+//            advertisingIdentifier:advertisingId];
+    
+    
+    //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    if (@available(iOS 12.0, *)) {
+//        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    } else {
+        // Fallback on earlier versions
+        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    }
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义 categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+
+    // Optional
+    // 获取 IDFA
+    // 如需使用 IDFA 功能请添加此代码并在初始化方法的 advertisingIdentifier 参数中填写对应值
+    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+
+    // Required
+    // init Push
+    // notice: 2.1.5 版本的 SDK 新增的注册方法，改成可上报 IDFA，如果没有使用 IDFA 直接传 nil
+    // 如需继续使用 pushConfig.plist 文件声明 appKey 等配置内容，请依旧使用 [JPUSHService setupWithOption:launchOptions] 方式初始化。
+    [JPUSHService setupWithOption:launchOptions appKey:JPushKey
+                          channel:@"app story"
+                 apsForProduction:kisProduction
+            advertisingIdentifier:advertisingId];
+    
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    /// Required - 注册 DeviceToken
+    
+    NSLog(@"deviceToken====%@",deviceToken);
+    [JPUSHService registerDeviceToken:deviceToken];
+    
+    
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 12 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
+    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //从通知界面直接进入应用
+    }else{
+        //从通知设置界面进入应用
+    }
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required, For systems with less than or equal to iOS 6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

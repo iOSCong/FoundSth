@@ -409,6 +409,7 @@
 		D865785321D4AD8B00CBAD64 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D865785521D4AD9900CBAD64 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		D865785721D4ADA600CBAD64 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D8A62E4421DCB2D60072E0E5 /* FoundSth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoundSth.entitlements; sourceTree = "<group>"; };
 		D8F2455F21D0E83F00EFBE82 /* FoundMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyViewController.h; sourceTree = "<group>"; };
 		D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyViewController.m; sourceTree = "<group>"; };
 		D8F2456221D0E95000EFBE82 /* FoundMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyTableViewCell.h; sourceTree = "<group>"; };
@@ -529,6 +530,7 @@
 		D8549FA321CE76AA000FD0DF /* FoundSth */ = {
 			isa = PBXGroup;
 			children = (
+				D8A62E4421DCB2D60072E0E5 /* FoundSth.entitlements */,
 				D8549FD621CE8147000FD0DF /* Configure */,
 				D8549FD921CE8155000FD0DF /* BaseClass */,
 				D854A06B21CE8213000FD0DF /* myClass */,
@@ -1079,6 +1081,11 @@
 					D8549FA021CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					D8549FB821CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
@@ -1500,6 +1507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
@@ -1564,6 +1572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
