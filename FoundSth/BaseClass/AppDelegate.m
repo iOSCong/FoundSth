@@ -179,7 +179,7 @@
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
         NSLog(@"userInfo==%@",userInfo);
-         [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+        [MZAlertSheet alertViewMessage:_alterTitle];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
 }
