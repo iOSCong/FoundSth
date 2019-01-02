@@ -20,27 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoundSth/BaseClass/AppDelegate.m"
-            timestampString = "568132326.796321"
+            timestampString = "568134233.297472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "-jpushInitWith:Application:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoundSth/BaseClass/AppDelegate.m"
-            timestampString = "568132326.796735"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,28 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoundSth/BaseClass/AppDelegate.m"
-            timestampString = "568132326.797035"
+            timestampString = "568134233.2978801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoundSth/BaseClass/AppDelegate.m"
-            timestampString = "568132326.797327"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-application:didFailToRegisterForRemoteNotificationsWithError:"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -30,7 +30,7 @@
 
 
 @interface AppDelegate () <TencentSessionDelegate,WXApiDelegate,JPUSHRegisterDelegate>
-
+@property(nonatomic,strong)NSString *alterTitle;
 @property (nonatomic,strong)TencentOAuth *tencentOAuth;
 
 @end
@@ -177,6 +177,9 @@
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
+        _alterTitle = userInfo[@"aps"][@"alert"];
+        NSLog(@"userInfo==%@",userInfo);
+         [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
 }
@@ -187,6 +190,11 @@
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
+        _alterTitle = userInfo[@"aps"][@"alert"];
+        NSLog(@"userInfo==%@",userInfo);
+
+         [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+
     }
     completionHandler();  // 系统要求执行这个方法
 }
@@ -195,12 +203,16 @@
     
     // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
+    _alterTitle = userInfo[@"aps"][@"alert"];
+ [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     // Required, For systems with less than or equal to iOS 6
+    _alterTitle = userInfo[@"aps"][@"alert"];
+    [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
     [JPUSHService handleRemoteNotification:userInfo];
 }
 
@@ -224,6 +236,8 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [JPUSHService resetBadge];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
