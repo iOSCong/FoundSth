@@ -181,7 +181,7 @@
     [browser show];
 }
 
-//微信分享
+//分享
 - (void)shareButtonEvent:(NSDictionary *)dic
 {
     DXShareView *shareView = [[DXShareView alloc] init];

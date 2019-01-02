@@ -25,15 +25,17 @@
     self.tableView.estimatedRowHeight = 100; //随便设个不那么离谱的值
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl] placeholderImage:[UIImage imageNamed:@"placehoald"]];
-    //图片自适应宽高
-    self.headImgView.contentMode = UIViewContentModeScaleAspectFill;
-    self.headImgView.autoresizesSubviews = YES;
-    self.headImgView.layer.masksToBounds = YES;  //图片裁剪
-    self.headImgView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];
-    [self.headImgView addGestureRecognizer:tap];
-    self.tableView.tableHeaderView = self.headView;
+    if (self.imgUrl) {
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl] placeholderImage:[UIImage imageNamed:@"placehoald"]];
+        //图片自适应宽高
+        self.headImgView.contentMode = UIViewContentModeScaleAspectFill;
+        self.headImgView.autoresizesSubviews = YES;
+        self.headImgView.layer.masksToBounds = YES;  //图片裁剪
+        self.headImgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];
+        [self.headImgView addGestureRecognizer:tap];
+        self.tableView.tableHeaderView = self.headView;
+    }
     
 }
 

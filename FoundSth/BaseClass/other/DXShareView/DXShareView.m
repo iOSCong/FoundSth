@@ -28,7 +28,7 @@ static CGFloat const DXShreCancelHeight = 46.f;
 
 #define SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface DXShareView()<UIGestureRecognizerDelegate>
+@interface DXShareView()<UIGestureRecognizerDelegate,WXApiDelegate>
 
 //底部view
 @property (nonatomic,strong) UIView *bottomPopView;
@@ -163,19 +163,10 @@ static CGFloat const DXShreCancelHeight = 46.f;
 
 - (void)shareWeChatBtnHandle:(NSInteger)index
 {
-    // 检查是否装了微信
-    if (![WXApi isWXAppInstalled])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未安装微信,无法分享" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        return;
-    }
-    
     //创建发送对象实例
     SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
     sendReq.bText = NO;//不使用文本信息
     sendReq.scene = (int)index;//0 = 好友列表 1 = 朋友圈 2 = 收藏
-    
     //创建分享内容对象
     WXMediaMessage *urlMessage = [WXMediaMessage message];
     urlMessage.title = self.shareModel.title;//分享标题
@@ -188,23 +179,25 @@ static CGFloat const DXShreCancelHeight = 46.f;
     //完成发送对象实例
     urlMessage.mediaObject = webObj;
     sendReq.message = urlMessage;
-    
     //发送分享信息
     [WXApi sendReq:sendReq];
+}
+
+#pragma mark - WXDelegate 微信分享
+- (void)onResp:(BaseResp *)resp {
+    // 1.分享后回调类
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        if (resp.errCode == 0) {
+            [MHProgressHUD showMsgWithoutView:@"分享成功"];
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"分享失败"];
+        }
+    }
 }
 
 //分享到QQ
 - (void)shareToQQBtnHandle:(NSInteger)index
 {
-    // 检查是否装了QQ
-    if (![TencentOAuth iphoneQQInstalled])
-//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未安装QQ,无法分享" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        return;
-    }
-    
     NSString *title = self.shareModel.title;//分享标题
     NSString *description = self.shareModel.descr;//分享描述
     NSData *previewImageData = UIImagePNGRepresentation(self.shareModel.thumbImage);
@@ -220,84 +213,6 @@ static CGFloat const DXShreCancelHeight = 46.f;
     }else{
         //将内容分享到qzone
         QQApiSendResultCode sent = [QQApiInterface SendReqToQZone:req];
-    }
-}
-
-- (void)getOrderPayResult:(NSNotification *)notification
-{
-    // 注意通知内容类型的匹配
-    if (notification.object == 0)
-    {
-        NSLog(@"分享成功");
-    }
-}
-
-#warning 以下注释代码 需导入友盟社会化分享组件
-#pragma mark - 分享链接到三方平台
-//-(void)shareLinkToPlatform:(UMSocialPlatformType)shareToPlatform shareConentType:(DXShareContentType)shareConentType
-//{
-//    switch (self.shareConentType) {
-//        case DXShareContentTypeText://文本分享
-//        {
-//            //创建分享消息对象
-//            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-//            //设置文本
-//            messageObject.text = self.shareModel.title;
-//            //调用分享接口
-//            [[UMSocialManager defaultManager] shareToPlatform:shareToPlatform messageObject:messageObject currentViewController:nil completion:^(id result, NSError *error) {
-//                [self shareResult:result error:error];
-//
-//            }];
-//        }
-//            break;
-//        case DXShareContentTypeImage://图片分享
-//        {
-//            //创建分享消息对象
-//            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-//
-//            //创建图片内容对象
-//            UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
-//
-//            [shareObject setShareImage:self.shareModel.thumbImage];
-//
-//            //分享消息对象设置分享内容对象
-//            messageObject.shareObject = shareObject;
-//
-//            //调用分享接口
-//            [[UMSocialManager defaultManager] shareToPlatform:shareToPlatform messageObject:messageObject currentViewController:nil completion:^(id result, NSError *error) {
-//                [self shareResult:result error:error];
-//
-//            }];
-//        }
-//            break;
-//        case DXShareContentTypeLink://链接分享
-//        {
-//            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-//
-//            UMShareWebpageObject *webPageObject = [UMShareWebpageObject shareObjectWithTitle:self.shareModel.title descr:self.shareModel.descr thumImage:self.shareModel.thumbImage];
-//
-//            webPageObject.webpageUrl = self.shareModel.url;
-//            messageObject.shareObject = webPageObject;
-//
-//            [[UMSocialManager defaultManager] shareToPlatform:shareToPlatform messageObject:messageObject currentViewController:nil completion:^(id result, NSError *error) {
-//                [self shareResult:result error:error];
-//            }];
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//}
-
-#pragma mark - 分享结果处理
--(void)shareResult:(id)result error:(NSError*)error
-{
-    if (!error) {
-        [MHProgressHUD showMsgWithoutView:@"分享成功"];
-    }
-    else
-    {
-        [MHProgressHUD showMsgWithoutView:@"分享失败"];
     }
 }
 
@@ -348,16 +263,14 @@ static CGFloat const DXShreCancelHeight = 46.f;
 #warning 防止审核失败 最好要先判断是否已安装微信、QQ 或其他平台的App
     //微信好友
 //    if ([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]) {
+    if ([WXApi isWXAppInstalled]) {
         DXSharePlatform *wechatSessionModel = [[DXSharePlatform alloc] init];
         wechatSessionModel.iconStateNormal = @"weixin_allshare";
         wechatSessionModel.iconStateHighlighted = @"weixin_allshare_night";
         wechatSessionModel.sharePlatform = DXShareTypeWechatSession;
         wechatSessionModel.name = @"微信好友";
         [self.platformArray addObject:wechatSessionModel];
-
 //    }
-    
-    
     
     //微信朋友圈
 //    if ([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatTimeLine]) {
@@ -367,10 +280,11 @@ static CGFloat const DXShreCancelHeight = 46.f;
         wechatTimeLineModel.sharePlatform = DXShareTypeWechatTimeline;
         wechatTimeLineModel.name = @"微信朋友圈";
         [self.platformArray addObject:wechatTimeLineModel];
-//    }
+    }
     
     //QQ好友
 //    if ([[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]) {
+    if ([TencentOAuth iphoneQQInstalled]) {
         DXSharePlatform *qqModel = [[DXSharePlatform alloc] init];
         qqModel.iconStateNormal = @"qq_allshare";
         qqModel.iconStateHighlighted = @"qq_allshare_night";
@@ -387,7 +301,7 @@ static CGFloat const DXShreCancelHeight = 46.f;
         qqZone.sharePlatform = DXShareTypeQzone;
         qqZone.name = @"QQ空间";
         [self.platformArray addObject:qqZone];
-//    }
+    }
     
     //复制链接
 //    if (self.shareConentType != DXShareContentTypeImage) {

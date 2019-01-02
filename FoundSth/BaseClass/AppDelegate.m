@@ -10,7 +10,8 @@
 #import "MHTabBarViewController.h"
 #import "MHNavViewController.h"
 #import "WebHomeViewController.h"
-#import "WXApiManager.h"
+#import <WXApi.h>
+//#import "WXApiManager.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
 //帮我找
@@ -21,13 +22,16 @@
 //#define APP_KEY @"7mGB3McbV1QQMjl6Rz5wWKIG"
 
 //微信分享
-#define weixinKey @"wxad265fb5ffccace8"
+#define weixinKey @"wx010cd9436a4d0b40"
 
 //QQ分享
 #define qqID @"1107999939"
 #define qqKey @"KEYhvXoYqIGaaFIqwWi";
 
-@interface AppDelegate () <TencentSessionDelegate>
+//极光推送
+#define JPushKey @"6af04920ae86ba66c65182c7"
+
+@interface AppDelegate () <TencentSessionDelegate,WXApiDelegate>
 
 @property (nonatomic,strong)TencentOAuth *tencentOAuth;
 
@@ -64,6 +68,8 @@
             }else{
                 self.window.rootViewController = [[MHTabBarViewController alloc] init];
             }
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
         }
     }];
     self.window.rootViewController = [[WebHomeViewController alloc] init];
@@ -74,11 +80,29 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [TencentOAuth HandleOpenURL:url];
+    return [TencentOAuth HandleOpenURL:url] || [WXApi handleOpenURL:url delegate:self];;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [TencentOAuth HandleOpenURL:url];
+    return [TencentOAuth HandleOpenURL:url] || [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary*)options
+{
+    [WXApi handleOpenURL:url delegate:self]; //向微信注册app的url
+    return YES;
+}
+
+#pragma mark - WXDelegate 微信分享
+- (void)onResp:(BaseResp *)resp {
+    // 1.分享后回调类
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        if (resp.errCode == 0) {
+            [MHProgressHUD showMsgWithoutView:@"分享成功"];
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"分享失败"];
+        }
+    }
 }
 
 
