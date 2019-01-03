@@ -1488,7 +1488,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AT3VVA8KQN;
 				ENABLE_BITCODE = NO;
@@ -1539,7 +1539,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mq.foundstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d3cdcc8-e68e-4321-abe2-42378df816a1";
+				PROVISIONING_PROFILE = "f21c8098-b2da-4f08-bcac-6b08f124af1e";
 				PROVISIONING_PROFILE_SPECIFIER = foundStr_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1553,7 +1553,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AT3VVA8KQN;
 				ENABLE_BITCODE = NO;
@@ -1604,7 +1604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mq.foundstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d3cdcc8-e68e-4321-abe2-42378df816a1";
+				PROVISIONING_PROFILE = "f21c8098-b2da-4f08-bcac-6b08f124af1e";
 				PROVISIONING_PROFILE_SPECIFIER = foundStr_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -111,7 +111,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     
     
     smallView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    smallView.frame = CGRectMake(20, 150, self.frame.size.width-40, self.frame.size.width-40);
+    smallView.frame = CGRectMake(20, 150, self.frame.size.width-40, 568-40);
     smallView.layer.cornerRadius = 5;
     smallView.layer.masksToBounds = YES;
     [self addSubview:smallView];
