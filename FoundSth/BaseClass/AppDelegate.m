@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MHTabBarViewController.h"
 #import "MHNavViewController.h"
-#import "WebHomeViewController.h"
+#import "WebViewController.h"
 #import <WXApi.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
@@ -61,9 +61,8 @@
     [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
         if (error == nil) {
             if ([dict[@"parameters"][@"type"] intValue]) {
-                WebHomeViewController *home = [[WebHomeViewController alloc] init];
-                home.section = 2;
-                home.urlStr = [NSString stringWithFormat:@"%@",dict[@"parameters"][@"url"]];
+                WebViewController *home = [[WebViewController alloc] init];
+                home.url = dict[@"parameters"][@"url"];
                 MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
                 self.window.rootViewController = nav;
             }else{
@@ -73,7 +72,7 @@
             [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
         }
     }];
-    self.window.rootViewController = [[WebHomeViewController alloc] init];
+    self.window.rootViewController = [[WebViewController alloc] init];
     
     [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyWindow];
@@ -164,8 +163,7 @@
         self.window.rootViewController = [[MHTabBarViewController alloc] init];
     }else{
         //从通知设置界面进入应用
-        WebHomeViewController *home = [[WebHomeViewController alloc] init];
-        home.section = 2;
+        WebViewController *home = [[WebViewController alloc] init];
         MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
         self.window.rootViewController = nav;
     }
