@@ -129,7 +129,31 @@
                  apsForProduction:kisProduction
             advertisingIdentifier:advertisingId];
     
+    //唤醒APP的时候收到通知
+    NSDictionary* pushNotificationDic = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    NSLog(@"userInfo1==%@",pushNotificationDic);
+    
+    if (application.applicationState == UIApplicationStateActive) {
+        
+        //这里写APP正在运行时，推送过来消息的处理
+        _alterTitle = pushNotificationDic[@"aps"][@"alert"];
+        [MZAlertSheet alertViewMessage:_alterTitle];
+
+    } else if (application.applicationState == UIApplicationStateInactive ) {
+        
+        //APP在后台运行，推送过来消息的处理
+        _alterTitle = pushNotificationDic[@"aps"][@"alert"];
+        [MZAlertSheet alertViewMessage:_alterTitle];
+
+    } else if (application.applicationState == UIApplicationStateBackground) {
+        
+        //APP没有运行，推送过来消息的处理
+        _alterTitle = pushNotificationDic[@"aps"][@"alert"];
+        [MZAlertSheet alertViewMessage:_alterTitle];
+    }
+    
 }
+
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /// Required - 注册 DeviceToken
@@ -161,7 +185,7 @@
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
-        NSLog(@"userInfo==%@",userInfo);
+        NSLog(@"userInfo2==%@",userInfo);
         [MZAlertSheet alertViewMessage:_alterTitle];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
@@ -175,23 +199,24 @@
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
         NSLog(@"userInfo==%@",userInfo);
-        [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+        [MZAlertSheet alertViewMessage:_alterTitle];
     }
     completionHandler();  // 系统要求执行这个方法
 }
 
+//程序在后台或者杀死状态下，收到通知，进入前台时，会调用的方法
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
     _alterTitle = userInfo[@"aps"][@"alert"];
-    [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+    [MZAlertSheet alertViewMessage:_alterTitle];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // Required, For systems with less than or equal to iOS 6
     _alterTitle = userInfo[@"aps"][@"alert"];
-    [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+    [MZAlertSheet alertViewMessage:_alterTitle];
     [JPUSHService handleRemoteNotification:userInfo];
 }
 
@@ -215,6 +240,7 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
      [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [JPUSHService resetBadge];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

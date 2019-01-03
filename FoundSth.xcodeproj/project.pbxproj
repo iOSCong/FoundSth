@@ -1016,7 +1016,6 @@
 				D8549F9D21CE76AA000FD0DF /* Sources */,
 				D8549F9E21CE76AA000FD0DF /* Frameworks */,
 				D8549F9F21CE76AA000FD0DF /* Resources */,
-				C2996A9B072B075D0BF56AB9 /* [CP] Embed Pods Frameworks */,
 				C41FBF8051FDAD2398819CB3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1185,21 +1184,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C2996A9B072B075D0BF56AB9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C41FBF8051FDAD2398819CB3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1212,7 +1196,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1502,7 +1487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AT3VVA8KQN;
@@ -1567,7 +1552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AT3VVA8KQN;
