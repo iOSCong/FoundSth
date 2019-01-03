@@ -27,7 +27,6 @@
 		D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */; };
 		D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */; };
 		D8336B2421D86BF700A381CB /* SMSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2221D86BF700A381CB /* SMSTableViewCell.m */; };
-		D8336B2721D87ECB00A381CB /* WebHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2621D87ECB00A381CB /* WebHomeViewController.m */; };
 		D8336B2B21D87FEA00A381CB /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2821D87FEA00A381CB /* HeaderCollectionViewCell.xib */; };
 		D8336B2C21D87FEA00A381CB /* HeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */; };
 		D8336B3021D8803900A381CB /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2D21D8803800A381CB /* WebViewController.xib */; };
@@ -213,8 +212,6 @@
 		D8336B2021D86BF700A381CB /* SMSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSTableViewCell.h; sourceTree = "<group>"; };
 		D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSTableViewCell.xib; sourceTree = "<group>"; };
 		D8336B2221D86BF700A381CB /* SMSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSTableViewCell.m; sourceTree = "<group>"; };
-		D8336B2521D87ECB00A381CB /* WebHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebHomeViewController.h; sourceTree = "<group>"; };
-		D8336B2621D87ECB00A381CB /* WebHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebHomeViewController.m; sourceTree = "<group>"; };
 		D8336B2821D87FEA00A381CB /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		D8336B2921D87FEA00A381CB /* HeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionViewCell.h; sourceTree = "<group>"; };
 		D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionViewCell.m; sourceTree = "<group>"; };
@@ -900,8 +897,6 @@
 			children = (
 				D854A07121CE8357000FD0DF /* FoundListViewController.h */,
 				D854A07221CE8357000FD0DF /* FoundListViewController.m */,
-				D8336B2521D87ECB00A381CB /* WebHomeViewController.h */,
-				D8336B2621D87ECB00A381CB /* WebHomeViewController.m */,
 				D8336B2F21D8803800A381CB /* WebViewController.h */,
 				D8336B2E21D8803800A381CB /* WebViewController.m */,
 				D8336B2D21D8803800A381CB /* WebViewController.xib */,
@@ -1305,7 +1300,6 @@
 				D854A0D221CF42B2000FD0DF /* ZLPhotoBrowser.m in Sources */,
 				D8F24A7821D7C3C2003FF814 /* CGXAddressModel.m in Sources */,
 				D854A05521CE8171000FD0DF /* YBImageBrowserToolBar.m in Sources */,
-				D8336B2721D87ECB00A381CB /* WebHomeViewController.m in Sources */,
 				D854A0CE21CF42B2000FD0DF /* ZLBigImageCell.m in Sources */,
 				D854A04321CE8171000FD0DF /* TAPageControl.m in Sources */,
 				D8F24A7921D7C3C2003FF814 /* CGXAddressPcikerView.m in Sources */,
