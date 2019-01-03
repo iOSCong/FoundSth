@@ -111,18 +111,8 @@
     
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
-    if (@available(iOS 12.0, *)) {
-//        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
-        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
-    } else {
-        // Fallback on earlier versions
-        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
-    }
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        // 可以添加自定义 categories
-        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
-        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
-    }
+    //        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
 
     // Optional
@@ -143,29 +133,24 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /// Required - 注册 DeviceToken
-    
     NSLog(@"deviceToken====%@",deviceToken);
     [JPUSHService registerDeviceToken:deviceToken];
-    
-    
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     //Optional
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
-#pragma mark- JPUSHRegisterDelegate
 
+#pragma mark- JPUSHRegisterDelegate
 // iOS 12 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
-    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        //从通知界面直接进入应用
-        self.window.rootViewController = [[MHTabBarViewController alloc] init];
-    }else{
-        //从通知设置界面进入应用
-        WebViewController *home = [[WebViewController alloc] init];
-        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-        self.window.rootViewController = nav;
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+        _alterTitle = userInfo[@"aps"][@"alert"];
+        NSLog(@"userInfo==%@",userInfo);
+        [MZAlertSheet alertViewMessage:_alterTitle];
     }
 }
 
@@ -190,24 +175,20 @@
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
         NSLog(@"userInfo==%@",userInfo);
-
-         [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
-
+        [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
     }
     completionHandler();  // 系统要求执行这个方法
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
     // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
     _alterTitle = userInfo[@"aps"][@"alert"];
- [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
+    [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
     // Required, For systems with less than or equal to iOS 6
     _alterTitle = userInfo[@"aps"][@"alert"];
     [MZAlertSheet presentAlertViewWithMessage:_alterTitle confirmTitle:@"确定" handler:nil];
