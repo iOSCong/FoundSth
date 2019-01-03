@@ -8,6 +8,7 @@
 
 #import "MHTabBarViewController.h"
 #import "MHNavViewController.h"
+#import "WebViewController.h"
 
 #import "LoginViewController.h"
 #import "FoundListViewController.h"
@@ -27,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
     
     /*解决item上下变化位置的问题*/
     [[UITabBar appearance] setTranslucent:NO];
@@ -58,7 +60,6 @@
     [item4 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     
-    
     FoundListViewController *homeController = [[FoundListViewController alloc] init];
     homeController.title = item1.title;
     MHNavViewController *homeNavController = [[MHNavViewController alloc] initWithRootViewController:homeController];
@@ -70,10 +71,9 @@
     projectNavController.tabBarItem = item2;
     
     MineViewController *myController = [[MineViewController alloc] init];
-//    myController.title = item4.title;
+    //    myController.title = item4.title;
     MHNavViewController *myNavController = [[MHNavViewController alloc] initWithRootViewController:myController];
     myNavController.tabBarItem = item4;
-    
     
     //去掉tabBar顶部线条
 //    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -87,9 +87,11 @@
 //    [self.tabBar setShadowImage:img];
     
     self.tabBar.backgroundColor = mz_tabbarColor; //默认
-    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
     self.delegate = self;
     self.selectedIndex = 0;
+    
+    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
+    
     
 }
 

@@ -118,15 +118,18 @@ static void *ContextProgressValueChange = &ContextProgressValueChange;
 {
     if (self.uiWebViewLoad)
     {
-        self.uiWebViewLoad.frame = self.bounds;
+//        self.uiWebViewLoad.frame = self.bounds;
+        self.uiWebViewLoad.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-40);
     }
     else if (self.wkWebViewLoad)
     {
-        self.wkWebViewLoad.frame = self.bounds;
+//        self.wkWebViewLoad.frame = self.bounds;
+        self.wkWebViewLoad.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-40);
     }
     
     self.progressViewLoad.frame = CGRectMake(0.0, 0.0, self.frame.size.width, self.progressViewLoad.frame.size.height);
-    self.activityView.center = self.center;
+//    self.activityView.center = self.center;
+    self.activityView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     
     if (bools) {
         
@@ -687,8 +690,7 @@ CGFloat previousOffsetY = 0.0;
     }
     else if (button.tag == 1004)
     {
-        //通过通知中心发送通知
-        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"popToView" object:nil userInfo:nil]];
+        [self loadRequestWithURLStr:_url];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "FoundListViewController.h"
 #import "FoundListTableViewCell.h"
 #import "UsetInfoViewController.h"
+#import "InforDetailViewController.h"
 #import "YBImageBrowser.h"
 #import "YMRefresh.h"
 #import "DXShareView.h"
@@ -39,9 +40,19 @@
     [self requestData];
 }
 
+- (void)loginViewNotice:(NSNotification *)notice
+{
+    InforDetailViewController *vc = [[InforDetailViewController alloc] init];
+    vc.title = @"推送消息";
+    vc.detailStr = notice.userInfo[@"aps"][@"alert"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"notification" object:nil];
     
     self.tableView.hidden = YES;
     self.tableView.delegate = self;
