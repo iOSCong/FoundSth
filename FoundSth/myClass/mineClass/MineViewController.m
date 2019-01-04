@@ -140,11 +140,13 @@
         FankuiViewController *fankui = [[FankuiViewController alloc]init];
         [self.navigationController pushViewController:fankui animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 3){
-        [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
+        [MZAlertSheet presentAlertViewWithMessage:@"确定要跳转到App Store更新应用吗?" cancelTitle:@"取消" defaultTitle:@"确定" confirm:^{
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/id1448347887"]];
+        }];
+//        [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
     }else if (indexPath.section == 1 && indexPath.row == 4){
         //分享APP的连接
         [self shareAppStoryAurl];
-        
     }else if (indexPath.section == 1 && indexPath.row == 5){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
