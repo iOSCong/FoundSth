@@ -47,7 +47,7 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-    [AVOSCloud setAllLogsEnabled:NO];
+    [AVOSCloud setAllLogsEnabled:YES];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
@@ -58,11 +58,29 @@
     //设置激光推送
     [self jpushInitWith:launchOptions Application:application];
     
-    [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
+//    [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
+//        if (error == nil) {
+//            if ([dict[@"parameters"][@"type"] intValue]) {
+//                WebViewController *home = [[WebViewController alloc] init];
+//                home.url = dict[@"parameters"][@"url"];
+//                MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+//                self.window.rootViewController = nav;
+//            }else{
+//                self.window.rootViewController = [[MHTabBarViewController alloc] init];
+//            }
+//        }else{
+//            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
+//        }
+//    }];
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"jump"];
+    [query orderByDescending:@"version"];
+    [query orderByDescending:@"url"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error == nil) {
-            if ([dict[@"parameters"][@"type"] intValue]) {
+            if ([objects[0][@"version"] intValue]) {
                 WebViewController *home = [[WebViewController alloc] init];
-                home.url = dict[@"parameters"][@"url"];
+                home.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
                 MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
                 self.window.rootViewController = nav;
             }else{

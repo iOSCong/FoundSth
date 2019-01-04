@@ -406,6 +406,8 @@
 		D865785321D4AD8B00CBAD64 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D865785521D4AD9900CBAD64 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		D865785721D4ADA600CBAD64 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D876C56F21DE2B2A0070990C /* libjpush-ios-3.0.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.6.a"; path = "Pods/JPush/libjpush-ios-3.0.6.a"; sourceTree = "<group>"; };
+		D876C57121DE2B440070990C /* libjcore-ios-1.1.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjcore-ios-1.1.5.a"; path = "Pods/JCore/libjcore-ios-1.1.5.a"; sourceTree = "<group>"; };
 		D8A62E4421DCB2D60072E0E5 /* FoundSth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoundSth.entitlements; sourceTree = "<group>"; };
 		D8F2455F21D0E83F00EFBE82 /* FoundMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyViewController.h; sourceTree = "<group>"; };
 		D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyViewController.m; sourceTree = "<group>"; };
@@ -487,6 +489,8 @@
 		D264EDCDFE8C21115103F082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D876C57121DE2B440070990C /* libjcore-ios-1.1.5.a */,
+				D876C56F21DE2B2A0070990C /* libjpush-ios-3.0.6.a */,
 				D865785721D4ADA600CBAD64 /* libz.tbd */,
 				D865785521D4AD9900CBAD64 /* libstdc++.tbd */,
 				D865785321D4AD8B00CBAD64 /* CoreTelephony.framework */,
@@ -1501,6 +1505,11 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/JPush",
+					"$(PROJECT_DIR)/Pods/JCore",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1566,6 +1575,11 @@
 				INFOPLIST_FILE = FoundSth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/JPush",
+					"$(PROJECT_DIR)/Pods/JCore",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
