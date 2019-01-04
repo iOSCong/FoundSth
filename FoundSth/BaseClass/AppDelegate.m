@@ -47,7 +47,8 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-    [AVOSCloud setAllLogsEnabled:YES];
+//    [AVOSCloud setAllLogsEnabled:YES];
+    [AVOSCloud setAllLogsEnabled:NO];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
@@ -73,16 +74,20 @@
 //        }
 //    }];
     
-    AVQuery *query = [AVQuery queryWithClassName:@"jump"];
-    [query orderByDescending:@"version"];
+    AVQuery *query = [AVQuery queryWithClassName:@"config"];
+    [query orderByDescending:@"webspike"];
     [query orderByDescending:@"url"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error == nil) {
-            if ([objects[0][@"version"] intValue]) {
-                WebViewController *home = [[WebViewController alloc] init];
-                home.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
-                MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-                self.window.rootViewController = nav;
+            if (objects.count) {
+                if ([objects[0][@"webspike"] intValue]) {
+                    WebViewController *home = [[WebViewController alloc] init];
+                    home.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
+                    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+                    self.window.rootViewController = nav;
+                }else{
+                    self.window.rootViewController = [[MHTabBarViewController alloc] init];
+                }
             }else{
                 self.window.rootViewController = [[MHTabBarViewController alloc] init];
             }
