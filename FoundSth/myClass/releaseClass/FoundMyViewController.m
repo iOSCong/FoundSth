@@ -67,7 +67,7 @@
     AVQuery *query = [AVQuery queryWithClassName:@"homeList"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"image"];
-    query.limit = 10;
+    query.limit = 20;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query whereKey:@"ownerId" equalTo:[NSStrObject getUserInfoWith:@"objectId"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

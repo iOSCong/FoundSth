@@ -86,7 +86,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"owner"];
     [query includeKey:@"image"];
-    query.limit = 10;
+    query.limit = 20;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.tableView.hidden = NO;
