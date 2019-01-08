@@ -35,12 +35,12 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
-    UIColor *textColor = mz_yiDongBlueColor; //[UIColor blackColor];
+    UIColor *textColor = mz_mainColor; //[UIColor blackColor];
     UITabBarItem *item1 = [[UITabBarItem alloc] init];
     item1.tag = 1;
     [item1 setTitle:@"首页"];
     [item1 setImage:[UIImage imageNamed:@"yemian"]];
-    [item1 setSelectedImage:[[UIImage imageNamed:@"tab-home-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item1 setSelectedImage:[[UIImage imageNamed:@"yemian_sele"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item1 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     
@@ -48,7 +48,7 @@
     item2.tag = 2;
     [item2 setTitle:@"发布"];
     [item2 setImage:[UIImage imageNamed:@"fabu"]];
-    [item2 setSelectedImage:[[UIImage imageNamed:@"tab-Project-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item2 setSelectedImage:[[UIImage imageNamed:@"fabu_sele"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item2 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     //发布
@@ -56,7 +56,7 @@
     item4.tag = 4;
     [item4 setTitle:@"我的"];
     [item4 setImage:[UIImage imageNamed:@"gerenzhongxin"]];
-    [item4 setSelectedImage:[[UIImage imageNamed:@"tab-my-Click"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item4 setSelectedImage:[[UIImage imageNamed:@"gerenzhongxin_sele"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item4 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
     
