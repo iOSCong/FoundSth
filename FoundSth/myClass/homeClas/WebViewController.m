@@ -51,10 +51,6 @@
 #pragma mark 网页视图
 - (void)webViewUIPush
 {
-//    NSString *url = @"https://www.baidu.com";
-    
-    NSLog(@"url==%@",self.url);
-    
     WeakWebView;
     // 方法1 实例化
     //    self.webView = [[ZLCWebView alloc] initWithFrame:self.view.bounds];
@@ -69,15 +65,15 @@
     self.webView.showActionButton = YES;
     [self.webView reloadUI:YES];
     [self.webView loadRequest:^(WebView *webView, NSString *title, NSURL *url) {
-        NSLog(@"准备加载。title = %@, url = %@", title, url);
+//        NSLog(@"准备加载。title = %@, url = %@", title, url);
         weakWebView.title = title;
     } didStart:^(WebView *webView) {
-        NSLog(@"开始加载。");
+//        NSLog(@"开始加载。");
     } didFinish:^(WebView *webView, NSString *title, NSURL *url) {
-        NSLog(@"成功加载。title = %@, url = %@", title, url);
+//        NSLog(@"成功加载。title = %@, url = %@", title, url);
         weakWebView.title = title;
     } didFail:^(WebView *webView, NSString *title, NSURL *url, NSError *error) {
-        NSLog(@"失败加载。title = %@, url = %@, error = %@", title, url, error);
+//        NSLog(@"失败加载。title = %@, url = %@, error = %@", title, url, error);
         weakWebView.title = title;
     }];
 }
@@ -126,24 +122,24 @@
 
 - (void)progressWebViewDidStartLoad:(WebView *)webview
 {
-    NSLog(@"开始加载。");
+//    NSLog(@"开始加载。");
 }
 
 - (void)progressWebView:(WebView *)webview title:(NSString *)title shouldStartLoadWithURL:(NSURL *)url
 {
-    NSLog(@"准备加载。title = %@, url = %@", title, url);
+//    NSLog(@"准备加载。title = %@, url = %@", title, url);
     self.title = title;
 }
 
 - (void)progressWebView:(WebView *)webview title:(NSString *)title didFinishLoadingURL:(NSURL *)url
 {
-    NSLog(@"成功加载。title = %@, url = %@", title, url);
+//    NSLog(@"成功加载。title = %@, url = %@", title, url);
     self.title = title;
 }
 
 - (void)progressWebView:(WebView *)webview title:(NSString *)title didFailToLoadURL:(NSURL *)url error:(NSError *)error
 {
-    NSLog(@"失败加载。title = %@, url = %@, error = %@", title, url, error);
+//    NSLog(@"失败加载。title = %@, url = %@, error = %@", title, url, error);
     self.title = title;
 }
 
