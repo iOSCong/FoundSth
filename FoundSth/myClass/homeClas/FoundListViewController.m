@@ -142,10 +142,10 @@
         cell.contentImgView.contentMode = UIViewContentModeScaleAspectFill;
         cell.contentImgView.autoresizesSubviews = YES;
         cell.contentImgView.layer.masksToBounds = YES;
-        mzWeakSelf(self);
-        [cell.imageBtn addTarget:^(UIButton *button) {
-            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
-        }];
+//        mzWeakSelf(self);
+//        [cell.imageBtn addTarget:^(UIButton *button) {
+//            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
+//        }];
     }else{
         cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
@@ -178,6 +178,13 @@
     }];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    FoundListTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+    [self tapHeadImgViewHandle:cell.contentImgView.image];
 }
 
 #pragma mark 配置数据源

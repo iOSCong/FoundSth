@@ -31,12 +31,12 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="获取">
-                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.76862745099999996" green="0.2666666667" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMz-1d-h3h">
                         <rect key="frame" x="239" y="12" width="1" height="20"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.76862745099999996" green="0.2666666667" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="f3o-bk-ZBI"/>
                             <constraint firstAttribute="height" constant="20" id="rad-sq-hjt"/>

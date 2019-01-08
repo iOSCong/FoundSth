@@ -66,7 +66,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuS-ff-2YE">
                     <rect key="frame" x="20" y="358" width="335" height="44"/>
-                    <color key="backgroundColor" red="0.078431372550000003" green="0.58823529409999997" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.76862745099999996" green="0.2666666667" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="VUN-qy-ZyY"/>
                     </constraints>

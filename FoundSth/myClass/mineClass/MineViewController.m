@@ -92,7 +92,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView*view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, mz_width, 20)];
-    view.backgroundColor = mz_yiDongBlueColor;
+    view.backgroundColor = mz_mainColor;
     return view;
 }
 

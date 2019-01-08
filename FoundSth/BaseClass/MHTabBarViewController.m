@@ -35,7 +35,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginViewNotice:)name:@"loginView" object:nil];
     
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *textColor = mz_yiDongBlueColor; //[UIColor blackColor];
     UITabBarItem *item1 = [[UITabBarItem alloc] init];
     item1.tag = 1;
     [item1 setTitle:@"首页"];

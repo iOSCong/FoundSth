@@ -20,7 +20,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1n-Y4-oqv">
                         <rect key="frame" x="0.0" y="-2" width="395" height="259"/>
-                        <color key="backgroundColor" red="0.078431372550000003" green="0.58823529409999997" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.76862745098039209" green="0.26666666666666666" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headlogo" translatesAutoresizingMaskIntoConstraints="NO" id="aus-cq-aDS">
                         <rect key="frame" x="152.5" y="72.5" width="90" height="90"/>

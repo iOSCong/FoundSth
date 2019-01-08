@@ -60,8 +60,8 @@
 //移动蓝
 #define mz_yiDongBlueColor mz_color(20, 150, 239) //1496EF
 //导航栏主色
-//#define mz_mainColor mz_color(249, 249, 249)
-#define mz_mainColor mz_yiDongBlueColor
+#define mz_mainColor mz_color(196, 68, 42)
+//#define mz_mainColor mz_yiDongBlueColor
 #define mz_navTitleColor [UIColor whiteColor]
 #define mz_tabbarColor [UIColor whiteColor]
 
@@ -69,7 +69,7 @@
 //tableView背景色
 #define mz_tableViewBackColor mz_color(235, 235, 241)
 //键盘辅助视图颜色
-#define mz_upkeyboardViewColor mz_yiDongBlueColor
+#define mz_upkeyboardViewColor mz_mainColor
 #define mz_upkeyboardDoneColor [UIColor whiteColor]
 
 

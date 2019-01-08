@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _iamgeBGveiw.backgroundColor = mz_yiDongBlueColor;
+    _iamgeBGveiw.backgroundColor = mz_mainColor;
     _icon_imageView.layer.cornerRadius = 45;
     _icon_imageView.layer.masksToBounds = YES;
     // Initialization code

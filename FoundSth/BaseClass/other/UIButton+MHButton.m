@@ -40,7 +40,8 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(15,5,mz_width-30,40);
-    button.backgroundColor= mz_color(20, 150, 239);
+//    button.backgroundColor= mz_color(20, 150, 239);
+    button.backgroundColor= mz_mainColor;
     [button setTitle:title forState:UIControlStateNormal];
     button.layer.cornerRadius = 5;
     return button;
