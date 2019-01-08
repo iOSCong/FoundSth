@@ -10,6 +10,7 @@
 #import "IconTableViewCell.h"
 #import "ZLPhotoActionSheet.h"
 #import "CGXPickerView.h"
+#import "YBImageBrowser.h"
 
 @interface UsetInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -152,7 +153,23 @@
                 weakself.sexStr = selectValue;
             }];
         }
+    }else{
+        if (self.headCell.headImgView.image) {
+            [self tapHeadImgViewHandle:self.headCell.headImgView.image];
+        }
     }
+}
+
+#pragma mark 配置数据源
+- (void)tapHeadImgViewHandle:(UIImage *)image
+{
+    YBImageBrowserModel *model = [YBImageBrowserModel new];
+    [model setImageWithImageName:image];
+    [MHProgressHUD hide];
+    YBImageBrowser *browser = [YBImageBrowser new];
+    browser.dataArray = @[model];
+    browser.currentIndex = 0;
+    [browser show];
 }
 
 - (void)settingSelfInformation
