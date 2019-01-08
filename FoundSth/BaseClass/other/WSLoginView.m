@@ -266,7 +266,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     UIButton *getSimBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     getSimBtn.frame = CGRectMake(CGRectGetWidth(self.regPassTextF.frame)-30, CGRectGetMaxY(self.regPassTextF.frame)+10, 50, CGRectGetHeight(self.regPassTextF.frame));
     [getSimBtn setTitle:@"获取" forState:UIControlStateNormal];
-    [getSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
+//    [getSimBtn setTitleColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1] forState:UIControlStateNormal];
+    [getSimBtn setTitleColor:mz_mainColor forState:UIControlStateNormal];
     getSimBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     getSimBtn.layer.cornerRadius = 5;
     getSimBtn.layer.borderWidth = .5;
