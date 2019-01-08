@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "DXShareView.h"
-#import "MapNavView.h"
 
 @interface DXSharePlatform : NSObject
 @property (nonatomic,copy) NSString *iconStateNormal;
 @property (nonatomic,copy) NSString *iconStateHighlighted;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,assign) DXShareType sharePlatform;
-
-@property (nonatomic,assign) MapType mapPlatform;
 
 @end

@@ -47,8 +47,8 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-    [AVOSCloud setAllLogsEnabled:YES];
-//    [AVOSCloud setAllLogsEnabled:NO];
+//    [AVOSCloud setAllLogsEnabled:YES];
+    [AVOSCloud setAllLogsEnabled:NO];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
@@ -58,21 +58,6 @@
     
     //设置激光推送
     [self jpushInitWith:launchOptions Application:application];
-    
-//    [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
-//        if (error == nil) {
-//            if ([dict[@"parameters"][@"type"] intValue]) {
-//                WebViewController *home = [[WebViewController alloc] init];
-//                home.url = dict[@"parameters"][@"url"];
-//                MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-//                self.window.rootViewController = nav;
-//            }else{
-//                self.window.rootViewController = [[MHTabBarViewController alloc] init];
-//            }
-//        }else{
-//            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
-//        }
-//    }];
     
     AVQuery *query = [AVQuery queryWithClassName:@"config"];
     [query orderByDescending:@"webspike"];
@@ -154,7 +139,6 @@
     
     //唤醒APP的时候收到通知
     NSDictionary* pushNotificationDic = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    NSLog(@"userInfo1==%@",pushNotificationDic);
     
     if (application.applicationState == UIApplicationStateActive) {
         
@@ -180,7 +164,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /// Required - 注册 DeviceToken
-    NSLog(@"deviceToken====%@",deviceToken);
+//    NSLog(@"deviceToken====%@",deviceToken);
     [JPUSHService registerDeviceToken:deviceToken];
 }
 
@@ -196,7 +180,6 @@
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
-        NSLog(@"userInfo==%@",userInfo);
         [MZAlertSheet alertViewMessage:_alterTitle];
     }
 }
@@ -208,7 +191,6 @@
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
-        NSLog(@"userInfo2==%@",userInfo);
         [MZAlertSheet alertViewMessage:_alterTitle];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
@@ -221,7 +203,6 @@
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
         _alterTitle = userInfo[@"aps"][@"alert"];
-        NSLog(@"userInfo==%@",userInfo);
         [MZAlertSheet alertViewMessage:_alterTitle];
     }
     completionHandler();  // 系统要求执行这个方法
