@@ -69,13 +69,13 @@
 
     if (indexPath.section == 0) {
         cell.textLabel.text = @"重置密码";
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
     }else{
         if (indexPath.row != _titles.count- 1) {
             cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
         }
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
         cell.textLabel.text = _titles[indexPath.row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

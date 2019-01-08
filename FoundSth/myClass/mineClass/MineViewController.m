@@ -64,7 +64,7 @@
     }
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"检查更新",@"分享应用",@"设置"];
+    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"分享应用",@"设置"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,9 +84,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 180;
+        return 200;
     }
-    return 50;
+    return 60;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -140,14 +140,9 @@
         FankuiViewController *fankui = [[FankuiViewController alloc]init];
         [self.navigationController pushViewController:fankui animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 3){
-//        [MZAlertSheet presentAlertViewWithMessage:@"确定要跳转到App Store更新应用吗?" cancelTitle:@"取消" defaultTitle:@"确定" confirm:^{
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/id1448347887"]];
-//        }];
-        [MHProgressHUD showMsgWithoutView:@"已经是最新版本啦"];
-    }else if (indexPath.section == 1 && indexPath.row == 4){
         //分享APP的连接
         [self shareAppStoryAurl];
-    }else if (indexPath.section == 1 && indexPath.row == 5){
+    }else if (indexPath.section == 1 && indexPath.row == 4){
         SettingViewController *sett = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:sett animated:YES];
     }
@@ -157,9 +152,9 @@
 -(void)shareAppStoryAurl
 {
     NSDictionary *dic = @{
-                          @"title": @"求帮助APP",
+                          @"title": @"Help me find itAPP",
                           @"imgUrl":@"https://www.pgyer.com/xPig",
-                          @"detail" : @"求帮助是一款轻量级的专业便民寻物服务类的APP，不管你在何时何地，只要拿出手机打开求帮助APP，发布自己帮助，瞬间我们会明白世界真的很小，幸福来的很突然",
+                          @"detail" : @"Help me find it是一款轻量级的专业便民寻物服务类的APP，不管你在何时何地，只要拿出手机打开Help me find itAPP，发布自己帮助，瞬间我们会明白世界真的很小，幸福来的很突然",
                           @"image":[UIImage imageNamed:@"appIcon"]
                           };
     DXShareView *shareView = [[DXShareView alloc] init];

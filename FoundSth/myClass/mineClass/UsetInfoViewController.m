@@ -64,6 +64,7 @@
         return self.headCell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"icon"];
+
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"icon"];
             
@@ -114,7 +115,7 @@
                 textField2.text = self.signStr ? self.signStr : @"--";;
             }
         }
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
         mzWeakSelf(self);
         [textField1 addAction:^(UITextField *textField) {
             weakself.aliasName = textField.text;
