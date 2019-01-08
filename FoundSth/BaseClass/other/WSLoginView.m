@@ -324,14 +324,16 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.logPassTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     self.loginBtn.layer.cornerRadius = 5;
-    [self.loginBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+//    [self.loginBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+    [self.loginBtn setBackgroundColor:mz_mainColor];
     [self.loginBtn addTarget:self action:@selector(LoginAction) forControlEvents:UIControlEventTouchUpInside];
     [loginView addSubview:self.loginBtn];
     
     self.lostBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.regSimTextF.frame)+10, smallView.frame.size.width-40, 40)];
     [self.lostBtn setTitle:@"注册" forState:UIControlStateNormal];
     self.lostBtn.layer.cornerRadius = 5;
-    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+//    [self.lostBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
+    [self.lostBtn setBackgroundColor:mz_mainColor];
     [self.lostBtn addTarget:self action:@selector(registeAction) forControlEvents:UIControlEventTouchUpInside];
     [registeView addSubview:self.lostBtn];
     
