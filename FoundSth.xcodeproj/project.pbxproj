@@ -129,7 +129,6 @@
 		D865783D21D4709C00CBAD64 /* DXShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D865783521D4709C00CBAD64 /* DXShareModel.m */; };
 		D865783E21D4709C00CBAD64 /* DXSharePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = D865783721D4709C00CBAD64 /* DXSharePlatform.m */; };
 		D865783F21D4709C00CBAD64 /* DXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = D865783921D4709C00CBAD64 /* DXShareView.m */; };
-		D865784021D4709C00CBAD64 /* MapNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = D865783B21D4709C00CBAD64 /* MapNavView.m */; };
 		D865784321D4720A00CBAD64 /* MZAlertSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D865784221D4720A00CBAD64 /* MZAlertSheet.m */; };
 		D865784621D4A9DE00CBAD64 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865784521D4A9DE00CBAD64 /* TencentOpenAPI.framework */; };
 		D865784821D4ACEF00CBAD64 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D865784721D4ACEF00CBAD64 /* TencentOpenApi_IOS_Bundle.bundle */; };
@@ -392,8 +391,6 @@
 		D865783721D4709C00CBAD64 /* DXSharePlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXSharePlatform.m; sourceTree = "<group>"; };
 		D865783821D4709C00CBAD64 /* DXShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXShareView.h; sourceTree = "<group>"; };
 		D865783921D4709C00CBAD64 /* DXShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXShareView.m; sourceTree = "<group>"; };
-		D865783A21D4709C00CBAD64 /* MapNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNavView.h; sourceTree = "<group>"; };
-		D865783B21D4709C00CBAD64 /* MapNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNavView.m; sourceTree = "<group>"; };
 		D865784121D4720A00CBAD64 /* MZAlertSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAlertSheet.h; sourceTree = "<group>"; };
 		D865784221D4720A00CBAD64 /* MZAlertSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAlertSheet.m; sourceTree = "<group>"; };
 		D865784521D4A9DE00CBAD64 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
@@ -970,8 +967,6 @@
 				D865783721D4709C00CBAD64 /* DXSharePlatform.m */,
 				D865783821D4709C00CBAD64 /* DXShareView.h */,
 				D865783921D4709C00CBAD64 /* DXShareView.m */,
-				D865783A21D4709C00CBAD64 /* MapNavView.h */,
-				D865783B21D4709C00CBAD64 /* MapNavView.m */,
 			);
 			path = DXShareView;
 			sourceTree = "<group>";
@@ -1258,7 +1253,6 @@
 				D854A07E21CE8397000FD0DF /* MineViewController.m in Sources */,
 				D865783D21D4709C00CBAD64 /* DXShareModel.m in Sources */,
 				D865783021D46F3800CBAD64 /* WXApiManager.m in Sources */,
-				D865784021D4709C00CBAD64 /* MapNavView.m in Sources */,
 				401E05A421CFF62A00D954B2 /* AboutTableViewCell.m in Sources */,
 				D8F24A7F21D7C3C2003FF814 /* CGXStringPickerView.m in Sources */,
 				D854A04821CE8171000FD0DF /* UITextField+MZTextField.m in Sources */,
