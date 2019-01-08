@@ -154,8 +154,10 @@
             }];
         }
     }else{
-        if (self.headCell.headImgView.image) {
-            [self tapHeadImgViewHandle:self.headCell.headImgView.image];
+        if (indexPath.row == 0) {
+            if (self.headCell.headImgView.image) {
+                [self tapHeadImgViewHandle:self.headCell.headImgView.image];
+            }
         }
     }
 }
