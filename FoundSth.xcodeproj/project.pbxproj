@@ -1078,7 +1078,7 @@
 				TargetAttributes = {
 					D8549FA021CE76AA000FD0DF = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -1493,8 +1493,8 @@
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AT3VVA8KQN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1563,8 +1563,8 @@
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AT3VVA8KQN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
