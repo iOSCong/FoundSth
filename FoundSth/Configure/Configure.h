@@ -34,7 +34,7 @@
 #define weixin_ID @"wx010cd9436a4d0b40"
 
 //QQ分享
-#define qqID @"1107999939"
+#define qqID @"1108080282"
 #define qqKey @"KEYhvXoYqIGaaFIqwWi";
 
 //极光推送

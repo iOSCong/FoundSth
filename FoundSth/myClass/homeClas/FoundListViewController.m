@@ -143,10 +143,10 @@
         cell.contentImgView.contentMode = UIViewContentModeScaleAspectFill;
         cell.contentImgView.autoresizesSubviews = YES;
         cell.contentImgView.layer.masksToBounds = YES;
-        mzWeakSelf(self);
-        [cell.imageBtn addTarget:^(UIButton *button) {
-            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
-        }];
+//        mzWeakSelf(self);
+//        [cell.imageBtn addTarget:^(UIButton *button) {
+//            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
+//        }];
     }else{
         cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
