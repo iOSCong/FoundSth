@@ -163,7 +163,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.logNameTextF.layer.cornerRadius = 5;
     self.logNameTextF.layer.borderWidth = .5;
     self.logNameTextF.keyboardType = UIKeyboardTypePhonePad; //UIKeyboardTypeASCIICapable
-    self.logNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.logNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.logNameTextF resignFirstResponderWhenEndEditing];
     self.logNameTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.logNameTextF.placeholder = @"请输入登录手机号码";
     self.logNameTextF.text = [NSStrObject getAccount].length ? [NSStrObject getAccount] : @"";
@@ -180,7 +181,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.logPassTextF.layer.borderWidth = .5;
 //    self.logPassTextF.keyboardType = UIKeyboardTypeNumberPad;
     self.logPassTextF.returnKeyType = UIReturnKeyDone;
-    self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.logPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.logPassTextF resignFirstResponderWhenEndEditing];
     self.logPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.logPassTextF.placeholder = @"请输入登录密码";
     self.logPassTextF.secureTextEntry = YES;
@@ -225,7 +227,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.regNameTextF.layer.cornerRadius = 5;
     self.regNameTextF.layer.borderWidth = .5;
     self.regNameTextF.keyboardType = UIKeyboardTypePhonePad;
-    self.regNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.regNameTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.regNameTextF resignFirstResponderWhenEndEditing];
     self.regNameTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.regNameTextF.placeholder = @"请输入注册手机号码";
     self.regNameTextF.text = [NSStrObject getAccount].length ? [NSStrObject getAccount] : @"";
@@ -241,7 +244,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.regPassTextF.layer.cornerRadius = 5;
     self.regPassTextF.layer.borderWidth = .5;
     self.regPassTextF.returnKeyType = UIReturnKeyDone;
-    self.regPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.regPassTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.regPassTextF resignFirstResponderWhenEndEditing];
     self.regPassTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.regPassTextF.placeholder = @"请输入注册密码";
     self.regPassTextF.secureTextEntry = YES;
@@ -257,7 +261,8 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.regSimTextF.layer.cornerRadius = 5;
     self.regSimTextF.layer.borderWidth = .5;
     self.regSimTextF.keyboardType = UIKeyboardTypeNumberPad;
-    self.regSimTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    self.regSimTextF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.regSimTextF resignFirstResponderWhenEndEditing];
     self.regSimTextF.layer.borderColor = [UIColor grayColor].CGColor;
     self.regSimTextF.placeholder = @"请输入短信验证码";
     self.regSimTextF.text = @"";
@@ -318,8 +323,6 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
         }
     }];
     [registeView addSubview:getSimBtn];
-    
-    
     
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(self.logPassTextF.frame)+10, smallView.frame.size.width-40, 40)];
