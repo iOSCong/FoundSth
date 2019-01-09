@@ -140,6 +140,8 @@
 		D865785421D4AD8B00CBAD64 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865785321D4AD8B00CBAD64 /* CoreTelephony.framework */; };
 		D865785621D4AD9900CBAD64 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D865785521D4AD9900CBAD64 /* libstdc++.tbd */; };
 		D865785821D4ADA600CBAD64 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D865785721D4ADA600CBAD64 /* libz.tbd */; };
+		D8923DB821E58B1F00EFF992 /* FoundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8923DB621E58B1F00EFF992 /* FoundDetailViewController.m */; };
+		D8923DB921E58B1F00EFF992 /* FoundDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8923DB721E58B1F00EFF992 /* FoundDetailViewController.xib */; };
 		D8F2456121D0E83F00EFBE82 /* FoundMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */; };
 		D8F2456521D0E95000EFBE82 /* FoundMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F2456321D0E95000EFBE82 /* FoundMyTableViewCell.m */; };
 		D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F2456421D0E95000EFBE82 /* FoundMyTableViewCell.xib */; };
@@ -405,6 +407,9 @@
 		D865785721D4ADA600CBAD64 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D876C56F21DE2B2A0070990C /* libjpush-ios-3.0.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.6.a"; path = "Pods/JPush/libjpush-ios-3.0.6.a"; sourceTree = "<group>"; };
 		D876C57121DE2B440070990C /* libjcore-ios-1.1.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjcore-ios-1.1.5.a"; path = "Pods/JCore/libjcore-ios-1.1.5.a"; sourceTree = "<group>"; };
+		D8923DB521E58B1F00EFF992 /* FoundDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundDetailViewController.h; sourceTree = "<group>"; };
+		D8923DB621E58B1F00EFF992 /* FoundDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundDetailViewController.m; sourceTree = "<group>"; };
+		D8923DB721E58B1F00EFF992 /* FoundDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundDetailViewController.xib; sourceTree = "<group>"; };
 		D8A62E4421DCB2D60072E0E5 /* FoundSth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoundSth.entitlements; sourceTree = "<group>"; };
 		D8F2455F21D0E83F00EFBE82 /* FoundMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundMyViewController.h; sourceTree = "<group>"; };
 		D8F2456021D0E83F00EFBE82 /* FoundMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundMyViewController.m; sourceTree = "<group>"; };
@@ -898,6 +903,9 @@
 			children = (
 				D854A07121CE8357000FD0DF /* FoundListViewController.h */,
 				D854A07221CE8357000FD0DF /* FoundListViewController.m */,
+				D8923DB521E58B1F00EFF992 /* FoundDetailViewController.h */,
+				D8923DB621E58B1F00EFF992 /* FoundDetailViewController.m */,
+				D8923DB721E58B1F00EFF992 /* FoundDetailViewController.xib */,
 				D8336B2F21D8803800A381CB /* WebViewController.h */,
 				D8336B2E21D8803800A381CB /* WebViewController.m */,
 				D8336B2D21D8803800A381CB /* WebViewController.xib */,
@@ -1156,6 +1164,7 @@
 				D854A0C821CF42B2000FD0DF /* ZLNoAuthorityViewController.xib in Resources */,
 				D854A0C521CF42B2000FD0DF /* lock.png in Resources */,
 				D8F2456621D0E95000EFBE82 /* FoundMyTableViewCell.xib in Resources */,
+				D8923DB921E58B1F00EFF992 /* FoundDetailViewController.xib in Resources */,
 				D854A0BF21CF42B2000FD0DF /* btn_selected@2x.png in Resources */,
 				D854A0C321CF42B2000FD0DF /* btn_unselected@3x.png in Resources */,
 				D854A0DE21CFD2D2000FD0DF /* FoundListTableViewCell.xib in Resources */,
@@ -1277,6 +1286,7 @@
 				D854A04921CE8171000FD0DF /* WebView.m in Sources */,
 				401E059F21CFF4E900D954B2 /* AboutViewController.m in Sources */,
 				D854A05C21CE8171000FD0DF /* YBImageBrowser.m in Sources */,
+				D8923DB821E58B1F00EFF992 /* FoundDetailViewController.m in Sources */,
 				D854A06321CE8171000FD0DF /* BaseTableViewController.m in Sources */,
 				D854A0D121CF42B2000FD0DF /* ZLPhotoActionSheet.m in Sources */,
 				D854A05221CE8171000FD0DF /* FLAnimatedImageView.m in Sources */,

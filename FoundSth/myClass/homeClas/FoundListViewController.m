@@ -8,6 +8,7 @@
 
 #import "FoundListViewController.h"
 #import "FoundListTableViewCell.h"
+#import "FoundDetailViewController.h"
 #import "UsetInfoViewController.h"
 #import "InforDetailViewController.h"
 #import "YBImageBrowser.h"
@@ -183,8 +184,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FoundListTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
-    [self tapHeadImgViewHandle:cell.contentImgView.image];
+    FoundDetailViewController *vc = [[FoundDetailViewController alloc] init];
+    vc.title = mzstring(self.dataArr[indexPath.row][@"title"]);
+    AVFile *imageFile = self.dataArr[indexPath.row][@"image"];
+    if (imageFile) vc.imgUrl = imageFile.url;
+    vc.detailStr = mzstring(self.dataArr[indexPath.row][@"detail"]);
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark 配置数据源

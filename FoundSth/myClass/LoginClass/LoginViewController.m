@@ -39,14 +39,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     WSLoginView *wsLoginV = [[WSLoginView alloc]initWithFrame:CGRectMake(0, 0, mz_width, mz_height)];
-    wsLoginV.titleLabel.text = @"帮我找";
+    wsLoginV.titleLabel.text = @"Help me find it";
     wsLoginV.titleLabel.textColor = [UIColor grayColor];
     wsLoginV.hideEyesType = LeftEyeHide;
     [self.view addSubview:wsLoginV];
     
     //取消登录
     [wsLoginV setClickCancelBlock:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:NO completion:nil];
         //通过通知中心发送通知
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"loginView" object:nil userInfo:@{@"tag":@"2"}]];
     }];
