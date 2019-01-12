@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +87,7 @@
                                     <constraint firstAttribute="width" secondItem="mhj-Zn-CEj" secondAttribute="height" multiplier="1:1" id="U0y-3w-SPl"/>
                                     <constraint firstAttribute="width" constant="35" id="osY-UT-BZw"/>
                                 </constraints>
-                                <state key="normal" image="home_dianzan"/>
+                                <state key="normal" image="jubao"/>
                             </button>
                         </subviews>
                         <constraints>
@@ -150,6 +150,7 @@
         <image name="headlogo" width="610" height="610"/>
         <image name="home_dianzan" width="65" height="65"/>
         <image name="home_fenxiang" width="65" height="65"/>
+        <image name="jubao" width="65" height="65"/>
         <image name="placehoald" width="305" height="180"/>
     </resources>
 </document>

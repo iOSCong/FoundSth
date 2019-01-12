@@ -110,7 +110,7 @@
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
     cell.title_lable.text = _menus[indexPath.row];
-    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"fenxiang",@"user_gear"][indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"heimingdan",@"fenxiang",@"user_gear"][indexPath.row];
     [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
      return cell;
 
