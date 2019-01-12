@@ -35,7 +35,7 @@
     if (section == 0) {
         return 1;
     }
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,13 +65,9 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"aa"];
         }
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"QQ群:";
-            cell.detailTextLabel.text = @"801065836";
-        }else{
-            cell.textLabel.text = @"QQ邮箱:";
-            cell.detailTextLabel.text = @"qbs_qbq@163.com";
-        }
+            cell.textLabel.text = @[@"QQ群",@"QQ邮箱",@"联系电话"][indexPath.row];
+            cell.detailTextLabel.text = @[@"801065836",@"qbs_qbq@163.com",@"13139586707"][indexPath.row];
+
         cell.textLabel.font = mz_font(15);
         cell.detailTextLabel.font = mz_font(15);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

@@ -40,7 +40,7 @@
     
     [super viewDidLoad];
     
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addViewShow)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"lahei"] style:UIBarButtonItemStylePlain target:self action:@selector(addViewShow)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.tableView.delegate = self;
