@@ -76,7 +76,7 @@
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [MHProgressHUD hide];
         if (succeeded) {
-            [MHProgressHUD showMsgWithoutView:@"举报成功,平台工作人员将会在24小时之内给出回复!"];
+            [MHProgressHUD showMsgWithoutView:@"举报成功,工作人员将会在24小时之内做出处理"];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"保存新物品出错 %@", error.localizedFailureReason);

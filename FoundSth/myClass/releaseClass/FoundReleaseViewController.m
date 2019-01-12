@@ -212,9 +212,9 @@
         if (succeeded) {
             NSLog(@"保存新物品成功");
             if (self.tag) {
-                [MHProgressHUD showMsgWithoutView:@"更新成功"];
+                [MHProgressHUD showMsgWithoutView:@"更新成功，24小时内审核若有违规行为，将被删除"];
             }else{
-                [MHProgressHUD showMsgWithoutView:@"发布成功"];
+                [MHProgressHUD showMsgWithoutView:@"发布成功，24小时内审核若有违规行为，将被删除"];
             }
             
             //通过通知中心发送通知
