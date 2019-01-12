@@ -171,7 +171,7 @@
 #define mz_tableTopAndTabbarFrame mz_frame(0,0,mz_width,mz_height-49)
 
 //请求tableView数据每一页的条数
-#define mz_countNum 10
+#define mz_countNum 2
 
 //键盘上附带的view的高度
 #define keyboardInputViewH 40

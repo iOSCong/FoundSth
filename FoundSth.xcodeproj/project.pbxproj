@@ -23,6 +23,11 @@
 		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
 		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
 		401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05AC21D3D95D00D954B2 /* UpdateViewController.m */; };
+		D815C26821E98BD8003EE508 /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C26621E98BD8003EE508 /* ProtocolViewController.m */; };
+		D815C26921E98BD8003EE508 /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D815C26721E98BD8003EE508 /* ProtocolViewController.xib */; };
+		D815C26C21E99950003EE508 /* BlacklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C26B21E99950003EE508 /* BlacklistViewController.m */; };
+		D815C27621E9B8E4003EE508 /* SensitiveWordTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C27321E9B8E3003EE508 /* SensitiveWordTools.m */; };
+		D815C27721E9B8E4003EE508 /* SensitiveWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = D815C27421E9B8E3003EE508 /* SensitiveWords.txt */; };
 		D8336B1E21D86BA500A381CB /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */; };
 		D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */; };
 		D8336B2321D86BF700A381CB /* SMSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2121D86BF700A381CB /* SMSTableViewCell.xib */; };
@@ -207,6 +212,14 @@
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
 		B5F042CBAEF94CC12D94C629 /* libPods-FoundSth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D815C26521E98BD8003EE508 /* ProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
+		D815C26621E98BD8003EE508 /* ProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
+		D815C26721E98BD8003EE508 /* ProtocolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtocolViewController.xib; sourceTree = "<group>"; };
+		D815C26A21E99950003EE508 /* BlacklistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistViewController.h; sourceTree = "<group>"; };
+		D815C26B21E99950003EE508 /* BlacklistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistViewController.m; sourceTree = "<group>"; };
+		D815C27321E9B8E3003EE508 /* SensitiveWordTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensitiveWordTools.m; sourceTree = "<group>"; };
+		D815C27421E9B8E3003EE508 /* SensitiveWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SensitiveWords.txt; sourceTree = "<group>"; };
+		D815C27521E9B8E4003EE508 /* SensitiveWordTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensitiveWordTools.h; sourceTree = "<group>"; };
 		D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
@@ -508,6 +521,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D815C27221E9B8BA003EE508 /* SensitiveWords */ = {
+			isa = PBXGroup;
+			children = (
+				D815C27421E9B8E3003EE508 /* SensitiveWords.txt */,
+				D815C27521E9B8E4003EE508 /* SensitiveWordTools.h */,
+				D815C27321E9B8E3003EE508 /* SensitiveWordTools.m */,
+			);
+			path = SensitiveWords;
+			sourceTree = "<group>";
+		};
 		D8549F9821CE76AA000FD0DF = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +632,7 @@
 		D8549FE021CE8170000FD0DF /* other */ = {
 			isa = PBXGroup;
 			children = (
+				D815C27221E9B8BA003EE508 /* SensitiveWords */,
 				D8F24A6621D7C3C1003FF814 /* CGXPickerView */,
 				D865784421D4A9CA00CBAD64 /* QQShare */,
 				D865783121D4709C00CBAD64 /* DXShareView */,
@@ -789,8 +813,8 @@
 				D865782A21D46E1500CBAD64 /* homeClas */,
 				D865782B21D46E3000CBAD64 /* releaseClass */,
 				D865782C21D46E5100CBAD64 /* mineClass */,
-				D854A0D921CFD294000FD0DF /* listCell */,
 				D854A08121CE8614000FD0DF /* LoginClass */,
+				D854A0D921CFD294000FD0DF /* listCell */,
 			);
 			path = myClass;
 			sourceTree = "<group>";
@@ -801,6 +825,9 @@
 				D854A08221CE8614000FD0DF /* LoginViewController.h */,
 				D854A08321CE8614000FD0DF /* LoginViewController.m */,
 				D854A08421CE8614000FD0DF /* LoginViewController.xib */,
+				D815C26521E98BD8003EE508 /* ProtocolViewController.h */,
+				D815C26621E98BD8003EE508 /* ProtocolViewController.m */,
+				D815C26721E98BD8003EE508 /* ProtocolViewController.xib */,
 			);
 			path = LoginClass;
 			sourceTree = "<group>";
@@ -906,6 +933,9 @@
 				D8923DB521E58B1F00EFF992 /* FoundDetailViewController.h */,
 				D8923DB621E58B1F00EFF992 /* FoundDetailViewController.m */,
 				D8923DB721E58B1F00EFF992 /* FoundDetailViewController.xib */,
+				401E05A621D3D1C500D954B2 /* FankuiViewController.h */,
+				401E05A721D3D1C500D954B2 /* FankuiViewController.m */,
+				401E05A821D3D1C500D954B2 /* FankuiViewController.xib */,
 				D8336B2F21D8803800A381CB /* WebViewController.h */,
 				D8336B2E21D8803800A381CB /* WebViewController.m */,
 				D8336B2D21D8803800A381CB /* WebViewController.xib */,
@@ -938,13 +968,12 @@
 				D8FFD1FD21D314A600966F40 /* InforDetailViewController.h */,
 				D8FFD1FE21D314A600966F40 /* InforDetailViewController.m */,
 				D8FFD1FF21D314A600966F40 /* InforDetailViewController.xib */,
-				401E05A621D3D1C500D954B2 /* FankuiViewController.h */,
-				401E05A721D3D1C500D954B2 /* FankuiViewController.m */,
-				401E05A821D3D1C500D954B2 /* FankuiViewController.xib */,
 				401E05AB21D3D95D00D954B2 /* UpdateViewController.h */,
 				401E05AC21D3D95D00D954B2 /* UpdateViewController.m */,
 				401E059021CFF03500D954B2 /* SettingViewController.h */,
 				401E059121CFF03500D954B2 /* SettingViewController.m */,
+				D815C26A21E99950003EE508 /* BlacklistViewController.h */,
+				D815C26B21E99950003EE508 /* BlacklistViewController.m */,
 				D8336B1B21D86BA500A381CB /* ModifyPasswordViewController.h */,
 				D8336B1D21D86BA500A381CB /* ModifyPasswordViewController.m */,
 				D8336B1C21D86BA500A381CB /* ModifyPasswordViewController.xib */,
@@ -1130,6 +1159,7 @@
 				401E058221CFE19500D954B2 /* UstSettTableViewCell.xib in Resources */,
 				D854A0BC21CF42B2000FD0DF /* btn_original_circle@2x.png in Resources */,
 				D854A0C421CF42B2000FD0DF /* defaultphoto.png in Resources */,
+				D815C27721E9B8E4003EE508 /* SensitiveWords.txt in Resources */,
 				D854A0BB21CF42B2000FD0DF /* btn_original_circle.png in Resources */,
 				D854A06421CE8171000FD0DF /* BaseTableViewController.xib in Resources */,
 				D854A0BE21CF42B2000FD0DF /* btn_selected.png in Resources */,
@@ -1154,6 +1184,7 @@
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
 				D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */,
+				D815C26921E98BD8003EE508 /* ProtocolViewController.xib in Resources */,
 				D854A0B921CF42B2000FD0DF /* btn_circle@2x.png in Resources */,
 				D854A0C221CF42B2000FD0DF /* btn_unselected@2x.png in Resources */,
 				401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */,
@@ -1327,6 +1358,7 @@
 				D854A05121CE8171000FD0DF /* FLAnimatedImage.m in Sources */,
 				D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */,
 				D854A03F21CE8171000FD0DF /* NSStrObject.m in Sources */,
+				D815C26C21E99950003EE508 /* BlacklistViewController.m in Sources */,
 				D854A04121CE8171000FD0DF /* TAAnimatedDotView.m in Sources */,
 				401E059221CFF03500D954B2 /* SettingViewController.m in Sources */,
 				D854A06021CE8171000FD0DF /* YYInfiniteLoopViewLayout.m in Sources */,
@@ -1337,11 +1369,13 @@
 				D854A04221CE8171000FD0DF /* TADotView.m in Sources */,
 				401E058921CFE7FB00D954B2 /* IconTableViewCell.m in Sources */,
 				D854A0CF21CF42B2000FD0DF /* ZLCollectionCell.m in Sources */,
+				D815C27621E9B8E4003EE508 /* SensitiveWordTools.m in Sources */,
 				D854A05621CE8171000FD0DF /* YBImageBrowserAnimatedTransitioning.m in Sources */,
 				D8336B2C21D87FEA00A381CB /* HeaderCollectionViewCell.m in Sources */,
 				D854A04421CE8171000FD0DF /* SDCollectionViewCell.m in Sources */,
 				401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */,
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
+				D815C26821E98BD8003EE508 /* ProtocolViewController.m in Sources */,
 				D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D854A05721CE8171000FD0DF /* NSBundle+YBImageBrowser.m in Sources */,
 				401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */,

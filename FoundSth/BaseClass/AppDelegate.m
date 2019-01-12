@@ -81,6 +81,7 @@
         }
     }];
     self.window.rootViewController = [[WebViewController alloc] init];
+//    self.window.rootViewController = [[MHTabBarViewController alloc] init];
     
     [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyWindow];

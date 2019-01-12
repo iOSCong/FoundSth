@@ -70,7 +70,7 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"icon"];
             
             UITextField *textField1 = [[UITextField alloc] initWithFrame:mz_frame(100, 0, mz_width-100-15, 50)];
-            textField1.placeholder = @"请输入标题";
+            textField1.placeholder = @"请输入昵称";
             textField1.font = mz_font(15);
             textField1.placeholder = @"为自己设置一个响亮的昵称吧~";
             textField1.textAlignment = NSTextAlignmentRight;
@@ -80,8 +80,8 @@
             textField1.tag = 2001;
             [cell addSubview:textField1];
             
-            UITextField *textField2 = [[UITextField alloc] initWithFrame:mz_frame(100, 0, mz_width-100-15, 50)];
-            textField2.placeholder = @"请输入标题";
+            UITextField *textField2 = [[UITextField alloc] initWithFrame:mz_frame(60, 0, mz_width-60-15, 50)];
+            textField2.placeholder = @"请输入签名";
             textField2.font = mz_font(15);
             textField2.placeholder = @"为自己设置一个有个性的签名吧~";
             textField2.textAlignment = NSTextAlignmentRight;
@@ -108,7 +108,7 @@
                 textField1.text = self.aliasName ? self.aliasName : @"--";
             }
         }else{
-            cell.textLabel.text = @"个性签名";
+            cell.textLabel.text = @"签名";
             textField2.hidden = NO;
             textField2.text = self.signStr;
             if (!self.type) {

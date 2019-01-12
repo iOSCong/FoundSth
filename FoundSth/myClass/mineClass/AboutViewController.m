@@ -17,38 +17,67 @@
 - (void)viewDidLoad {
    
     [super viewDidLoad];
-    self.title = @"关于";
+    self.title = @"联系我们";
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+    return 2;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return 300;
+    if (indexPath.section == 0) {
+        return 300;
+    }
+    return 44;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return @"如您有什么疑问,可通过以下两种方式联系我们,我们将随时为您解答.";
+    }
+    return @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AboutTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"AboutTableViewCell" owner:self options:nil] lastObject];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
-    
+    if (indexPath.section == 0) {
+        AboutTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"AboutTableViewCell" owner:self options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aa"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"aa"];
+        }
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"QQ群:";
+            cell.detailTextLabel.text = @"801065836";
+        }else{
+            cell.textLabel.text = @"QQ邮箱:";
+            cell.detailTextLabel.text = @"qbs_qbq@163.com";
+        }
+        cell.textLabel.font = mz_font(15);
+        cell.detailTextLabel.font = mz_font(15);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    return [[UITableViewCell alloc] init];
 }
 
 

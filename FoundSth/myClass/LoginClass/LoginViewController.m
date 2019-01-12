@@ -11,6 +11,7 @@
 #import "FoundListViewController.h"
 #import "MHNavViewController.h"
 #import "MHTabBarViewController.h"
+#import "ProtocolViewController.h"
 
 @interface LoginViewController ()
 
@@ -43,6 +44,8 @@
     wsLoginV.titleLabel.textColor = [UIColor grayColor];
     wsLoginV.hideEyesType = LeftEyeHide;
     [self.view addSubview:wsLoginV];
+    
+    [self.view bringSubviewToFront:wsLoginV];
     
     //取消登录
     [wsLoginV setClickCancelBlock:^{
@@ -121,6 +124,12 @@
                 }
             }];
         }
+    }];
+    
+    //用户协议
+    [wsLoginV setClickXyBlock:^{
+        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
     }];
     
     /*

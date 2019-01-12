@@ -7,6 +7,7 @@
 //
 
 #import "FoundReleaseViewController.h"
+#import "SensitiveWordTools.h"
 #import "ZLPhotoActionSheet.h"
 #import "ZLDefine.h"
 
@@ -47,7 +48,15 @@
         }else if (!weakself.contentImg) {
             [MHProgressHUD showMsgWithoutView:@"请选择图片"];
         }else{
-            [weakself requestData];
+            //判断输入的内容是否含有敏感词
+            BOOL hasSensitive = [[SensitiveWordTools sharedInstance] hasSensitiveWord:self.detailStr];
+            if (hasSensitive) {
+                self.detailStr = [[SensitiveWordTools sharedInstance] filter:self.detailStr];
+                [self.tableView reloadData];
+                [MZAlertSheet alertViewMessage:@"您的内容含有敏感词汇,已为您替换为 '*'"];
+            }else{
+                [weakself requestData];
+            }
         }
     }];
     [footerView addSubview:button];
@@ -81,9 +90,10 @@
         return @"详细说明";
     }else if (section == 1) {
         return @"上传图片";
-    }else{
-        return @"";
+    }else if (section == 2) {
+        return @"根据<中国互联网保护法>,为保证网民的上网环境优良,请勿上传或发布违反互联网所不允许的内容,请悉知!";
     }
+    return @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,6 +143,19 @@
         return cell;
     }
     
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    //判断输入的内容是否含有敏感词
+    BOOL hasSensitive = [[SensitiveWordTools sharedInstance] hasSensitiveWord:textField.text];
+    if (hasSensitive) {
+        self.titleStr = [[SensitiveWordTools sharedInstance] filter:textField.text];
+        [MZAlertSheet presentAlertViewWithMessage:@"您的标题含有敏感词汇,请检查!" confirmTitle:@"好的" handler:^{
+            [textField becomeFirstResponder];
+        }];
+    }
+    return YES;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
