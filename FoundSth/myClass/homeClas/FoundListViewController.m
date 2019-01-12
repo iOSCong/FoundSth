@@ -116,6 +116,7 @@
         userinfo.sexStr = [owner objectForKey:@"sex"];
         userinfo.aliasName = [owner objectForKey:@"alias"];
         userinfo.signStr = [owner objectForKey:@"sign"];
+        userinfo.owner = owner;
         [self.navigationController pushViewController:userinfo animated:YES];
     }];
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
@@ -132,10 +133,6 @@
         cell.contentImgView.contentMode = UIViewContentModeScaleAspectFill;
         cell.contentImgView.autoresizesSubviews = YES;
         cell.contentImgView.layer.masksToBounds = YES;
-//        mzWeakSelf(self);
-//        [cell.imageBtn addTarget:^(UIButton *button) {
-//            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
-//        }];
     }else{
         cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
@@ -210,6 +207,7 @@
     shareModel.thumbImage = [NSStrObject imageWithImage:dic[@"image"] scaledToSize:CGSizeMake(200, 200)];
     [shareView showShareViewWithDXShareModel:shareModel shareContentType:DXShareContentTypeImage];
 }
+
 
 
 

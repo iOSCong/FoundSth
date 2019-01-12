@@ -20,9 +20,28 @@
 
 @implementation UsetInfoViewController
 
+//拉黑
+- (void)addViewShow
+{
+    AVObject *product = [AVObject objectWithClassName:@"blackList"];
+    [product setObject:self.owner forKey:@"owner"];
+    [MHProgressHUD showProgress:@"正在拉黑..." inView:self.view];
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [MHProgressHUD hide];
+        if (succeeded) {
+            [MHProgressHUD showMsgWithoutView:@"已加入黑名单!"];
+        } else {
+            [MHProgressHUD showMsgWithoutView:@"拉黑失败,请稍后再试..."];
+        }
+    }];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addViewShow)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
