@@ -29,7 +29,7 @@
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [MHProgressHUD hide];
         if (succeeded) {
-            [MHProgressHUD showMsgWithoutView:@"已加入黑名单!"];
+            [MHProgressHUD showMsgWithoutView:@"拉黑成功,平台工作人员将会尽快处理!"];
         } else {
             [MHProgressHUD showMsgWithoutView:@"拉黑失败,请稍后再试..."];
         }

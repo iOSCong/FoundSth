@@ -356,7 +356,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [registeView addSubview:textLabel];
     
     UIButton *xyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    xyBtn.frame = mz_frame(168, CGRectGetMaxY(self.lostBtn.frame)+20, 100, 20);
+    xyBtn.frame = mz_frame(170, CGRectGetMaxY(self.lostBtn.frame)+20, 100, 20);
     [xyBtn setTitleColor:mz_yiDongBlueColor forState:UIControlStateNormal];
     [xyBtn setTitle:@"隐私协议!" forState:UIControlStateNormal];
     xyBtn.titleLabel.font = mz_font(13);
