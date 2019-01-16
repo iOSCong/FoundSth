@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"隐私协议";
+//    self.title = @"隐私协议";
     self.view.backgroundColor = [UIColor whiteColor];
     //    self.automaticallyAdjustsScrollViewInsets = YES;
     
@@ -64,8 +64,6 @@
                     [self setUI];
                 }
             }
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
         }
     }];
 }
