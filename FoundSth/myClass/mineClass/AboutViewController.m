@@ -49,7 +49,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
-        return @"如您有什么疑问,可通过以下两种方式联系我们,我们将随时为您解答.";
+        return @"如您有什么疑问,可通过以下几种方式联系我们,我们将随时为您解答.";
     }
     return @"";
 }

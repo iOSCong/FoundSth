@@ -31,18 +31,33 @@
 {
     [super viewDidLoad];
     
-//    self.title = @"加载中...";
+//    self.title = @"隐私协议";
     self.view.backgroundColor = [UIColor whiteColor];
     //    self.automaticallyAdjustsScrollViewInsets = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToView)name:@"popToView" object:nil];
     
-    [self setUI];
+//    [self setUI];
     
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
     navView.backgroundColor = mz_mainColor;
     navView.alpha = 1;
     [self.view addSubview:navView];
+    
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"config"];
+    [query orderByDescending:@"webspike"];
+    [query orderByDescending:@"url"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error == nil) {
+            if (objects.count) {
+                self.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
+                [self setUI];
+            }
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
+        }
+    }];
     
 }
 
@@ -70,7 +85,7 @@
 
 - (void)setUI
 {
-    if (!_isShow) {
+    if (_isShow) {
         [self navigationItemButtonUI];
     }
     

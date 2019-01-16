@@ -45,12 +45,12 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 1) {
+    if (section == 0) {
         return 1;
     }
     return _titles.count;
@@ -73,11 +73,13 @@
         cell.textLabel.text = @"重置密码";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
-    }else if (indexPath.section == 1) {
-        cell.textLabel.text = @"隐私协议";
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
-    }else{
+    }
+//    else if (indexPath.section == 1) {
+//        cell.textLabel.text = @"隐私协议";
+//        cell.textLabel.font = [UIFont systemFontOfSize:15];
+//        cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+//    }
+    else{
         if (indexPath.row != _titles.count- 1) {
             cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
         }
@@ -104,15 +106,17 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         ModifyPasswordViewController *vc = [[ModifyPasswordViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section == 1) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
-        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
-        vc.isShow = YES;
-        vc.title = @"隐私协议";
-        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
+    }
+//    else if (indexPath.section == 1) {
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+////        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+//        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
+//        vc.isShow = YES;
+//        vc.title = @"隐私协议";
+//        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+    else{
         if (indexPath.row == 0) {
             //清除图片缓存
             [MHProgressHUD showProgress:@"正在清除..." inView:self.view];
