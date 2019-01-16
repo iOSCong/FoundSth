@@ -11,6 +11,8 @@
 #import "FoundListViewController.h"
 #import "MHNavViewController.h"
 #import "MHTabBarViewController.h"
+#import "ProtocolViewController.h"
+#import "WebUrlViewController.h"
 
 @interface LoginViewController ()
 
@@ -43,6 +45,8 @@
     wsLoginV.titleLabel.textColor = [UIColor grayColor];
     wsLoginV.hideEyesType = LeftEyeHide;
     [self.view addSubview:wsLoginV];
+    
+    [self.view bringSubviewToFront:wsLoginV];
     
     //取消登录
     [wsLoginV setClickCancelBlock:^{
@@ -121,6 +125,17 @@
                 }
             }];
         }
+    }];
+    
+    //用户协议
+    [wsLoginV setClickXyBlock:^{
+//        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:vc];
+        vc.isShow = YES;
+        vc.title = @"隐私协议";
+        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
+        [self presentViewController:nav animated:YES completion:nil];
     }];
     
     /*

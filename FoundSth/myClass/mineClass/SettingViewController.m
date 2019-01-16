@@ -9,6 +9,8 @@
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 #import "ModifyPasswordViewController.h"
+#import "ProtocolViewController.h"
+#import "WebUrlViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray *titles;
@@ -21,7 +23,7 @@
     
     [super viewDidLoad];
     self.title = @"设置";
-    _titles = @[@"清除缓存",@"关于",@"版本"];
+    _titles = @[@"清除缓存",@"联系我们",@"应用版本"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionFooterHeight = 0.1;
@@ -69,13 +71,19 @@
 
     if (indexPath.section == 0) {
         cell.textLabel.text = @"重置密码";
-        cell.textLabel.font = [UIFont systemFontOfSize:17];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
-    }else{
+    }
+//    else if (indexPath.section == 1) {
+//        cell.textLabel.text = @"隐私协议";
+//        cell.textLabel.font = [UIFont systemFontOfSize:15];
+//        cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
+//    }
+    else{
         if (indexPath.row != _titles.count- 1) {
             cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
         }
-        cell.textLabel.font = [UIFont systemFontOfSize:17];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
         cell.textLabel.text = _titles[indexPath.row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -98,7 +106,17 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         ModifyPasswordViewController *vc = [[ModifyPasswordViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else{
+    }
+//    else if (indexPath.section == 1) {
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+////        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+//        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
+//        vc.isShow = YES;
+//        vc.title = @"隐私协议";
+//        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+    else{
         if (indexPath.row == 0) {
             //清除图片缓存
             [MHProgressHUD showProgress:@"正在清除..." inView:self.view];
@@ -111,6 +129,8 @@
         }else if (indexPath.row == 1 ){
             AboutViewController *about = [[AboutViewController alloc]init];
             [self.navigationController pushViewController:about animated:YES];
+        }else if (indexPath.row == 2 ){
+            [MHProgressHUD showMsgWithoutView:@"已是最新版本!"];
         }
     }
 }

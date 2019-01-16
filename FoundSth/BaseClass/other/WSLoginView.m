@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
 
 @property (nonatomic,strong)UIScrollView *scrollView;
 @property (nonatomic,strong)AVUser *user;
+@property (nonatomic,assign)BOOL isSele;
 
 @end
 
@@ -86,6 +87,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     //取消登录
     self.cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.frame.size.width-60, 20, 60, 40)];
     [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    self.cancelBtn.titleLabel.font = mz_font(15);
     [self.cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.cancelBtn addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.cancelBtn];
@@ -341,6 +343,26 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.lostBtn addTarget:self action:@selector(registeAction) forControlEvents:UIControlEventTouchUpInside];
     [registeView addSubview:self.lostBtn];
     
+    UIButton *imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    imgBtn.frame = mz_frame(60, CGRectGetMaxY(self.lostBtn.frame)+17, 28, 20);
+    [imgBtn setImage:mz_image(@"registe") forState:UIControlStateNormal];
+    [imgBtn setImage:mz_image(@"registe_sele") forState:UIControlStateSelected];
+    [imgBtn addTarget:self action:@selector(imgBtnHandle:) forControlEvents:UIControlEventTouchUpInside];
+    [registeView addSubview:imgBtn];
+    
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:mz_frame(85, CGRectGetMaxY(self.lostBtn.frame)+20, 120, 20)];
+    textLabel.text = @"我已阅读并同意此";
+    textLabel.font = mz_font(13);
+    [registeView addSubview:textLabel];
+    
+    UIButton *xyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    xyBtn.frame = mz_frame(170, CGRectGetMaxY(self.lostBtn.frame)+20, 100, 20);
+    [xyBtn setTitleColor:mz_yiDongBlueColor forState:UIControlStateNormal];
+    [xyBtn setTitle:@"隐私协议!" forState:UIControlStateNormal];
+    xyBtn.titleLabel.font = mz_font(13);
+    [xyBtn addTarget:self action:@selector(xyBtnHandle) forControlEvents:UIControlEventTouchUpInside];
+    [registeView addSubview:xyBtn];
+    
     smallView.frame = CGRectMake(20, 150, self.frame.size.width-40, CGRectGetMaxY(self.lostBtn.frame)+15);
 
 }
@@ -355,6 +377,24 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     }
     return YES;
 }
+
+//注册协议
+- (void)imgBtnHandle:(UIButton *)button
+{
+    if (button.isSelected) {
+        button.selected = NO;
+        _isSele = NO;
+    }else{
+        button.selected = YES;
+        _isSele = YES;
+    }
+//    if (_cancelBlock) {
+//        _cancelBlock();
+//    }
+}
+//- (void)setClickCancelBlock:(ClicksCancelBlock)clickBlock{
+//    _cancelBlock = [clickBlock copy];
+//}
 
 //取消登录
 - (void)cancelAction
@@ -381,20 +421,16 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     _clickBlock = [clickBlock copy];
 }
 
-//注册
-- (void)registeActionsss
+//跳转用户协议
+- (void)xyBtnHandle
 {
-    [self.regNameTextF resignFirstResponder];
-    [self.regPassTextF resignFirstResponder];
-//    [self.regSimTextF resignFirstResponder];
-    
-    if (_lostBlock) {
-//        _lostBlock(self.regNameTextF.text, self.regSimTextF.text);
-        _lostBlock(self.regNameTextF.text, self.regPassTextF.text);
+    if (_xyBlock) {
+        _xyBlock();
     }
 }
-- (void)setClickLostBlock:(ClicksAlertBlock)clickBlock{
-    _lostBlock = [clickBlock copy];
+- (void)setClickXyBlock:(ClicksXyBlock)clickBlock
+{
+    _xyBlock = [clickBlock copy];
 }
 
 
@@ -404,9 +440,14 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.regPassTextF resignFirstResponder];
     [self.regSimTextF resignFirstResponder];
     
-    if (_registeBlock) {
-        _registeBlock(self.user, self.regSimTextF.text);
+    if (_isSele) {
+        if (_registeBlock) {
+            _registeBlock(self.user, self.regSimTextF.text);
+        }
+    }else{
+        [MHProgressHUD showMsgWithoutView:@"您必须同意隐私协议,方可使用!"];
     }
+
 }
 - (void)setClickRegisteBlock:(ClicksRegistBlock)clickBlock
 {

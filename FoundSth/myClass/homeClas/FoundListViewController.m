@@ -11,6 +11,7 @@
 #import "FoundDetailViewController.h"
 #import "UsetInfoViewController.h"
 #import "InforDetailViewController.h"
+#import "FankuiViewController.h"
 #import "YBImageBrowser.h"
 #import "YMRefresh.h"
 #import "DXShareView.h"
@@ -23,17 +24,6 @@
 @end
 
 @implementation FoundListViewController
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-//    [self requestData];
-    [AVAnalytics beginLogPageView:@"ProductList"];
-    
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"ProductList"];
-}
 
 //重新加载
 -(void)buttonEvent
@@ -69,7 +59,7 @@
     self.btnTitle = @"重新加载";
     
     [self requestData];
-    
+
     mzWeakSelf(self);
     _refresh = [[YMRefresh alloc] init];
     [_refresh gifModelRefresh:self.tableView refreshType:RefreshTypeDropDown firstRefresh:NO timeLabHidden:YES stateLabHidden:YES dropDownBlock:^{
@@ -87,7 +77,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"owner"];
     [query includeKey:@"image"];
-    query.limit = 20;
+    query.limit = 10;
     [MHProgressHUD showProgress:@"加载中..." inView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.tableView.hidden = NO;
@@ -99,7 +89,6 @@
             [MHProgressHUD showMsgWithoutView:@"请求失败"];
         }
     }];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -127,6 +116,7 @@
         userinfo.sexStr = [owner objectForKey:@"sex"];
         userinfo.aliasName = [owner objectForKey:@"alias"];
         userinfo.signStr = [owner objectForKey:@"sign"];
+        userinfo.owner = owner;
         [self.navigationController pushViewController:userinfo animated:YES];
     }];
     cell.nameLabel.text = self.dataArr[indexPath.row][@"title"];
@@ -143,15 +133,17 @@
         cell.contentImgView.contentMode = UIViewContentModeScaleAspectFill;
         cell.contentImgView.autoresizesSubviews = YES;
         cell.contentImgView.layer.masksToBounds = YES;
-//        mzWeakSelf(self);
-//        [cell.imageBtn addTarget:^(UIButton *button) {
-//            [weakself tapHeadImgViewHandle:cell.contentImgView.image];
-//        }];
     }else{
         cell.contentImgView.image = [UIImage imageNamed:@"placehoald"];
     }
     cell.detailLabel.text = self.dataArr[indexPath.row][@"detail"];
     cell.likeLabel.text = self.dataArr[indexPath.row][@"dianzan"] ? mzstring(self.dataArr[indexPath.row][@"dianzan"]) : @"0";
+    //举报
+    [cell.tipoffBtn addTarget:^(UIButton *button) {
+        FankuiViewController *vc = [[FankuiViewController alloc] init];
+        vc.title = @"举报";
+        [weakself.navigationController pushViewController:vc animated:YES];
+    }];
     //点赞
     [cell.likeBtn addTarget:^(UIButton *button) {
         AVObject *product = [AVObject objectWithClassName:@"homeList" objectId:weakself.dataArr[indexPath.row][@"objectId"]];
@@ -215,6 +207,7 @@
     shareModel.thumbImage = [NSStrObject imageWithImage:dic[@"image"] scaledToSize:CGSizeMake(200, 200)];
     [shareView showShareViewWithDXShareModel:shareModel shareContentType:DXShareContentTypeImage];
 }
+
 
 
 

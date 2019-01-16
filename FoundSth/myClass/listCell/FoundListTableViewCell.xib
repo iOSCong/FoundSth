@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,14 +81,24 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhj-Zn-CEj">
+                                <rect key="frame" x="0.0" y="2" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mhj-Zn-CEj" secondAttribute="height" multiplier="1:1" id="U0y-3w-SPl"/>
+                                    <constraint firstAttribute="width" constant="35" id="osY-UT-BZw"/>
+                                </constraints>
+                                <state key="normal" image="jubao"/>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="mhj-Zn-CEj" firstAttribute="leading" secondItem="iER-J4-7pj" secondAttribute="leading" id="AoT-tC-N4k"/>
                             <constraint firstItem="XWW-Ic-CRP" firstAttribute="leading" secondItem="ANA-Yp-Mtn" secondAttribute="trailing" id="Guf-id-vwd"/>
                             <constraint firstItem="XWW-Ic-CRP" firstAttribute="centerY" secondItem="ANA-Yp-Mtn" secondAttribute="centerY" id="NM4-0F-Jm2"/>
                             <constraint firstItem="GKP-fi-jgd" firstAttribute="leading" secondItem="XWW-Ic-CRP" secondAttribute="trailing" constant="20" id="R1t-jf-pKd"/>
                             <constraint firstAttribute="trailing" secondItem="GKP-fi-jgd" secondAttribute="trailing" id="Ru5-Qd-s3d"/>
                             <constraint firstItem="GKP-fi-jgd" firstAttribute="centerY" secondItem="iER-J4-7pj" secondAttribute="centerY" id="TZ8-gY-1Hz"/>
                             <constraint firstAttribute="height" constant="40" id="djH-eq-Y3y"/>
+                            <constraint firstItem="mhj-Zn-CEj" firstAttribute="centerY" secondItem="iER-J4-7pj" secondAttribute="centerY" id="j0D-Ff-6ax"/>
                             <constraint firstItem="ANA-Yp-Mtn" firstAttribute="centerY" secondItem="GKP-fi-jgd" secondAttribute="centerY" id="lam-Mc-4QF"/>
                         </constraints>
                     </view>
@@ -131,6 +141,7 @@
                 <outlet property="nameLabel" destination="37W-NS-Kf3" id="qmU-PH-UkM"/>
                 <outlet property="shareBtn" destination="GKP-fi-jgd" id="jdg-tK-dKq"/>
                 <outlet property="timeLabel" destination="1tF-tF-EER" id="717-ee-9hQ"/>
+                <outlet property="tipoffBtn" destination="mhj-Zn-CEj" id="lD5-Jb-TO7"/>
             </connections>
             <point key="canvasLocation" x="34" y="190.5"/>
         </tableViewCell>
@@ -139,6 +150,7 @@
         <image name="headlogo" width="610" height="610"/>
         <image name="home_dianzan" width="65" height="65"/>
         <image name="home_fenxiang" width="65" height="65"/>
+        <image name="jubao" width="65" height="65"/>
         <image name="placehoald" width="305" height="180"/>
     </resources>
 </document>

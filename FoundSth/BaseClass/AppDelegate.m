@@ -59,28 +59,29 @@
     //设置激光推送
     [self jpushInitWith:launchOptions Application:application];
     
-    AVQuery *query = [AVQuery queryWithClassName:@"config"];
-    [query orderByDescending:@"webspike"];
-    [query orderByDescending:@"url"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error == nil) {
-            if (objects.count) {
-                if ([objects[0][@"webspike"] intValue]) {
-                    WebViewController *home = [[WebViewController alloc] init];
-                    home.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
-                    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
-                    self.window.rootViewController = nav;
-                }else{
-                    self.window.rootViewController = [[MHTabBarViewController alloc] init];
-                }
-            }else{
-                self.window.rootViewController = [[MHTabBarViewController alloc] init];
-            }
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
-        }
-    }];
-    self.window.rootViewController = [[WebViewController alloc] init];
+//    AVQuery *query = [AVQuery queryWithClassName:@"config"];
+//    [query orderByDescending:@"webspike"];
+//    [query orderByDescending:@"url"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (error == nil) {
+//            if (objects.count) {
+//                if ([objects[0][@"webspike"] intValue]) {
+//                    WebViewController *home = [[WebViewController alloc] init];
+//                    home.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
+//                    MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:home];
+//                    self.window.rootViewController = nav;
+//                }else{
+//                    self.window.rootViewController = [[MHTabBarViewController alloc] init];
+//                }
+//            }else{
+//                self.window.rootViewController = [[MHTabBarViewController alloc] init];
+//            }
+//        }else{
+//            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
+//        }
+//    }];
+//    self.window.rootViewController = [[WebViewController alloc] init];
+    self.window.rootViewController = [[MHTabBarViewController alloc] init];
     
     [NSThread sleepForTimeInterval:1.0];
     [self.window makeKeyWindow];

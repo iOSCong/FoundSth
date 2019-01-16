@@ -16,6 +16,7 @@
 #import "FankuiViewController.h"
 #import "UpdateViewController.h"
 #import "DXShareView.h"
+#import "BlacklistViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -64,7 +65,7 @@
     }
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _menus = @[@"我的发布",@"我的消息",@"意见反馈",@"分享应用",@"设置"];
+    _menus = @[@"我的发布",@"我的消息",@"黑名单",@"分享应用",@"设置"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -79,7 +80,6 @@
     }
     return _menus.count;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,7 +110,7 @@
     
     UstSettTableViewCell *cell =  [[[NSBundle mainBundle]loadNibNamed:@"UstSettTableViewCell" owner:self options:nil] lastObject];
     cell.title_lable.text = _menus[indexPath.row];
-    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"yijianfankui",@"fenxiang",@"user_gear"][indexPath.row];
+    NSString *icon = @[@"user_wodefabu",@"xiaoxi",@"heimingdan",@"fenxiang",@"user_gear"][indexPath.row];
     [cell.iocn_imageView setImage:[UIImage imageNamed:icon]];
      return cell;
 
@@ -137,8 +137,9 @@
         sett.title = @"我的消息";
         [self.navigationController pushViewController:sett animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 2){
-        FankuiViewController *fankui = [[FankuiViewController alloc]init];
-        [self.navigationController pushViewController:fankui animated:YES];
+        BlacklistViewController *vc = [[BlacklistViewController alloc] init];
+        vc.title = @"黑名单";
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 3){
         //分享APP的连接
         [self shareAppStoryAurl];

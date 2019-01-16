@@ -29,6 +29,9 @@ typedef void (^ClicksRegistBlock)(AVUser *user, NSString *simCode);
 typedef void (^ClicksCancelBlock)(void);
 @property (nonatomic, copy, readonly) ClicksCancelBlock cancelBlock;
 
+typedef void (^ClicksXyBlock)(void);
+@property (nonatomic, copy, readonly) ClicksXyBlock xyBlock;
+
 @property(nonatomic,strong)UITextField *logNameTextF;
 @property(nonatomic,strong)UITextField *regNameTextF;
 @property(nonatomic,strong)UITextField *regSimTextF;
@@ -47,6 +50,7 @@ typedef void (^ClicksCancelBlock)(void);
  */
 @property(nonatomic,assign)HideEyesType hideEyesType;
 
+- (void)setClickXyBlock:(ClicksXyBlock)clickBlock;
 - (void)setClickCancelBlock:(ClicksCancelBlock)clickBlock;
 - (void)setClickLoginBlock:(ClicksAlertBlock)clickBlock;
 - (void)setClickLostBlock:(ClicksAlertBlock)clickBlock;

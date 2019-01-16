@@ -16,4 +16,6 @@
 @property (nonatomic,copy)NSString *aliasName;
 @property (nonatomic,copy)NSString *signStr;
 
+@property (nonatomic,strong)AVUser *owner;
+
 @end

@@ -14,6 +14,7 @@
 #import "FoundListViewController.h"
 #import "FoundMyViewController.h"
 #import "MineViewController.h"
+#import "WebUrlViewController.h"
 
 @interface MHTabBarViewController () <UITabBarControllerDelegate>
 {
@@ -51,6 +52,15 @@
     [item2 setSelectedImage:[[UIImage imageNamed:@"fabu_sele"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [item2 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
                          forState:UIControlStateSelected];
+    
+    UITabBarItem *item3 = [[UITabBarItem alloc] init];
+    item3.tag = 3;
+    [item3 setTitle:@"隐私协议"];
+    [item3 setImage:[UIImage imageNamed:@"fabu"]];
+    [item3 setSelectedImage:[[UIImage imageNamed:@"fabu_sele"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item3 setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}
+                         forState:UIControlStateSelected];
+    
     //发布
     UITabBarItem *item4 = [[UITabBarItem alloc] init];
     item4.tag = 4;
@@ -69,6 +79,11 @@
     investController.title = item2.title;
     MHNavViewController *projectNavController = [[MHNavViewController alloc] initWithRootViewController:investController];
     projectNavController.tabBarItem = item2;
+    
+    WebUrlViewController *portController = [[WebUrlViewController alloc] init];
+//    portController.title = item3.title;
+    MHNavViewController *portNavController = [[MHNavViewController alloc] initWithRootViewController:portController];
+    portNavController.tabBarItem = item3;
     
     MineViewController *myController = [[MineViewController alloc] init];
     //    myController.title = item4.title;
@@ -90,7 +105,7 @@
     self.delegate = self;
     self.selectedIndex = 0;
     
-    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
+    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,portNavController,myNavController, nil];
     
     
 }
