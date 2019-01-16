@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-//    self.title = @"隐私协议";
+    self.title = @"隐私协议";
     self.view.backgroundColor = [UIColor whiteColor];
     //    self.automaticallyAdjustsScrollViewInsets = YES;
     
@@ -39,17 +39,17 @@
     
 //    [self setUI];
     
+    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
+    navView.backgroundColor = mz_mainColor;
+    navView.alpha = 1;
+    [self.view addSubview:navView];
+    
     [self requestData];
     
 }
 
 - (void)requestData
 {
-    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
-    navView.backgroundColor = mz_mainColor;
-    navView.alpha = 1;
-    [self.view addSubview:navView];
-    
     AVQuery *query = [AVQuery queryWithClassName:@"protocol"];
     [query includeKey:@"file"];
     query.limit = 10;

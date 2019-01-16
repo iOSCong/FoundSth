@@ -133,8 +133,6 @@
         WebUrlViewController *vc = [[WebUrlViewController alloc] init];
         MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:vc];
         vc.isShow = YES;
-        vc.title = @"隐私协议";
-        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
         [self presentViewController:nav animated:YES completion:nil];
     }];
     

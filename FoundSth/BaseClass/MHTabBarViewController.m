@@ -105,7 +105,7 @@
     self.delegate = self;
     self.selectedIndex = 0;
     
-    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,portNavController,myNavController, nil];
+    self.viewControllers = [NSArray arrayWithObjects:homeNavController,projectNavController,myNavController, nil];
     
     
 }
