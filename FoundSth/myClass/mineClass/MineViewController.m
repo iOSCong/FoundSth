@@ -152,7 +152,7 @@
 -(void)shareAppStoryAurl
 {
     NSDictionary *dic = @{
-                          @"title": @"Help me find it APP",
+                          @"title": @"Help me find it",
                           @"imgUrl":@"http://www.mq.foundstr.com",
                           @"detail" : @"Help me find it是一款轻量级的专业便民寻物服务类的APP，不管你在何时何地，只要拿出手机打开Help me find it APP，发布自己帮助，瞬间我们会明白世界真的很小，幸福来的很突然",
                           @"image":[UIImage imageNamed:@"appIcon"]

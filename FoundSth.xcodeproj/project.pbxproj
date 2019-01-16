@@ -1024,7 +1024,6 @@
 				D8549F9E21CE76AA000FD0DF /* Frameworks */,
 				D8549F9F21CE76AA000FD0DF /* Resources */,
 				C41FBF8051FDAD2398819CB3 /* [CP] Copy Pods Resources */,
-				50330B8ED7276E58AB6A06F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1193,21 +1192,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50330B8ED7276E58AB6A06F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C41FBF8051FDAD2398819CB3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1220,7 +1204,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1513,7 +1498,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AT3VVA8KQN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1567,7 +1552,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mq.foundstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f21c8098-b2da-4f08-bcac-6b08f124af1e";
+				PROVISIONING_PROFILE = "2d3cdcc8-e68e-4321-abe2-42378df816a1";
 				PROVISIONING_PROFILE_SPECIFIER = foundStr_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1583,7 +1568,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AT3VVA8KQN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
