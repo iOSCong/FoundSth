@@ -39,6 +39,12 @@
     
 //    [self setUI];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
     navView.backgroundColor = mz_mainColor;
     navView.alpha = 1;
