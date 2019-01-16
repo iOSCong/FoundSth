@@ -68,37 +68,6 @@
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    
-}
-
-- (void)ssss
-{
-    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
-    navView.backgroundColor = mz_mainColor;
-    navView.alpha = 1;
-    [self.view addSubview:navView];
-    
-    
-    AVQuery *query = [AVQuery queryWithClassName:@"config"];
-    [query orderByDescending:@"webspike"];
-    [query orderByDescending:@"url"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error == nil) {
-            if (objects.count) {
-                self.url = [NSString stringWithFormat:@"%@",objects[0][@"url"]];
-                [self setUI];
-            }
-        }else{
-            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
-        }
-    }];
-    
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
