@@ -39,12 +39,46 @@
     
 //    [self setUI];
     
+    [self requestData];
+    
+}
+
+- (void)requestData
+{
+    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
+    navView.backgroundColor = mz_mainColor;
+    navView.alpha = 1;
+    [self.view addSubview:navView];
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"protocol"];
+    [query includeKey:@"file"];
+    query.limit = 10;
+    [MHProgressHUD showProgress:@"加载中..." inView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [MHProgressHUD hide];
+        if (error == nil) {
+            if (objects.count) {
+                AVFile *file = objects[0][@"file"];
+                if (file) {
+                    self.url = [NSString stringWithFormat:@"%@",file.url];
+                    [self setUI];
+                }
+            }
+        }else{
+            [MHProgressHUD showMsgWithoutView:@"加载超时,请退出应用后重新启动"];
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    
+}
+
+- (void)ssss
+{
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mz_width, iPhoneNavH)];
     navView.backgroundColor = mz_mainColor;
     navView.alpha = 1;

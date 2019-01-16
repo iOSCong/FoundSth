@@ -47,8 +47,8 @@
     //初始化 SDK
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     //开启调试日志
-//    [AVOSCloud setAllLogsEnabled:YES];
-    [AVOSCloud setAllLogsEnabled:NO];
+    [AVOSCloud setAllLogsEnabled:YES];
+//    [AVOSCloud setAllLogsEnabled:NO];
     
     //微信分享apikey
     [WXApi registerApp:weixin_ID];
