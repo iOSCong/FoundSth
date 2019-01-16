@@ -31,9 +31,9 @@
         self.headImgView.contentMode = UIViewContentModeScaleAspectFill;
         self.headImgView.autoresizesSubviews = YES;
         self.headImgView.layer.masksToBounds = YES;  //图片裁剪
-        self.headImgView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];
-        [self.headImgView addGestureRecognizer:tap];
+//        self.headImgView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeadImgViewHandle)];
+//        [self.headImgView addGestureRecognizer:tap];
         self.tableView.tableHeaderView = self.headView;
     }
     
