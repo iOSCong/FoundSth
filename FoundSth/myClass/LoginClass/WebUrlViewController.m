@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-//    self.title = @"隐私协议";
+    self.title = @"加载中...";
     self.view.backgroundColor = [UIColor whiteColor];
     //    self.automaticallyAdjustsScrollViewInsets = YES;
     
@@ -222,19 +222,19 @@
 - (void)progressWebView:(WebView *)webview title:(NSString *)title shouldStartLoadWithURL:(NSURL *)url
 {
     NSLog(@"准备加载。title = %@, url = %@", title, url);
-//    self.title = title;
+    self.title = title;
 }
 
 - (void)progressWebView:(WebView *)webview title:(NSString *)title didFinishLoadingURL:(NSURL *)url
 {
     NSLog(@"成功加载。title = %@, url = %@", title, url);
-//    self.title = title;
+    self.title = title;
 }
 
 - (void)progressWebView:(WebView *)webview title:(NSString *)title didFailToLoadURL:(NSURL *)url error:(NSError *)error
 {
     NSLog(@"失败加载。title = %@, url = %@, error = %@", title, url, error);
-//    self.title = title;
+    self.title = title;
 }
 
 -(void)dealloc
