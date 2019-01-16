@@ -11,7 +11,6 @@
 #import "FoundListViewController.h"
 #import "MHNavViewController.h"
 #import "MHTabBarViewController.h"
-#import "ProtocolViewController.h"
 #import "WebUrlViewController.h"
 
 @interface LoginViewController ()
@@ -129,7 +128,6 @@
     
     //用户协议
     [wsLoginV setClickXyBlock:^{
-//        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
         WebUrlViewController *vc = [[WebUrlViewController alloc] init];
         MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:vc];
         vc.isShow = YES;

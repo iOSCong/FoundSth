@@ -23,8 +23,6 @@
 		401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05A721D3D1C500D954B2 /* FankuiViewController.m */; };
 		401E05AA21D3D1C500D954B2 /* FankuiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401E05A821D3D1C500D954B2 /* FankuiViewController.xib */; };
 		401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E05AC21D3D95D00D954B2 /* UpdateViewController.m */; };
-		D815C26821E98BD8003EE508 /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C26621E98BD8003EE508 /* ProtocolViewController.m */; };
-		D815C26921E98BD8003EE508 /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D815C26721E98BD8003EE508 /* ProtocolViewController.xib */; };
 		D815C26C21E99950003EE508 /* BlacklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C26B21E99950003EE508 /* BlacklistViewController.m */; };
 		D815C27621E9B8E4003EE508 /* SensitiveWordTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D815C27321E9B8E3003EE508 /* SensitiveWordTools.m */; };
 		D815C27721E9B8E4003EE508 /* SensitiveWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = D815C27421E9B8E3003EE508 /* SensitiveWords.txt */; };
@@ -214,9 +212,6 @@
 		8D6BFEE1EADE6E77A63DECCD /* libPods-FoundSthUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSthUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0582E92F1D92B4D6E28D23B /* Pods-FoundSth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoundSth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoundSth/Pods-FoundSth.debug.xcconfig"; sourceTree = "<group>"; };
 		B5F042CBAEF94CC12D94C629 /* libPods-FoundSth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoundSth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D815C26521E98BD8003EE508 /* ProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
-		D815C26621E98BD8003EE508 /* ProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
-		D815C26721E98BD8003EE508 /* ProtocolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtocolViewController.xib; sourceTree = "<group>"; };
 		D815C26A21E99950003EE508 /* BlacklistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlacklistViewController.h; sourceTree = "<group>"; };
 		D815C26B21E99950003EE508 /* BlacklistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlacklistViewController.m; sourceTree = "<group>"; };
 		D815C27321E9B8E3003EE508 /* SensitiveWordTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensitiveWordTools.m; sourceTree = "<group>"; };
@@ -830,9 +825,6 @@
 				D854A08221CE8614000FD0DF /* LoginViewController.h */,
 				D854A08321CE8614000FD0DF /* LoginViewController.m */,
 				D854A08421CE8614000FD0DF /* LoginViewController.xib */,
-				D815C26521E98BD8003EE508 /* ProtocolViewController.h */,
-				D815C26621E98BD8003EE508 /* ProtocolViewController.m */,
-				D815C26721E98BD8003EE508 /* ProtocolViewController.xib */,
 				D835607B21EEB88000EC2013 /* WebUrlViewController.h */,
 				D835607C21EEB88000EC2013 /* WebUrlViewController.m */,
 				D835607D21EEB88000EC2013 /* WebUrlViewController.xib */,
@@ -1192,7 +1184,6 @@
 				D854A0CA21CF42B2000FD0DF /* ZLPhotoBrowser.bundle in Resources */,
 				D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */,
 				D8F24A7C21D7C3C2003FF814 /* CGXPickerView.bundle in Resources */,
-				D815C26921E98BD8003EE508 /* ProtocolViewController.xib in Resources */,
 				D854A0B921CF42B2000FD0DF /* btn_circle@2x.png in Resources */,
 				D854A0C221CF42B2000FD0DF /* btn_unselected@2x.png in Resources */,
 				401E05A521CFF62A00D954B2 /* AboutTableViewCell.xib in Resources */,
@@ -1370,7 +1361,6 @@
 				D854A04421CE8171000FD0DF /* SDCollectionViewCell.m in Sources */,
 				401E05AD21D3D95D00D954B2 /* UpdateViewController.m in Sources */,
 				D854A05F21CE8171000FD0DF /* YYInfiniteLoopViewCell.m in Sources */,
-				D815C26821E98BD8003EE508 /* ProtocolViewController.m in Sources */,
 				D8FFD20621D31E0D00966F40 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D854A05721CE8171000FD0DF /* NSBundle+YBImageBrowser.m in Sources */,
 				401E05A921D3D1C500D954B2 /* FankuiViewController.m in Sources */,

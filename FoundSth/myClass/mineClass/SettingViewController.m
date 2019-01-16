@@ -9,7 +9,6 @@
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 #import "ModifyPasswordViewController.h"
-#import "ProtocolViewController.h"
 #import "WebUrlViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
