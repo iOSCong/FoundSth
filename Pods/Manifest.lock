@@ -34,6 +34,17 @@ DEPENDENCIES:
   - SDWebImage
   - WechatOpenSDK
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - AVOSCloud
+    - JCore
+    - JPush
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
+    - WechatOpenSDK
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AVOSCloud: f7a87203a36d64c4174012eebf7564bed646fdae
@@ -46,4 +57,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e44a18a46e3e86f3fc082b8ec817da637cf9c6ee
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0
