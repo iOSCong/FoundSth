@@ -36,6 +36,8 @@
 		D8336B2C21D87FEA00A381CB /* HeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2A21D87FEA00A381CB /* HeaderCollectionViewCell.m */; };
 		D8336B3021D8803900A381CB /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8336B2D21D8803800A381CB /* WebViewController.xib */; };
 		D8336B3121D8803900A381CB /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8336B2E21D8803800A381CB /* WebViewController.m */; };
+		D835607E21EEB88000EC2013 /* WebUrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D835607C21EEB88000EC2013 /* WebUrlViewController.m */; };
+		D835607F21EEB88000EC2013 /* WebUrlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D835607D21EEB88000EC2013 /* WebUrlViewController.xib */; };
 		D8549FA621CE76AA000FD0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8549FA521CE76AA000FD0DF /* AppDelegate.m */; };
 		D8549FAC21CE76AA000FD0DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAA21CE76AA000FD0DF /* Main.storyboard */; };
 		D8549FB121CE76AA000FD0DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8549FAF21CE76AA000FD0DF /* LaunchScreen.storyboard */; };
@@ -232,6 +234,9 @@
 		D8336B2D21D8803800A381CB /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		D8336B2E21D8803800A381CB /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D8336B2F21D8803800A381CB /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D835607B21EEB88000EC2013 /* WebUrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebUrlViewController.h; sourceTree = "<group>"; };
+		D835607C21EEB88000EC2013 /* WebUrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebUrlViewController.m; sourceTree = "<group>"; };
+		D835607D21EEB88000EC2013 /* WebUrlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebUrlViewController.xib; sourceTree = "<group>"; };
 		D8549FA121CE76AA000FD0DF /* FoundSth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoundSth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8549FA421CE76AA000FD0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8549FA521CE76AA000FD0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -828,6 +833,9 @@
 				D815C26521E98BD8003EE508 /* ProtocolViewController.h */,
 				D815C26621E98BD8003EE508 /* ProtocolViewController.m */,
 				D815C26721E98BD8003EE508 /* ProtocolViewController.xib */,
+				D835607B21EEB88000EC2013 /* WebUrlViewController.h */,
+				D835607C21EEB88000EC2013 /* WebUrlViewController.m */,
+				D835607D21EEB88000EC2013 /* WebUrlViewController.xib */,
 			);
 			path = LoginClass;
 			sourceTree = "<group>";
@@ -1158,6 +1166,7 @@
 				D854A0C121CF42B2000FD0DF /* btn_unselected.png in Resources */,
 				401E058221CFE19500D954B2 /* UstSettTableViewCell.xib in Resources */,
 				D854A0BC21CF42B2000FD0DF /* btn_original_circle@2x.png in Resources */,
+				D835607F21EEB88000EC2013 /* WebUrlViewController.xib in Resources */,
 				D854A0C421CF42B2000FD0DF /* defaultphoto.png in Resources */,
 				D815C27721E9B8E4003EE508 /* SensitiveWords.txt in Resources */,
 				D854A0BB21CF42B2000FD0DF /* btn_original_circle.png in Resources */,
@@ -1305,6 +1314,7 @@
 				D865784321D4720A00CBAD64 /* MZAlertSheet.m in Sources */,
 				D854A04521CE8171000FD0DF /* SDCycleScrollView.m in Sources */,
 				D8336B1F21D86BA500A381CB /* ModifyPasswordViewController.m in Sources */,
+				D835607E21EEB88000EC2013 /* WebUrlViewController.m in Sources */,
 				D854A07E21CE8397000FD0DF /* MineViewController.m in Sources */,
 				D865783D21D4709C00CBAD64 /* DXShareModel.m in Sources */,
 				D865783021D46F3800CBAD64 /* WXApiManager.m in Sources */,
@@ -1544,8 +1554,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: HAO QI (AT3VVA8KQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HAO QI (AT3VVA8KQN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -1601,8 +1611,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mq.foundstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e58db5fc-9902-4c4b-aa0b-f7447e0077bd";
-				PROVISIONING_PROFILE_SPECIFIER = foundStr_Pro_appStory;
+				PROVISIONING_PROFILE = "f21c8098-b2da-4f08-bcac-6b08f124af1e";
+				PROVISIONING_PROFILE_SPECIFIER = foundStr_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1614,8 +1624,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FoundSth/FoundSth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: HAO QI (AT3VVA8KQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HAO QI (AT3VVA8KQN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO QI (4D894CTWXP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO QI (4D894CTWXP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -1671,8 +1681,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mq.foundstr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e58db5fc-9902-4c4b-aa0b-f7447e0077bd";
-				PROVISIONING_PROFILE_SPECIFIER = foundStr_Pro_appStory;
+				PROVISIONING_PROFILE = "f21c8098-b2da-4f08-bcac-6b08f124af1e";
+				PROVISIONING_PROFILE_SPECIFIER = foundStr_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

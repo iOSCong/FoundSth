@@ -10,6 +10,7 @@
 #import "AboutViewController.h"
 #import "ModifyPasswordViewController.h"
 #import "ProtocolViewController.h"
+#import "WebUrlViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray *titles;
@@ -105,8 +106,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+//        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
         vc.isShow = YES;
+        vc.title = @"隐私协议";
+        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         if (indexPath.row == 0) {

@@ -12,6 +12,7 @@
 #import "MHNavViewController.h"
 #import "MHTabBarViewController.h"
 #import "ProtocolViewController.h"
+#import "WebUrlViewController.h"
 
 @interface LoginViewController ()
 
@@ -128,8 +129,12 @@
     
     //用户协议
     [wsLoginV setClickXyBlock:^{
-        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
+//        ProtocolViewController *vc = [[ProtocolViewController alloc] init];
+        WebUrlViewController *vc = [[WebUrlViewController alloc] init];
+        MHNavViewController *nav = [[MHNavViewController alloc] initWithRootViewController:vc];
+        vc.title = @"隐私协议";
+        vc.url = @"https://github.com/iOSCong/FoundSth/blob/master/protocol.md";
+        [self presentViewController:nav animated:YES completion:nil];
     }];
     
     /*
